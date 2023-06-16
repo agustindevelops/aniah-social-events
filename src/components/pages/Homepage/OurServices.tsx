@@ -16,21 +16,21 @@ const OurServices = () => {
           alt='Planning & Coordination'
           width={470}
           height={124}
-          className='mx-auto mb-12'
-        />
-        <Image
-          src='/images/tablescape-event-design.png'
-          alt='Planning & Coordination'
-          width={470}
-          height={124}
-          className='mx-auto mb-12'
+          className='mx-auto'
         />
         <Image
           src='/images/wedding-day-content-creation.png'
           alt='Planning & Coordination'
           width={470}
           height={124}
-          className='mx-auto mb-12'
+          className='mx-auto'
+        />
+        <Image
+          src='/images/tablescape-event-design.png'
+          alt='Planning & Coordination'
+          width={470}
+          height={124}
+          className='mx-auto'
         />
       </div>
     </div>

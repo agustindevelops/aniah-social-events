@@ -14,7 +14,7 @@ const links = [
 export default function Header() {
   return (
     <header className='fixed left-0 right-0 top-0 z-50 bg-white'>
-      <div className='layout flex h-20 items-center justify-between'>
+      <div className='layout container flex h-20 items-center justify-between px-2'>
         <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
           <Image
             src={logo}
