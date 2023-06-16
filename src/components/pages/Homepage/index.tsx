@@ -7,18 +7,18 @@ import ContactUs from '@/components/pages/Homepage/ContactUs';
 
 const Homepage = () => {
   return (
-    <div className={'w-full text-center'}>
+    <div className={'w-full text-center'} id={'home'}>
       <Hero />
-      <SectionLayout>
+      <SectionLayout id={'ourServices'}>
         <OurServices />
       </SectionLayout>
-      <SectionLayout>
+      <SectionLayout id={'getToKnowMe'}>
         <GetToKnowMe />
       </SectionLayout>
-      <SectionLayout>
+      <SectionLayout id={'planningCoordination'}>
         <PlanningCoordination />
       </SectionLayout>
-      <SectionLayout>
+      <SectionLayout id={'contactUs'}>
         <ContactUs />
       </SectionLayout>
     </div>
