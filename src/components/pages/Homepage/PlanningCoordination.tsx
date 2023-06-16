@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
-import { AiFillHeart } from 'react-icons/all';
+import { AiFillHeart } from 'react-icons/ai';
 
 const PlanningCoordination = () => {
   return (
@@ -10,9 +10,9 @@ const PlanningCoordination = () => {
         alt='Planning & Coordination'
         width={470}
         height={124}
-        className={'mx-auto mb-12'}
+        className='mx-auto mb-12'
       />
-      <div className={'flex flex-col items-center gap-4'}>
+      <div className='flex flex-col items-center gap-4'>
         <BottomHeart
           src='/images/social-affair-title-nosp.png'
           alt='Social Affair'
