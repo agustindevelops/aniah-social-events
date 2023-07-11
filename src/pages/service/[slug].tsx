@@ -52,10 +52,10 @@ const Service: FC<Package> = ({ title, subTitle, price, body, services }) => {
 
       <main className={'min-h-screen'}>
         <Header />
-        <section className='mt-24'>
+        <section className='pt-24'>
           <div className='text-brown-500 rounded-lg text-center'>
             <div className='bg-peach-50 py-4'>
-              <div className='container mx-auto'>
+              <div className='container mx-auto px-2'>
                 <h1 className='text-8xl font-bold'>{title}</h1>
                 <h2 className='mt-2 text-4xl font-medium'>{subTitle}</h2>
                 <p className='mt-2 text-2xl font-bold'>{price}</p>
