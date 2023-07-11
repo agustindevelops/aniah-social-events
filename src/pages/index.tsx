@@ -9,7 +9,7 @@ export default function HomePage() {
     <Layout>
       <Seo />
 
-      <main className={'min-h-screen '}>
+      <main className={'min-h-screen'}>
         <Header />
         <section className='bg-white'>
           <Homepage />

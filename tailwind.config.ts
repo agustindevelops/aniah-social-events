@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import colors from 'tailwindcss/colors';
 
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -8,7 +8,34 @@ export default {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+
       colors: {
+        ...colors,
+        cream: '#FFFCF9',
+        brown: {
+          50: '#f9f4f1',
+          100: '#f3e8e3',
+          200: '#e6d2c9',
+          300: '#d8bbae',
+          400: '#be8e7a',
+          500: '#9B4922', // Use #9B4922 as the default color
+          600: '#7c3a1c',
+          700: '#652f17',
+          800: '#4e2412',
+          900: '#3b1b0e',
+        },
+        peach: {
+          50: '#ffedeb',
+          100: '#ffe2d7',
+          200: '#ffd0b9',
+          300: '#ffbc92',
+          400: '#ffa56a',
+          500: '#ff8c42',
+          600: '#ff721b',
+          700: '#e65c08',
+          800: '#b34706',
+          900: '#802d04',
+        },
         primary: {
           // Customize it on globals.css :root
           50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
@@ -53,4 +80,4 @@ export default {
     },
   },
   plugins: [require('@tailwindcss/forms')],
-} satisfies Config;
+};

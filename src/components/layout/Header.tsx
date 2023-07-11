@@ -6,17 +6,21 @@ import UnderlineLink from '@/components/links/UnderlineLink';
 import * as React from 'react';
 
 const links = [
-  { href: '#ourServices', label: 'Services' },
-  { href: '#getToKnowMe', label: 'About Us' },
-  { href: '#contactUs', label: "Let's get in touch!" },
+  { href: '/#planningCoordination', label: 'Planning & Coordination' },
+  { href: '/#ourServices', label: 'Services' },
+  { href: '/#getToKnowMe', label: 'About Us' },
+  { href: '/#contactUs', label: "Let's get in touch!" },
 ];
 
 export default function Header() {
   return (
     <>
-      <header className='fixed left-0 right-0 top-0 z-50 bg-white'>
+      <header className='bg-cream text-brown-500 fixed left-0 right-0 top-0 z-50'>
         <div className='layout container flex h-20 items-center justify-between px-2'>
-          <UnstyledLink href='#home' className='font-bold hover:text-gray-600'>
+          <UnstyledLink
+            href='/#home'
+            className='hover:text-peach-600 font-bold'
+          >
             <Image
               src={logo}
               width={60}
@@ -35,7 +39,7 @@ export default function Header() {
             </ul>
           </nav>
         </div>
-        <div className={'bg-primary-400 h-4'} />
+        <div className={'bg-peach-50 h-4'} />
       </header>
     </>
   );
