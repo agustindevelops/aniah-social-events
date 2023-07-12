@@ -15,28 +15,28 @@ const PlanningCoordination = () => {
       />
       <div className='flex flex-col items-center gap-4'>
         <BottomHeart
-          href={'/service/social-affair'}
+          href='/planningCoordination/social-affair'
           src='/images/social-affair-title-nosp.png'
           alt='Social Affair'
           width={326}
           height={100}
         />
         <BottomHeart
-          href={'/service/socially-chic'}
+          href='/planningCoordination/socially-chic'
           src='/images/socially-chic-title-nosp.png'
           alt='Socially Chic'
           width={260}
           height={100}
         />
         <BottomHeart
-          href={'/service/social-soiree'}
+          href='/planningCoordination/social-soiree'
           src='/images/social-soiree-title-nosp.png'
           alt='Social Soiree'
           width={350}
           height={100}
         />
         <BottomHeart
-          href={'/service/socially-atelier'}
+          href='/planningCoordination/socially-atelier'
           src='/images/social-atelier-title-nosp.png'
           alt='Social Atelier Title Nosp'
           width={345}

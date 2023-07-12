@@ -1,11 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-
-import DATA from '../../utils/data';
 import { FC } from 'react';
+import { AiFillHeart } from 'react-icons/ai';
+
+import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-import Header from '@/components/layout/Header';
-import { AiFillHeart } from 'react-icons/ai';
+
+import DATA from '../../utils/data';
 
 type Package = {
   slug: string;
@@ -27,7 +28,7 @@ const DEFAULT_VALUE: Package = {
 
 // This function generates the paths for each page based on the slug property of the data
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = DATA.map((item) => ({
+  const paths = DATA.SERVICES.map((item) => ({
     params: { slug: item.slug },
   }));
   return {
@@ -39,7 +40,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // This function fetches the data for each page based on the slug parameter and passes it as props
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
-  const data = DATA.find((item) => item.slug === slug) || DEFAULT_VALUE;
+  const data =
+    DATA.SERVICES.find((item) => item.slug === slug) || DEFAULT_VALUE;
   return {
     props: { ...data },
   };
@@ -50,7 +52,7 @@ const Service: FC<Package> = ({ title, subTitle, price, body, services }) => {
     <Layout>
       <Seo />
 
-      <main className={'min-h-screen'}>
+      <main className='min-h-screen'>
         <Header />
         <section className='pt-24'>
           <div className='text-brown-500 rounded-lg text-center'>
@@ -62,7 +64,7 @@ const Service: FC<Package> = ({ title, subTitle, price, body, services }) => {
               </div>
             </div>
 
-            <div className={'container mx-auto px-8 text-2xl'}>
+            <div className='container mx-auto px-8 text-2xl'>
               <p className='mt-6'>{body}</p>
               <ul className='mt-8'>
                 {services.map((service) => (
@@ -70,7 +72,7 @@ const Service: FC<Package> = ({ title, subTitle, price, body, services }) => {
                     key={service}
                     className='my-2 flex items-start justify-center gap-4'
                   >
-                    <div className={'py-2'}>
+                    <div className='py-2'>
                       <AiFillHeart />
                     </div>
                     {service}
