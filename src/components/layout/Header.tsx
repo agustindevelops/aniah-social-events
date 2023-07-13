@@ -39,7 +39,7 @@ export default function Header() {
             </ul>
           </nav>
         </div>
-        <div className={'bg-peach-50 h-4'} />
+        <div className={'bg-peach-200 h-4'} />
       </header>
     </>
   );

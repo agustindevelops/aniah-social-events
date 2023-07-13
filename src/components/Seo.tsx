@@ -7,14 +7,15 @@ const defaultMeta = {
   siteName: 'Aniah Social Events',
   description: 'A social event planning company',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: 'https://tsnext-tw.thcl.dev',
+  url: 'https://aniahsocialevents.com',
   type: 'website',
   robots: 'follow, index',
   /**
    * No need to be filled, will be populated with openGraph function
    * If you wish to use a normal image, just specify the path below
    */
-  image: 'https://tsnext-tw.thcl.dev/images/large-og.png',
+  image:
+    'https://aniahsocialevents.com/images/aniah-social-events-large-logo.png',
 };
 
 type SeoProps = {
