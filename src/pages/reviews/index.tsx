@@ -17,7 +17,7 @@ const Reviews = () => {
           </p>
 
           <a
-            href='https://www.facebook.com/anishsocialevents.co/reviews'
+            href='https://www.facebook.com/anishsocialevents.co/?sk=reviews'
             target='_blank'
             rel='noopener noreferrer'
             className='flex items-center rounded-lg bg-[#1877F2] px-4 py-2 text-white transition hover:bg-[#3399FF]'
