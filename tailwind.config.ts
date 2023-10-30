@@ -7,6 +7,8 @@ export default {
     extend: {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
+        shrikhand: ['var(--font-shrikhand)'],
+        gentySans: ['var(--font-gentySans)'],
       },
 
       colors: {
