@@ -8,8 +8,8 @@ const ServiceCard = ({ service }: { service: Service }) => {
       href={service.link}
       className='bg-peach-100 relative overflow-hidden rounded-t-lg border p-4 transition duration-300 hover:scale-105 hover:shadow-lg'
     >
-      <div className='px-12'>
-        <ParallaxBanner className='aspect-[9/10] rounded-t-full'>
+      <div className='px-4'>
+        <ParallaxBanner className='aspect-[8/9] rounded-t-full'>
           <ParallaxBannerLayer
             image={service.image}
             speed={-10}
