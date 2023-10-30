@@ -15,8 +15,8 @@ const OurServices = () => {
       <div
         className={'flex flex-col gap-2 px-2 sm:grid sm:grid-cols-3 sm:gap-8'}
       >
-        {servicesData.map((service) => (
-          <ServiceCard key={service.title} service={service} />
+        {servicesData.map((service, index) => (
+          <ServiceCard key={service.title} service={service} i={index} />
         ))}
       </div>
     </div>

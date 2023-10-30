@@ -2,7 +2,7 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import { Service } from '@/components/pages/Homepage/OurServices/servicesTypes';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
-const ServiceCard = ({ service }: { service: Service }) => {
+const ServiceCard = ({ service, i = 1 }: { service: Service; i?: number }) => {
   return (
     <UnstyledLink
       href={service.link}
@@ -11,17 +11,22 @@ const ServiceCard = ({ service }: { service: Service }) => {
       <div className='px-4'>
         <ParallaxBanner className='aspect-[8/9] rounded-t-full'>
           <ParallaxBannerLayer
+            speed={0}
+            className={`bg-peach-${i % 2 === 0 ? 2 : 5}00`}
+          />
+          <ParallaxBannerLayer
             image={service.image}
             speed={-10}
-            startScroll={250}
-            endScroll={1000}
+            className={'my-24 rounded-t-full'}
           />
         </ParallaxBanner>
       </div>
 
       <div className='p-4'>
-        <h2 className='font-gentySans mb-4 text-4xl'>{service.title}</h2>
-        <p className='font-shrikhand mb-2 text-xl font-semibold'>
+        <h2 className='font-gentySans mb-2 text-2xl md:mb-4 md:text-4xl'>
+          {service.title}
+        </h2>
+        <p className='font-shrikhand mb-2 text-lg font-semibold'>
           {service.price}
         </p>
         <p className='font-gentySans text-lg'>{service.description}</p>
