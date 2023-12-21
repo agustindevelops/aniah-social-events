@@ -7,12 +7,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  // Uncoment to add domain whitelist
-  // images: {
-  //   domains: [
-  //     'res.cloudinary.com',
-  //   ],
-  // },
+  images: {
+    domains: ['d13ns7kbjmbjip.cloudfront.net'],
+  },
 
   // SVGR
   webpack(config) {
