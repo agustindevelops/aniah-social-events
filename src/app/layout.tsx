@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import Header from '@/components/layout/Header';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import Providers from '@/components/providers';
+import GoogleAnalytics from '@/components/third-party/GoogleAnalytics';
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <title>Aniah Social Events</title>
       </head>
       <body>
+        <GoogleAnalytics />
         <Header />
         <main className='bg-cream text-brown-500 min-h-screen'>
           <Providers>{children}</Providers>
