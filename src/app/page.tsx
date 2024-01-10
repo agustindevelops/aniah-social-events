@@ -1,3 +1,5 @@
+'use client';
+
 import Hero from '@/components/pages/Homepage/Hero';
 import SectionLayout from '@/components/pages/Homepage/SectionLayout';
 import OurServices from '@/components/pages/Homepage/OurServices';
