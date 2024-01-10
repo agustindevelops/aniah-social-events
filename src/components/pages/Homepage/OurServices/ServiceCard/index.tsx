@@ -15,9 +15,10 @@ const ServiceCard = ({ service, i = 1 }: { service: Service; i?: number }) => {
           src={service.image}
           alt={service.title}
           className='rounded-t-full'
-          sizes='100vw'
           layout='fill'
-          objectFit='cover'
+          style={{
+            objectFit: 'cover',
+          }}
         />
       </div>
 
