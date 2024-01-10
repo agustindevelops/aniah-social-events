@@ -20,16 +20,15 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
 
     if (!isNewTab) {
       return (
-        <Link
+        <a
           href={href}
           ref={ref}
           className={className}
           {...rest}
           {...nextLinkProps}
-          shallow={true}
         >
           {children}
-        </Link>
+        </a>
       );
     }
 
