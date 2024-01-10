@@ -1,6 +1,7 @@
-// !STARTERCONF You can delete this page
+'use client';
+
 import clsx from 'clsx';
-import * as React from 'react';
+import React from 'react';
 import {
   HiArrowRight,
   HiOutlineCreditCard,
