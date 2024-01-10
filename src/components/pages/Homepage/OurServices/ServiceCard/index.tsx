@@ -17,7 +17,6 @@ const ServiceCard = ({ service, i = 1 }: { service: Service; i?: number }) => {
           className='rounded-t-full'
           fill
           style={{ objectFit: 'cover' }}
-          quality={50}
         />
       </div>
 
