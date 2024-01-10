@@ -26,6 +26,7 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
           className={className}
           {...rest}
           {...nextLinkProps}
+          shallow={true}
         >
           {children}
         </Link>
