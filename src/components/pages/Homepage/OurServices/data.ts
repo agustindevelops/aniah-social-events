@@ -2,27 +2,27 @@ import { Service } from './servicesTypes';
 
 export const servicesData: Service[] = [
   {
-    title: 'Invitation & Signage Design',
-    price: 'CUSTOM PRICING',
+    title: 'Event Planning',
+    price: '$1600 - $2800',
     description:
-      'Our invitation and paper goods service includes everything you need to create a cohesive and beautifully designed stationery set for your event.',
-    image: '/images/invitation-signage-and-design.jpg',
-    link: '/services/invitations-and-paper-goods',
+      "Transform your vision into reality with our comprehensive event planning package. Starting from $1600, we ensure every detail is meticulously crafted to your taste. From venue selection to vendor coordination, we're with you every step to create an unforgettable celebration.",
+    image: '/images/event-planning.png',
+    link: '/services/planning-and-coordination',
   },
   {
-    title: 'Wedding Day Content Creation',
-    price: '$200-$500',
+    title: 'Coordination',
+    price: '$95/Hr or $1000/Day',
     description:
-      "A wedding content creator is a vendor hired to capture raw, candid iPhone footage of a wedding day! Capture the little details you don't want to miss and reminisce as soon as you're on your honeymoon!",
-    image: '/images/wedding-day-content-creation.jpg',
-    link: '/services/event-content-creator',
+      'Navigate your event seamlessly with our professional coordination services. For $95/Hr or $1000/Day, we manage the intricacies of your day with precision. Experience stress-free festivities as we orchestrate the flow, timing, and execution of your event schedule.',
+    image: '/images/coordinator.png',
+    link: '/services/planning-and-coordination',
   },
   {
-    title: 'Tablescape & Event Designs',
-    price: 'CUSTOM PRICING',
+    title: 'Event Design & Tablescapes',
+    price: 'Starts at $600',
     description:
-      'Aniah Social Events Co. can provide the expertise and creativity needed to make your event memorable with a beautiful and unique tablescape.',
+      "Begin your event's story with stunning design and tablescapes starting at $600. Aniah Social Events Co. specializes in creating atmospheric settings that speak to the heart. Let us curate a visual feast that will enchant you and your guests alike.",
     image: '/images/tablescape-event-design.jpg',
-    link: '/services/all-about-tablescapes',
+    link: '/services/tablescapes',
   },
 ];

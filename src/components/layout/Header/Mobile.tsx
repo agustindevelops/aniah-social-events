@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useRef } from 'react';
 import { LINKS } from '@/components/layout/Header/constants';
 import UnderlineLink from '@/components/links/UnderlineLink';

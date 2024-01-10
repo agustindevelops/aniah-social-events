@@ -1,12 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { FC } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-
-import DATA from '../../utils/data';
+import { SERVICES } from '@/utils/data';
 
 type Package = {
   slug: string;
@@ -26,28 +23,23 @@ const DEFAULT_VALUE: Package = {
   services: [],
 };
 
-// This function generates the paths for each page based on the slug property of the data
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = DATA.SERVICES.map((item) => ({
-    params: { slug: item.slug },
+export const generateStaticParams = async () =>
+  Object.values(SERVICES.PLANNING_AND_COORDINATION).map(({ slug }) => ({
+    slug,
   }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
 
-// This function fetches the data for each page based on the slug parameter and passes it as props
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+const getService: (params: { slug?: string }) => Package = (params) => {
   const slug = params?.slug as string;
-  const data =
-    DATA.SERVICES.find((item) => item.slug === slug) || DEFAULT_VALUE;
-  return {
-    props: { ...data },
-  };
+  return (
+    Object.values(SERVICES.PLANNING_AND_COORDINATION).find((item) => {
+      return item.slug === slug;
+    }) || DEFAULT_VALUE
+  );
 };
 
-const Service: FC<Package> = ({ title, subTitle, price, body, services }) => {
+const Service = ({ params }: { params: { slug: string } }) => {
+  const { title, subTitle, price, body, services } = getService(params);
+
   return (
     <Layout>
       <Seo />

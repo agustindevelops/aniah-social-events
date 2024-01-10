@@ -1,6 +1,21 @@
-const DATA = {
-  PLANNING_AND_COORDINATION: [
-    {
+export const SERVICES = {
+  TABLESCAPES: {
+    slug: 'all-about-tablescapes',
+    title: 'All About Tablescapes',
+    subTitle:
+      'Create a visually appealing and cohesive table display for your event',
+    price: '$800',
+    body: "Tablescapes refer to the artful arrangement of table settings, centerpieces, decor, and other design elements to create a visually appealing and cohesive table display. It's not just about putting plates and forks on a table, but it's more like creating a whole vibe or theme for the table. You might use different colors, textures, and decorations to make it look beautiful and exciting. It's a fun way to make a dinner or party feel extra special! As a company specializing in event planning, Aniah Social Events Co. can provide the expertise and creativity needed to make your event memorable with a beautiful and unique tablescape.",
+    services: [
+      'Professional Expertise',
+      'Time-Saving',
+      'Attention to Detail',
+      'Customization',
+    ],
+    callToAction: 'Contact us today for a free quote',
+  },
+  PLANNING_AND_COORDINATION: {
+    SOCIAL_AFFAIR: {
       slug: 'social-affair',
       title: 'Social Affair',
       subTitle: 'Rehearsal & Wedding Day Coordination',
@@ -15,7 +30,7 @@ const DATA = {
         'Access to our emergency kit in case of any last-minute mishaps',
       ],
     },
-    {
+    SOCIALLY_CHIC: {
       slug: 'socially-chic',
       title: 'Socially Chic',
       subTitle: '40-Days Out',
@@ -30,7 +45,7 @@ const DATA = {
         'Access to our emergency kit in case of any last-minute mishaps',
       ],
     },
-    {
+    SOCIAL_SOIREE: {
       slug: 'social-soiree',
       title: 'Social Soiree',
       subTitle: 'Partial Planning & Day of Coordination',
@@ -45,7 +60,7 @@ const DATA = {
         'Coordination of your wedding ceremony and reception, including management of vendors and timeline',
       ],
     },
-    {
+    SOCIALLY_ATELIER: {
       slug: 'socially-atelier',
       title: 'Social Atelier',
       subTitle: 'Start-to-finish planning & Coordination',
@@ -62,53 +77,5 @@ const DATA = {
         'Coordination of your wedding ceremony and reception, including management of vendors and timeline',
       ],
     },
-  ],
-  SERVICES: [
-    {
-      slug: 'invitations-and-paper-goods',
-      title: 'Invitations & Paper Goods',
-      subTitle:
-        'Create a cohesive and beautifully designed stationery set for your event',
-      price: '$500',
-      body: "Our invitation and paper goods service includes everything you need to create a cohesive and beautifully designed stationery set for your event. Our team will handle all aspects of the design process, including choosing the most suitable materials, typography, and graphics to suit your event's theme and aesthetic. We can also provide custom signage to help guide your guests and add a personalized touch to your event. We aim to create a unique and cohesive design that reflects your unique vision and sets the tone for your event.",
-      services: [
-        'Invitations',
-        'Save the date cards',
-        'Thank you cards',
-        'Programs',
-        'Menus',
-        'Place Cards & more!',
-      ],
-      callToAction: 'Book a consultation now',
-    },
-    {
-      slug: 'all-about-tablescapes',
-      title: 'All About Tablescapes',
-      subTitle:
-        'Create a visually appealing and cohesive table display for your event',
-      price: '$800',
-      body: "Tablescapes refer to the artful arrangement of table settings, centerpieces, decor, and other design elements to create a visually appealing and cohesive table display. It's not just about putting plates and forks on a table, but it's more like creating a whole vibe or theme for the table. You might use different colors, textures, and decorations to make it look beautiful and exciting. It's a fun way to make a dinner or party feel extra special! As a company specializing in event planning, Aniah Social Events Co. can provide the expertise and creativity needed to make your event memorable with a beautiful and unique tablescape.",
-      services: [
-        'Professional Expertise',
-        'Time-Saving',
-        'Attention to Detail',
-        'Customization',
-      ],
-      callToAction: 'Contact us today for a free quote',
-    },
-    {
-      slug: 'event-content-creator',
-      title: 'Event Content Creator',
-      subTitle: 'Capture raw, candid iPhone footage of your event day',
-      price: '$200-$500',
-      body: "A wedding content creator is a vendor hired to capture raw, candid iPhone footage of a wedding day! Capture the little details you don't want to miss and reminisce as soon as you're on your honeymoon! Every detail of your event deserves to be captured, and we don’t want you to miss a moment! Plus we can live post and create content during your event to share with family and friends!",
-      services: [
-        'Essential Package',
-        'Essential Plus Package',
-        'Excellence Package',
-      ],
-      callToAction: 'Book now and get 10% off your first package',
-    },
-  ],
+  },
 };
-export default DATA;
