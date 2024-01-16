@@ -2,7 +2,7 @@ import { AiFillHeart } from 'react-icons/ai';
 
 import { SERVICES } from '@/utils/data';
 
-type Package = {
+export type Package = {
   slug: string;
   title: string;
   subTitle: string;

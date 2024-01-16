@@ -19,7 +19,7 @@ export const SERVICES = {
       slug: 'social-affair',
       title: 'Social Affair',
       subTitle: 'Rehearsal & Wedding Day Coordination',
-      price: '$95/HR. MINIMUM 8 hrs.',
+      price: '$95/HR. MINIMUM 6 hrs.',
       body: 'With our "Social Affair" package, you can rest assured that your wedding will run smoothly and you can focus on enjoying your special day',
       services: [
         'Rehearsal Management (2 Hrs.)',
@@ -34,7 +34,7 @@ export const SERVICES = {
       slug: 'socially-chic',
       title: 'Socially Chic',
       subTitle: '40-Days Out',
-      price: '$800',
+      price: '$1000',
       body: 'Our "Socially Chic" package is perfect for couples who have already planned most of their wedding and need extra help in the final few weeks leading up to their big day. With this 40-day event coordination package, we\'ll step in and take care of all the logistical details, allowing you to relax and enjoy the last few weeks of your engagement.',
       services: [
         'Initial consultation to discuss your wedding vision and get a sense of your planning progress to date',
@@ -64,7 +64,7 @@ export const SERVICES = {
       slug: 'socially-atelier',
       title: 'Social Atelier',
       subTitle: 'Start-to-finish planning & Coordination',
-      price: '$2,400',
+      price: '$2,600',
       body: 'Our "Social Atelier" package is designed for couples just beginning their wedding planning journey and feeling overwhelmed by the many decisions and details that must be managed. With this complete planning package, we\'ll work with you from start to finish to bring your vision to life and create an unforgettable wedding experience.',
       services: [
         'Initial consultation to discuss your wedding vision, style, and budget',
