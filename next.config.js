@@ -8,6 +8,14 @@ const nextConfig = {
   swcMinify: true,
 
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.S3_BUCKET_NAME + '.s3.amazonaws.com',
+        port: '',
+        pathname: '/Portfolio/**',
+      },
+    ],
     domains: ['d13ns7kbjmbjip.cloudfront.net'],
   },
 

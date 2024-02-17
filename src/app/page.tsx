@@ -5,6 +5,7 @@ import SectionLayout from '@/components/pages/Homepage/SectionLayout';
 import OurServices from '@/components/pages/Homepage/OurServices';
 import GetToKnowMe from '@/components/pages/Homepage/GetToKnowMe';
 import ContactUs from '@/components/pages/Homepage/ContactUs';
+import Gallery from '@/components/pages/Homepage/Gallery';
 
 const Homepage = () => {
   return (
@@ -13,6 +14,7 @@ const Homepage = () => {
       <SectionLayout id={'ourServices'}>
         <OurServices />
       </SectionLayout>
+      <Gallery />
       <SectionLayout id={'getToKnowMe'}>
         <GetToKnowMe />
       </SectionLayout>

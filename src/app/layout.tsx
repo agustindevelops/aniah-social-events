@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import Providers from '@/components/providers';
 import GoogleAnalytics from '@/components/third-party/GoogleAnalytics';
+import Script from 'next/script';
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,6 +15,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <html lang='en'>
       <head>
         <title>Aniah Social Events</title>
+        <Script src='https://sdk.amazonaws.com/js/aws-sdk-2.1540.0.min.js' />
       </head>
       <body>
         <GoogleAnalytics />
