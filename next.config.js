@@ -15,6 +15,12 @@ const nextConfig = {
         port: '',
         pathname: '/Portfolio/**',
       },
+      {
+        protocol: 'https',
+        hostname: process.env.S3_BUCKET_NAME + '.s3.amazonaws.com',
+        port: '',
+        pathname: '/homepage/**',
+      },
     ],
     domains: ['d13ns7kbjmbjip.cloudfront.net'],
   },

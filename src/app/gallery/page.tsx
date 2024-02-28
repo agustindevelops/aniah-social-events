@@ -4,7 +4,7 @@ import formatUrl from '@/utils/s3/formatUrl';
 import React from 'react';
 
 const isVideo = (endOfUrl: string) =>
-  ['mov'].some((ext) => endOfUrl.includes(ext));
+  ['mp4'].some((ext) => endOfUrl.includes(ext));
 const isPhoto = (endOfUrl: string) =>
   ['jpg', 'png'].some((ext) => endOfUrl.includes(ext));
 
@@ -23,8 +23,8 @@ const Page = async () => {
                 <Image
                   src={formatUrl(Key || '')}
                   alt={'image'}
-                  width={400}
-                  height={400}
+                  width={600}
+                  height={600}
                   key={i}
                   className='h-auto max-w-full rounded-lg'
                 />

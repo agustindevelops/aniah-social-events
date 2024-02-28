@@ -5,18 +5,18 @@ const posts = [
   {
     id: 1,
     imageUrl:
-      'https://aniah-social-events.s3.amazonaws.com/Portfolio/Halloween+22/IMG_9323.JPG',
+      'https://aniah-social-events.s3.amazonaws.com/homepage/gallery_thumbnail_1.JPG',
   },
   {
     id: 2,
     imageUrl:
-      'https://aniah-social-events.s3.amazonaws.com/Portfolio/Selena+%2B+Steven+23/IMG_0357.jpg',
+      'https://aniah-social-events.s3.amazonaws.com/homepage/gallery_thumbnail_2.JPG',
   },
 
   {
     id: 3,
     imageUrl:
-      'https://aniah-social-events.s3.amazonaws.com/Portfolio/Lauren+%2B+Drew+23/IMG_3669.JPG',
+      'https://aniah-social-events.s3.amazonaws.com/homepage/gallery_thumbnail_3.JPG',
   },
 ];
 
@@ -40,8 +40,8 @@ const Gallery = () => {
             >
               <Image
                 src={post.imageUrl}
-                height={400}
-                width={250}
+                height={800}
+                width={500}
                 alt={post.imageUrl}
                 className='absolute inset-0 -z-10 h-full w-full object-cover'
               />
