@@ -29,7 +29,7 @@ const Gallery = () => {
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl text-center'>
           <h2 className='text-primary text-3xl font-bold tracking-tight sm:text-4xl'>
-            Checkout or Gallery
+            Checkout our Gallery
           </h2>
         </div>
         <div className='mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
