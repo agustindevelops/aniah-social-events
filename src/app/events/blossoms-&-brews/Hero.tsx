@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
 
 export default function Hero() {
   return (
@@ -15,7 +16,7 @@ export default function Hero() {
         <div className='z-20 mx-auto max-w-2xl py-24 sm:py-64 lg:py-64'>
           <div className='flex flex-col items-center text-center'>
             <Image
-              src='/images/blossoms-and-brews/logo.png'
+              src={BLOSSOMS_AND_BREWS.HERO.IMAGE}
               alt='Blossoms & Brews Logo'
               height={450}
               width={400}
@@ -24,7 +25,7 @@ export default function Hero() {
             />
 
             <button className='text-cream-200 mb-24 mt-4 transform rounded-full border border-pink-300 bg-white px-4 py-2 text-lg font-bold shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-1 hover:bg-pink-300 hover:shadow-md'>
-              Reserve Your Cup
+              {BLOSSOMS_AND_BREWS.HERO.CTA_LABEL}
             </button>
           </div>
         </div>
