@@ -1,4 +1,4 @@
-const mailchimp = require('@mailchimp/mailchimp_marketing');
+import mailchimp from '@mailchimp/mailchimp_marketing';
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const listId = process.env.MAILCHIMP_LIST_ID; // Your Mailchimp list ID
+    const listId = process.env.MAILCHIMP_LIST_ID || '';
     await mailchimp.lists.addListMember(listId, {
       email_address: email,
       status: 'subscribed',
