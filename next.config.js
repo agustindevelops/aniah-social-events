@@ -21,8 +21,12 @@ const nextConfig = {
         port: '',
         pathname: '/homepage/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'd13ns7kbjmbjip.cloudfront.net',
+        port: '',
+      },
     ],
-    domains: ['d13ns7kbjmbjip.cloudfront.net'],
   },
 
   // SVGR

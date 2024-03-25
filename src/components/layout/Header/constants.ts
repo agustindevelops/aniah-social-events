@@ -1,4 +1,5 @@
 export const LINKS = [
+  { href: '/events/blossoms-&-brews', label: 'Blossoms & Brews' },
   { href: '/#ourServices', label: 'Services' },
   { href: '/#getToKnowMe', label: 'About Us' },
   { href: '/reviews', label: 'Reviews' },
