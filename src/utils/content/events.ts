@@ -41,7 +41,6 @@ export const BLOSSOMS_AND_BREWS = {
   },
   CTA: {
     TITLE: 'Blossoms & Brews Awaits You!',
-    DESCRIPTION:
-      'Immerse yourself in a botanical tea party experience. Sign up for exclusive updates on our aromatic adventure in San Antonio.',
+    DESCRIPTION: 'Be the first to know when the tickets go for sale.',
   },
 };

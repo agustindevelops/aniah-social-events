@@ -3,7 +3,10 @@ import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
 
 export default function CTA() {
   return (
-    <div className='bg-cream-200 text-shadow-md py-16 text-white sm:py-24'>
+    <div
+      className='bg-cream-200 text-shadow-md py-16 text-white sm:py-24'
+      id='cta'
+    >
       <div className='mx-auto max-w-7xl font-semibold sm:px-6 lg:px-8'>
         <div className='bg-peach-200 relative isolate overflow-hidden px-6 py-24 sm:rounded-3xl sm:px-24 xl:py-32'>
           <h2 className='text-shadow-xl mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight sm:text-4xl'>

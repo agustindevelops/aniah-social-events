@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react';
-import axios, { AxiosError } from 'axios';
+import axios, { isAxiosError } from 'axios';
 
 const AddToEmailList = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -22,7 +22,7 @@ const AddToEmailList = () => {
         setError('');
       }
     } catch (e) {
-      if (axios.isAxiosError(e) && e.response) {
+      if (isAxiosError(e) && e.response) {
         setError(e.response.data);
       } else {
         setError('An unexpected error occurred:');
