@@ -9,6 +9,7 @@ export default {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
         shrikhand: ['var(--font-shrikhand)'],
         gentySans: ['var(--font-gentySans)'],
+        pacifico: ['var(--font-pacifico)'],
       },
 
       colors: {
