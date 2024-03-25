@@ -1,36 +1,54 @@
 import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
+import {
+  CloudArrowUpIcon,
+  LockClosedIcon,
+  ServerIcon,
+} from '@heroicons/react/20/solid';
+
+const features = [
+  {
+    name: 'WHEN: ',
+    description:
+      'July 2024 on a sunday two time frames 11am-12:30pm; 1pm-2:30pm',
+    icon: CloudArrowUpIcon,
+  },
+  {
+    name: 'WHERE: ',
+    description: 'San Antonio: Exact Location TBD',
+    icon: LockClosedIcon,
+  },
+];
 
 const Facts = () => {
   return (
-    <div className='mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8'>
-      <div className='mx-auto max-w-2xl lg:mx-0 lg:max-w-none'>
-        <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-          {BLOSSOMS_AND_BREWS.FACTS.TITLE}
-        </h2>
-        <div className='mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row'>
-          <div className='lg:w-full lg:max-w-2xl lg:flex-auto'>
-            <p className='text-xl leading-8 text-gray-600'>
-              {BLOSSOMS_AND_BREWS.FACTS.PARAGRAPH.ONE}
-            </p>
-            <div className='mt-10 max-w-xl text-base leading-7 text-gray-700'>
-              <p>{BLOSSOMS_AND_BREWS.FACTS.PARAGRAPH.TWO}</p>
-              <p className='mt-10'>
-                {BLOSSOMS_AND_BREWS.FACTS.PARAGRAPH.THREE}
-              </p>
+    <div className='overflow-hidden py-24 sm:py-32'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
+          <div className='flex h-full items-center lg:pr-8 lg:pt-4'>
+            <div className='lg:max-w-lg'>
+              <dl className='mt-10 max-w-xl space-y-8 text-2xl lg:max-w-none'>
+                {features.map((feature) => (
+                  <div key={feature.name} className='relative pl-9'>
+                    <dt className='inline font-semibold'>
+                      <feature.icon
+                        className='text-brown-500 absolute left-1 top-1 h-5 w-5'
+                        aria-hidden='true'
+                      />
+                      {feature.name}
+                    </dt>
+                    <dd className='inline'>{feature.description}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
-          <div className='lg:flex lg:flex-auto lg:justify-center'>
-            <dl className='w-64 space-y-8 xl:w-80'>
-              {BLOSSOMS_AND_BREWS.FACTS.STATS.map(({ LABEL, VALUE }) => (
-                <div key={LABEL} className='flex flex-col-reverse gap-y-4'>
-                  <dt className='text-base leading-7 text-gray-600'>{LABEL}</dt>
-                  <dd className='text-5xl font-semibold tracking-tight text-gray-900'>
-                    {VALUE}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <img
+            src={BLOSSOMS_AND_BREWS.FACTS.IMAGE}
+            alt='Product screenshot'
+            className='w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-white/10 sm:w-[57rem] md:-ml-4 lg:-ml-0'
+            width={2432}
+            height={1442}
+          />
         </div>
       </div>
     </div>

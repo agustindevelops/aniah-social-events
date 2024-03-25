@@ -51,7 +51,7 @@ const Emotion = () => {
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
                 {BLOSSOMS_AND_BREWS.EMOTION.TITLE}
               </h1>
-              <p className='relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none'>
+              <p className='relative mt-6 text-xl leading-8 text-gray-600 sm:max-w-md lg:max-w-none'>
                 {BLOSSOMS_AND_BREWS.EMOTION.DESCRIPTION}
               </p>
             </div>

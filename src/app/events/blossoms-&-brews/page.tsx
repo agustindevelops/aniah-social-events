@@ -12,7 +12,7 @@ const TeaParty = () => {
       <Hero />
       <Emotion />
       <Banner />
-      <Facts />
+      {/*<Facts />*/}
       <CTA />
     </div>
   );
