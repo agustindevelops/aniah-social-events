@@ -5,17 +5,20 @@ import UnderlineLink from '@/components/links/UnderlineLink';
 import Providers from '@/components/providers';
 import GoogleAnalytics from '@/components/third-party/GoogleAnalytics';
 import Script from 'next/script';
-import Head from 'next/head';
+import { Metadata } from 'next';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+export const metadata: Metadata = {
+  title: 'Aniah Social Events',
+};
+
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <html lang='en'>
       <head>
-        <title>Aniah Social Events</title>
         <Script src='https://sdk.amazonaws.com/js/aws-sdk-2.1540.0.min.js' />
       </head>
       <body>
