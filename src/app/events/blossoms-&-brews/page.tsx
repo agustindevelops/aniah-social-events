@@ -6,8 +6,7 @@ import Facts from '@/app/events/blossoms-&-brews/Facts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title:
-    'Enchanting High Tea Brunch: A Whimsical Dress-Up Garden Tea Party in San Antonio - Summer 2024',
+  title: 'Blossoms & Brews Tea Party Brunch, San Antonio - Summer 2024',
   description:
     "Join 'Blossoms & Brews' in Summer 2024 for an enchanting high tea brunch experience. Dive into a whimsical dress-up garden tea party in the heart of San Antonio, Texas. Embrace the magic with delightful teas, exquisite brunch, and the joy of dressing up in your garden-party best.",
   keywords: [
@@ -20,8 +19,7 @@ export const metadata: Metadata = {
     'garden tea party',
   ],
   openGraph: {
-    title:
-      'Enchanting High Tea Brunch: A Whimsical Dress-Up Garden Tea Party in San Antonio - Summer 2024',
+    title: 'Blossoms & Brews Tea Party Brunch, San Antonio - Summer 2024',
     description:
       "Join 'Blossoms & Brews' in Summer 2024 for an enchanting high tea brunch experience. Dive into a whimsical dress-up garden tea party in the heart of San Antonio, Texas. Embrace the magic with delightful teas, exquisite brunch, and the joy of dressing up in your garden-party best.",
     images: {
