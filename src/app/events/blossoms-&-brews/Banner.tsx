@@ -6,7 +6,7 @@ const Banner = () => {
     <div className='my-32 sm:my-40 xl:mx-auto xl:max-w-7xl xl:px-8'>
       <img
         src={BLOSSOMS_AND_BREWS.BANNER.URL}
-        alt=''
+        alt={BLOSSOMS_AND_BREWS.BANNER.ALT}
         className='aspect-[2/1] w-full object-cover xl:rounded-3xl'
       />
     </div>

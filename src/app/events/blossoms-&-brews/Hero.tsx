@@ -8,7 +8,7 @@ export default function Hero() {
         <Image
           className='-z-10'
           src='/images/blossoms-and-brews/hero.jpg'
-          alt='Blossoms and Brews'
+          alt='Luxurious tea party set with pastel teapots, desserts, and floral decorations, framed for a central message, evoking an elegant and magical ambiance.'
           fill
           style={{ objectFit: 'cover' }}
           priority

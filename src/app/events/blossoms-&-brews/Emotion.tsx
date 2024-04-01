@@ -60,7 +60,7 @@ const Emotion = () => {
                 <div className='relative'>
                   <img
                     src={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_1}
-                    alt=''
+                    alt={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_1_ALT}
                     className='aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg'
                   />
                   <div className='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10' />
@@ -70,7 +70,7 @@ const Emotion = () => {
                 <div className='relative'>
                   <img
                     src={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_2}
-                    alt=''
+                    alt={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_2_ALT}
                     className='aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg'
                   />
                   <div className='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10' />
@@ -78,7 +78,7 @@ const Emotion = () => {
                 <div className='relative'>
                   <img
                     src={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_3}
-                    alt=''
+                    alt={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_3_ALT}
                     className='aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg'
                   />
                   <div className='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10' />
@@ -88,7 +88,7 @@ const Emotion = () => {
                 <div className='relative'>
                   <img
                     src={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_4}
-                    alt=''
+                    alt={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_4_ALT}
                     className='aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg'
                   />
                   <div className='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10' />
@@ -96,7 +96,7 @@ const Emotion = () => {
                 <div className='relative'>
                   <img
                     src={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_5}
-                    alt=''
+                    alt={BLOSSOMS_AND_BREWS.EMOTION.IMAGE_5_ALT}
                     className='aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg'
                   />
                   <div className='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10' />
