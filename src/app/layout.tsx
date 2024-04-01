@@ -5,6 +5,7 @@ import UnderlineLink from '@/components/links/UnderlineLink';
 import Providers from '@/components/providers';
 import GoogleAnalytics from '@/components/third-party/GoogleAnalytics';
 import Script from 'next/script';
+import Head from 'next/head';
 
 interface LayoutProps {
   children: ReactNode;
