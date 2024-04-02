@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import Attire from '@/app/events/blossoms-&-brews/Attire';
 
 export const metadata: Metadata = {
-  title: 'Blossoms & Brews Tea Party Brunch, San Antonio - Summer 2024',
+  title: 'Blossoms & Brews Tea Party, San Antonio',
   description:
     "Join 'Blossoms & Brews' in Summer 2024 for an enchanting high tea brunch experience. Dive into a whimsical dress-up garden tea party in the heart of San Antonio, Texas. Embrace the magic with delightful teas, exquisite brunch, and the joy of dressing up in your garden-party best.",
   keywords: [
