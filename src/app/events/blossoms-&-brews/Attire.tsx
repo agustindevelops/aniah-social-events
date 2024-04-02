@@ -60,8 +60,13 @@ const Feature: FC<FeatureType> = ({ name = '', description = [], url = '' }) =>
       </dt>
       <dd className='mt-4 flex flex-auto flex-col text-base leading-7'>
         <ul className='flex-auto list-disc'>
-          {description.map((d) => (
-            <li className='text-lg font-semibold'>{d}</li>
+          {description.map((d, i) => (
+            <li
+              className='text-lg font-semibold'
+              key={`attire-${name}-tip-${i}`}
+            >
+              {d}
+            </li>
           ))}
         </ul>
       </dd>
