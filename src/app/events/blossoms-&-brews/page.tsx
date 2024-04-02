@@ -4,19 +4,23 @@ import Emotion from '@/app/events/blossoms-&-brews/Emotion';
 import Banner from '@/app/events/blossoms-&-brews/Banner';
 import Facts from '@/app/events/blossoms-&-brews/Facts';
 import type { Metadata } from 'next';
+import Attire from '@/app/events/blossoms-&-brews/Attire';
 
 export const metadata: Metadata = {
   title: 'Blossoms & Brews Tea Party Brunch, San Antonio - Summer 2024',
   description:
     "Join 'Blossoms & Brews' in Summer 2024 for an enchanting high tea brunch experience. Dive into a whimsical dress-up garden tea party in the heart of San Antonio, Texas. Embrace the magic with delightful teas, exquisite brunch, and the joy of dressing up in your garden-party best.",
   keywords: [
-    'whimsical',
-    'enchanting',
+    'tea party in San Antonio',
+    'tea party',
+    'San Antonio, Texas tea party event',
+    'San Antonio Tea Party',
+    'Texas Tea party',
+    'Tea Party in Texas',
+    'brunch',
     'dress up',
     'high tea brunch experience',
     'summer 2024',
-    'San Antonio Texas',
-    'garden tea party',
   ],
   openGraph: {
     title: 'Blossoms & Brews Tea Party Brunch, San Antonio - Summer 2024',
@@ -47,6 +51,7 @@ const TeaParty = () => {
       <Hero />
       <Emotion />
       <Banner />
+      <Attire />
       <Facts />
       <CTA />
     </div>
