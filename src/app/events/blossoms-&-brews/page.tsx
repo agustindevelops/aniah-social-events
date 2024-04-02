@@ -50,8 +50,8 @@ const TeaParty = () => {
     <div className='my-24'>
       <Hero />
       <Emotion />
-      <Banner />
       <Attire />
+      <Banner />
       <Facts />
       <CTA />
     </div>
