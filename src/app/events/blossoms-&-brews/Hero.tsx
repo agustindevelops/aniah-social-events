@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
+import TicketButton from '@/app/events/blossoms-&-brews/TicketButton';
 
 export default function Hero() {
   return (
@@ -23,13 +24,9 @@ export default function Hero() {
               priority
               className='mx-auto max-w-full'
             />
-
-            <a
-              href='#cta'
-              className='text-cream-200 mb-24 mt-4 transform rounded-full border border-pink-300 bg-white px-4 py-2 text-lg font-bold shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-1 hover:bg-pink-300 hover:shadow-md'
-            >
-              {BLOSSOMS_AND_BREWS.HERO.CTA_LABEL}
-            </a>
+            <div className='mb-24'>
+              <TicketButton />
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import AddToEmailList from '@/components/forms/AddToEmailList';
 import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
+import TicketButton from '@/app/events/blossoms-&-brews/TicketButton';
 
 export default function CTA() {
   return (
@@ -17,6 +18,9 @@ export default function CTA() {
           </p>
           <div>
             <AddToEmailList />
+          </div>
+          <div className='mt-4'>
+            <TicketButton />
           </div>
           <svg
             viewBox='0 0 1024 1024'

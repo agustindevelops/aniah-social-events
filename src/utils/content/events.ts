@@ -53,5 +53,6 @@ export const BLOSSOMS_AND_BREWS = {
   CTA: {
     TITLE: 'Blossoms & Brews Awaits You!',
     DESCRIPTION: 'Be the first to know when the tickets go for sale.',
+    URL: 'https://www.eventbrite.com/e/blossoms-brews-a-tea-party-tickets-867874735697?aff=oddtdtcreator',
   },
 };

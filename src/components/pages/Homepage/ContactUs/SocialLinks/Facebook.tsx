@@ -1,4 +1,3 @@
-import { FaFacebookF } from 'react-icons/fa';
 import Image from 'next/image';
 
 const Facebook = () => {
