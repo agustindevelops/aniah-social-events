@@ -5,9 +5,9 @@ import Author from '@/lib/contentful/components/Author';
 import Date from '@/lib/contentful/components/Date';
 
 export default async function Blogs() {
-  const blogs: GetEntriesType = await contentfulClientApi.getEntries({
+  const blogs: GetEntriesType = (await contentfulClientApi.getEntries({
     content_type: 'pageBlogPost',
-  });
+  })) as unknown as GetEntriesType;
 
   return (
     <div className='bg-white py-24 sm:py-32'>
