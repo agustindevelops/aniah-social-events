@@ -94,5 +94,9 @@ export default {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('tailwindcss-textshadow')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwindcss-textshadow'),
+    require('@tailwindcss/typography'),
+  ],
 };

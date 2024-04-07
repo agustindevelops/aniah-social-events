@@ -1,6 +1,8 @@
 import contentfulClientApi from '@/lib/contentful/contentfulClientApi';
 import { GetEntriesType } from '@/lib/contentful/types';
 import Link from 'next/link';
+import Author from '@/lib/contentful/components/Author';
+import Date from '@/lib/contentful/components/Date';
 
 export default async function Blogs() {
   const blogs: GetEntriesType = await contentfulClientApi.getEntries({
@@ -9,13 +11,16 @@ export default async function Blogs() {
 
   return (
     <div className='bg-white py-24 sm:py-32'>
-      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+      <div className='mx-auto mt-24 max-w-7xl px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl lg:max-w-4xl'>
           <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-            From the blog
+            Tips and Tricks with Aniah Social Events
           </h2>
-          <p className='mt-2 text-lg leading-8 text-gray-600'>
-            Learn how to grow your business with our expert advice.
+          <p className='mt-4 text-lg leading-8 text-gray-600'>
+            Discover the art of sophisticated event planning with Aniah Social
+            Events. Dive into our blog for insider tips, trending decor ideas,
+            and inspiration for creating memorable celebrations that charm and
+            delight guests. Your journey to the perfect event starts here.
           </p>
           <div className='mt-16 space-y-20 lg:mt-20 lg:space-y-20'>
             {blogs.items.map(
@@ -25,16 +30,7 @@ export default async function Blogs() {
                   publishedDate,
                   title,
                   shortDescription,
-                  author: {
-                    fields: {
-                      name: authorName,
-                      avatar: {
-                        fields: {
-                          file: { url: avatarUrl },
-                        },
-                      },
-                    },
-                  },
+                  author,
                   featuredImage: {
                     fields: {
                       file: { url: featuredUrl },
@@ -56,13 +52,11 @@ export default async function Blogs() {
                   </div>
                   <div>
                     <div className='flex items-center gap-x-4 text-xs'>
-                      <time dateTime={publishedDate} className='text-gray-500'>
-                        {publishedDate}
-                      </time>
+                      <Date date={publishedDate} />
                     </div>
                     <div className='group relative max-w-xl'>
                       <h3 className='mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600'>
-                        <Link href={slug}>
+                        <Link href={`/blog/${slug}`}>
                           <span className='absolute inset-0' />
                           {title}
                         </Link>
@@ -71,24 +65,7 @@ export default async function Blogs() {
                         {shortDescription}
                       </p>
                     </div>
-                    <div className='mt-6 flex border-t border-gray-900/5 pt-6'>
-                      <div className='relative flex items-center gap-x-4'>
-                        <img
-                          src={avatarUrl}
-                          alt=''
-                          className='h-10 w-10 rounded-full bg-gray-50'
-                        />
-                        <div className='text-sm leading-6'>
-                          <p className='font-semibold text-gray-900'>
-                            <span>
-                              <span className='absolute inset-0' />
-                              {authorName}
-                            </span>
-                          </p>
-                          <p className='text-gray-600'>{'post.author.role'}</p>
-                        </div>
-                      </div>
-                    </div>
+                    <Author {...author} />
                   </div>
                 </article>
               )
