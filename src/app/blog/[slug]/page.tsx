@@ -7,10 +7,10 @@ import Link from 'next/link';
 import Date from '@/lib/contentful/components/Date';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const blogs: GetEntriesType = await contentfulClientApi.getEntries({
+  const blogs = (await contentfulClientApi.getEntries({
     content_type: 'pageBlogPost',
     'fields.slug': params.slug,
-  });
+  })) as unknown as GetEntriesType;
 
   const [
     {

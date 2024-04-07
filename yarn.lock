@@ -4116,7 +4116,7 @@ contentful-sdk-core@^8.1.0:
 
 contentful@^10.8.7:
   version "10.8.7"
-  resolved "https://registry.npmjs.org/contentful/-/contentful-10.8.7.tgz"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.8.7.tgz#ff627069e74995367306f89359c946d3e3dda530"
   integrity sha512-BkHspZUmeaqCkJXljBJBZ+WnMVU/3N1rYIxVuwH3X/0Q88zF8hb02dsZupmecm5LOHSYWg7lKKrbKit6Q0JL2A==
   dependencies:
     "@contentful/rich-text-types" "^16.0.2"
