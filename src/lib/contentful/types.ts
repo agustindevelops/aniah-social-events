@@ -1,12 +1,17 @@
+import { BLOCKS } from '@contentful/rich-text-types/dist/types/blocks';
+import {
+  Node,
+  TopLevelBlock,
+} from '@contentful/rich-text-types/dist/types/types';
+
 interface BasicObject {}
 
 interface SysType {
   type: string;
 }
-interface Content {
-  data: BasicObject;
-  content: BasicObject[];
-  nodeType: string;
+export interface Document extends Node {
+  nodeType: BLOCKS.DOCUMENT;
+  content: TopLevelBlock[];
 }
 
 interface Sys {
@@ -81,7 +86,7 @@ interface AuthorFields {
   avatar: Avatar;
 }
 
-interface Author {
+export interface AuthorType {
   metadata: AuthorMetadata;
   sys: AuthorSys;
   fields: AuthorFields;
@@ -91,12 +96,12 @@ interface Fields {
   internalName: string;
   seoFields: BasicObject;
   slug: string;
-  author: Author;
+  author: AuthorType;
   publishedDate: string;
   title: string;
   shortDescription: string;
   featuredImage: FeaturedImage;
-  content: Content;
+  content: Document;
   relatedBlogPosts: BasicObject[];
 }
 
