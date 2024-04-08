@@ -1,4 +1,5 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import {ErrorResponse} from "@/utils/server/types";
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
@@ -32,12 +33,4 @@ export async function POST(req: Request) {
 
     return new Response(errorMessage, { status: 500 });
   }
-}
-
-interface ErrorResponse {
-  response?: {
-    body?: {
-      detail?: string;
-    };
-  };
 }
