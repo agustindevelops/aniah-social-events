@@ -58,7 +58,7 @@ const Feature: FC<FeatureType> = ({ name = '', description = [], url = '' }) =>
       <dt className='text-peach-500 flex items-center gap-x-3 text-2xl font-semibold leading-7 '>
         {name}
       </dt>
-      <dd className='mt-4 flex flex-auto flex-col text-base leading-7'>
+      <dd className='mt-4 flex flex-auto flex-col pl-7 text-base leading-7'>
         <ul className='flex-auto list-disc'>
           {description.map((d, i) => (
             <li
