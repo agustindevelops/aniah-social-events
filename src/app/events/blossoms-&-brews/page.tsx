@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import Attire from '@/app/events/blossoms-&-brews/Attire';
 import Links from '@/app/events/blossoms-&-brews/Links';
 import Location from '@/app/events/blossoms-&-brews/Location';
+import FAQ from '@/app/events/blossoms-&-brews/FAQ';
 
 export const metadata: Metadata = {
   title: 'Blossoms & Brews Tea Party, San Antonio',
@@ -55,8 +56,9 @@ const TeaParty = () => {
       <Location />
       <Attire />
       <Banner />
-      <Facts />
+
       <CTA />
+      <FAQ />
       <Links />
     </div>
   );
