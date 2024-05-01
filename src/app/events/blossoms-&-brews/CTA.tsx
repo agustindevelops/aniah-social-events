@@ -4,7 +4,7 @@ import TicketButton from '@/app/events/blossoms-&-brews/TicketButton';
 
 export default function CTA() {
   return (
-    <div
+    <section
       className='bg-cream-200 text-shadow-md py-16 text-white sm:py-24'
       id='cta'
     >
@@ -50,6 +50,6 @@ export default function CTA() {
           </svg>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

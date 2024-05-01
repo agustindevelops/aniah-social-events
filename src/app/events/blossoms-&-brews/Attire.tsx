@@ -27,7 +27,7 @@ const features = [
 
 const Attire = () => {
   return (
-    <div className='py-24 sm:py-32'>
+    <section className='py-24 sm:py-32'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl lg:text-center'>
           <h2 className='mt-2 text-3xl font-bold tracking-tight sm:text-4xl'>
@@ -42,7 +42,7 @@ const Attire = () => {
           </dl>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

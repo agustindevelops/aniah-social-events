@@ -7,36 +7,30 @@ const faqs = [
   },
   {
     id: 2,
-    question: 'What is included in the ticket?',
-    answer:
-      'Each ticket includes: 2 hrs. of tea time with your besties, a grazing table brunch, 3 different teas served table side, access to our Flower Market full of wonderful vendors, a goodie bag full of fun tea time treats, and you get to take your tea cups home with you at the end of the day!',
-  },
-  {
-    id: 3,
     question: 'What is the Flower Market?',
     answer:
       "The Flower Market is a market full of our wonderful local vendors selling their art, treats, & much more. We'll be announcing our vendors on Instagram as we get closer to the date! Stay tuned.",
   },
   {
-    id: 4,
+    id: 3,
     question: 'What to wear?',
     answer:
       'Think floral dresses, pastel colors, & garden party outfits! The dress code is not mandatory but it definitely makes it more fun.',
   },
   {
-    id: 5,
+    id: 4,
     question: 'What food will we serve?',
     answer:
       "We'll be serving tea sandwiches, savory bites, and sweet treats on a giant grazing table!",
   },
   {
-    id: 6,
+    id: 5,
     question: 'Is there any differences in the groupings?',
     answer:
       'No, each group gets exactly the same things, we just want everyone to feel comfortable and not overcrowd the space! The only difference is the time.',
   },
   {
-    id: 7,
+    id: 6,
     question: 'What tea will be served?',
     answer:
       "A traditional black tea, a floral tea, and a blooming tea will be served at each table! We'll have milk, soymilk and sugar at each table to sweeten your tea to taste.",
