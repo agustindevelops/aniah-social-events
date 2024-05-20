@@ -2,7 +2,7 @@ import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
 
 const Emotion = () => {
   return (
-    <div className=''>
+    <section className=''>
       <svg
         className='absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]'
         aria-hidden='true'
@@ -106,7 +106,7 @@ const Emotion = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

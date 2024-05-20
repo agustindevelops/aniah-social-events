@@ -2,6 +2,9 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 import colors from 'tailwindcss/colors';
 
 export default {
+  daisyui: {
+    themes: ['pastel'],
+  },
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
@@ -94,5 +97,9 @@ export default {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('tailwindcss-textshadow')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwindcss-textshadow'),
+    require('daisyui'),
+  ],
 };

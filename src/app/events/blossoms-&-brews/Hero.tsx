@@ -4,7 +4,7 @@ import TicketButton from '@/app/events/blossoms-&-brews/TicketButton';
 
 export default function Hero() {
   return (
-    <div className='bg-gray-900'>
+    <section className='bg-gray-900'>
       <div className='relative isolate overflow-hidden pt-14'>
         <Image
           className='-z-10'
@@ -30,6 +30,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

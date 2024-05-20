@@ -3,7 +3,7 @@ import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
 
 const Banner = () => {
   return (
-    <div className='my-32 sm:my-40 xl:mx-auto xl:max-w-7xl xl:px-8'>
+    <div className='my-32 sm:my-16 xl:mx-auto xl:max-w-7xl xl:px-8'>
       <img
         src={BLOSSOMS_AND_BREWS.BANNER.URL}
         alt={BLOSSOMS_AND_BREWS.BANNER.ALT}

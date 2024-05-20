@@ -58,14 +58,24 @@ const Location = () => {
                 <MapIcon className='h-5 w-5' aria-hidden='true' />
                 <p className='text-peach-500 text-2xl font-bold'>Location</p>
               </div>
-              <p className='mt-4 flex flex-col gap-1 font-semibold'>
+              <div className='mt-4 flex flex-col gap-1 font-semibold'>
                 <p className='mb-1 pl-7 text-xl font-bold'>
                   San Antonio Glasshouse
                 </p>
-                <p className='pl-7 text-sm font-bold'>
-                  3847 Grosenbacher Road San Antonio, TX 78245
-                </p>
-              </p>
+                <address
+                  itemProp='address'
+                  itemScope
+                  itemType='https://schema.org/PostalAddress'
+                  className='address-text pl-7 font-bold'
+                  aria-label='Company Address'
+                >
+                  <span itemProp='streetAddress'>3847 Grosenbacher Road</span>
+                  <br />
+                  <span itemProp='addressLocality'>San Antonio</span>,{' '}
+                  <span itemProp='addressRegion'>TX</span>{' '}
+                  <span itemProp='postalCode'>78245</span>
+                </address>
+              </div>
             </div>
           </div>
           <iframe
