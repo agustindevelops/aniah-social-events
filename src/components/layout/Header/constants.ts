@@ -20,7 +20,7 @@ type LinkType = {
 };
 
 export const BLOSSOMS_AND_BREWS_CTA = {
-  label: '☕',
+  label: 'Reserve Your Cup',
   route: BLOSSOMS_AND_BREWS.CTA.URL,
 };
 
@@ -37,6 +37,7 @@ export const MAIN_LINKS: LinkType[] = [
   { label: 'Reviews', route: '/reviews' },
   { label: 'Gallery', route: '/gallery' },
   { label: 'About Us', route: '/#getToKnowMe' },
+  { label: 'Blog', route: '/blog' },
   { label: 'Blossoms & Brews', route: '/events/blossoms-&-brews' },
   {
     label: "Let's Get in Touch!",

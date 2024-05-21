@@ -53,8 +53,8 @@ const TeaParty = () => {
   return (
     <div className='mt-24'>
       <Hero />
-      <Emotion />
       <Features />
+      <Emotion />
       <Location />
       <Attire />
       <Banner />
