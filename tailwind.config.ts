@@ -101,5 +101,6 @@ export default {
     require('@tailwindcss/forms'),
     require('tailwindcss-textshadow'),
     require('daisyui'),
+    require('@tailwindcss/typography'),
   ],
 };

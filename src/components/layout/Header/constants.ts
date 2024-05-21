@@ -6,6 +6,7 @@ export const LINKS = [
   { href: '/#getToKnowMe', label: 'About Us' },
   { href: '/reviews', label: 'Reviews' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/blog', label: 'Blog' },
   {
     href: 'https://www.honeybook.com/widget/aniah_social_events_258611/cf_id/64ac6b5f5c67b511146db09e',
     label: "Let's get in touch!",
@@ -19,7 +20,7 @@ type LinkType = {
 };
 
 export const BLOSSOMS_AND_BREWS_CTA = {
-  label: '☕',
+  label: 'Reserve Your Cup',
   route: BLOSSOMS_AND_BREWS.CTA.URL,
 };
 
@@ -36,6 +37,7 @@ export const MAIN_LINKS: LinkType[] = [
   { label: 'Reviews', route: '/reviews' },
   { label: 'Gallery', route: '/gallery' },
   { label: 'About Us', route: '/#getToKnowMe' },
+  { label: 'Blog', route: '/blog' },
   { label: 'Blossoms & Brews', route: '/events/blossoms-&-brews' },
   {
     label: "Let's Get in Touch!",
