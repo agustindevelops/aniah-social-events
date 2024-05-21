@@ -13,6 +13,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    '@typescript-eslint/no-empty-interface': 'off',
     'no-unused-vars': 'off',
     'no-console': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
