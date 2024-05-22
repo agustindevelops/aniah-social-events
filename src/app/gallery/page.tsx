@@ -2,11 +2,7 @@ import Image from 'next/image';
 import getGallery, { sort } from '@/utils/s3/getGallery';
 import formatUrl from '@/utils/s3/formatUrl';
 import React from 'react';
-
-const isVideo = (endOfUrl: string) =>
-  ['mp4'].some((ext) => endOfUrl.includes(ext));
-const isPhoto = (endOfUrl: string) =>
-  ['jpg', 'png'].some((ext) => endOfUrl.includes(ext));
+import { getFileExt, isPhoto, isVideo } from '@/utils/functions';
 
 const Page = async () => {
   const gallery = await getGallery();
@@ -16,7 +12,7 @@ const Page = async () => {
       <h1 className='my-12'>Gallery</h1>
       <div className='container mx-auto w-full columns-2 px-4 md:columns-4'>
         {gallery.map(({ Key }, i) => {
-          const endOfUrl = String(Key).slice(-4).toLowerCase();
+          const endOfUrl = getFileExt(Key);
           if (isPhoto(endOfUrl))
             return (
               <div key={i} className='aspect-w-1 aspect-h-1 mb-4'>

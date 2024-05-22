@@ -8,3 +8,14 @@ export const strToUTCDate = (dateString: string) => {
 
   return date;
 };
+
+export const isVideo = (endOfUrl: string) =>
+  ['mp4'].some((ext) => endOfUrl.includes(ext));
+export const isPhoto = (endOfUrl: string) =>
+  ['jpg', 'png'].some((ext) => endOfUrl.includes(ext));
+export const getFileExt = (filePath?: string) => {
+  if (!filePath) return '';
+
+  const parts = filePath.split('.');
+  return parts.at(-1) || '';
+};
