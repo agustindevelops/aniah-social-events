@@ -42,7 +42,7 @@ interface FeaturedImageFields {
   file: File;
 }
 
-interface FeaturedImage {
+interface Media {
   metadata: Metadata;
   sys: Sys;
   fields: FeaturedImageFields;
@@ -100,7 +100,8 @@ interface Fields {
   publishedDate: string;
   title: string;
   shortDescription: string;
-  featuredImage: FeaturedImage;
+  featuredImage: Media;
+  featuredVideo: Media;
   content: Document;
   relatedBlogPosts: BasicObject[];
 }

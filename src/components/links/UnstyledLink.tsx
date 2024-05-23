@@ -1,3 +1,5 @@
+'use client';
+
 import Link, { LinkProps } from 'next/link';
 import * as React from 'react';
 
@@ -18,9 +20,19 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         ? openNewTab
         : href && !href.startsWith('/') && !href.startsWith('#');
 
+    const removeFocus = () => {
+      setTimeout(() => {
+        const elem = document.activeElement;
+        if (elem && elem instanceof HTMLElement) {
+          elem.blur();
+        }
+      }, 250);
+    };
+
     if (!isNewTab) {
       return (
         <Link
+          onClick={removeFocus}
           href={href}
           ref={ref}
           className={className}
@@ -40,6 +52,7 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         href={href}
         {...rest}
         className={clsxm('cursor-newtab', className)}
+        onClick={removeFocus}
       >
         {children}
       </a>
