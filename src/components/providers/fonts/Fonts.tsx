@@ -1,4 +1,10 @@
-import { Shrikhand, Pacifico } from 'next/font/google';
+import {
+  Shrikhand,
+  Pacifico,
+  Playfair,
+  Libre_Baskerville,
+  Style_Script,
+} from 'next/font/google';
 import { ReactNode } from 'react';
 import localFont from 'next/font/local';
 
@@ -19,10 +25,32 @@ const gentySans = localFont({
   variable: '--font-gentySans',
 });
 
+const bright = localFont({
+  src: './bright.otf',
+  display: 'swap',
+  variable: '--font-bright',
+});
+const playfair = Playfair({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+});
+const libre = Libre_Baskerville({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '700'],
+  variable: '--font-libre',
+});
+const styleScript = Style_Script({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+  variable: '--font-styleScript',
+});
+
 const Fonts = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`${gentySans.variable} ${shrikhand.variable} ${pacifico.variable} font-sans`}
+      className={`${gentySans.variable} ${shrikhand.variable} ${pacifico.variable} ${bright.variable} ${playfair.variable} ${libre.variable} ${styleScript.variable} font-sans`}
     >
       {children}
     </div>

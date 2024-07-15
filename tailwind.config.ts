@@ -13,6 +13,10 @@ export default {
         shrikhand: ['var(--font-shrikhand)'],
         gentySans: ['var(--font-gentySans)'],
         pacifico: ['var(--font-pacifico)'],
+        bright: ['var(--font-bright)'],
+        playfair: ['var(--font-playfair)'],
+        libre: ['var(--font-libre)'],
+        styleScript: ['var(--font-styleScript)'],
       },
 
       colors: {

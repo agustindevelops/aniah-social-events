@@ -13,11 +13,13 @@ export default function CTA() {
           <h2 className='text-shadow-xl mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight sm:text-4xl'>
             {BLOSSOMS_AND_BREWS.CTA.TITLE}
           </h2>
-          <p className='text-shadow-md text-cream mx-auto mt-2 max-w-xl text-center text-lg leading-8'>
-            {BLOSSOMS_AND_BREWS.CTA.DESCRIPTION}
-          </p>
-          <div>
-            <AddToEmailList />
+          <div className='hidden'>
+            <p className='text-shadow-md text-cream mx-auto mt-2 max-w-xl text-center text-lg leading-8'>
+              {BLOSSOMS_AND_BREWS.CTA.DESCRIPTION}
+            </p>
+            <div>
+              <AddToEmailList />
+            </div>
           </div>
           <div className='mt-4'>
             <TicketButton />

@@ -9,6 +9,7 @@ import Links from '@/app/events/blossoms-&-brews/Links';
 import Location from '@/app/events/blossoms-&-brews/Location';
 import FAQ from '@/app/events/blossoms-&-brews/FAQ';
 import Features from '@/app/events/blossoms-&-brews/Features';
+import Menu from '@/app/events/blossoms-&-brews/Menu';
 
 export const metadata: Metadata = {
   title: 'Blossoms & Brews Tea Party, San Antonio',
@@ -53,11 +54,17 @@ const TeaParty = () => {
   return (
     <div className='mt-24'>
       <Hero />
-      <Features />
       <Emotion />
-      <Location />
+      <Features />
+      <div className='hidden md:block'>
+        <Banner />
+      </div>
+      <Menu />
+      <div className='md:hidden'>
+        <Banner />
+      </div>
       <Attire />
-      <Banner />
+      <Location />
       <CTA />
       <FAQ />
       <Links />

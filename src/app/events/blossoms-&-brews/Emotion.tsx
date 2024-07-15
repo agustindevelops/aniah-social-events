@@ -1,4 +1,5 @@
 import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
+import TicketButton from '@/app/events/blossoms-&-brews/TicketButton';
 
 const Emotion = () => {
   return (
@@ -45,9 +46,9 @@ const Emotion = () => {
         />
       </div>
       <div className='overflow-hidden'>
-        <div className='mx-auto my-16 max-w-7xl px-6'>
+        <div className='mx-auto my-16 max-w-7xl px-6 md:mb-32 md:mt-64'>
           <div className='mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center'>
-            <div className='w-full max-w-xl lg:shrink-0 xl:max-w-2xl'>
+            <div className='mt-64 w-full max-w-xl md:mt-0 lg:shrink-0 xl:max-w-2xl'>
               <h1 className='text-4xl font-bold tracking-tight sm:text-6xl'>
                 {BLOSSOMS_AND_BREWS.EMOTION.TITLE}
               </h1>
