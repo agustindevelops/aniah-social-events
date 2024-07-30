@@ -1,6 +1,7 @@
 import { AiFillHeart } from 'react-icons/ai';
 
 import { SERVICES } from '@/utils/data';
+import Image from 'next/image';
 
 export type Package = {
   slug: string;
@@ -40,17 +41,28 @@ const Service = ({ params }: { params: { slug: string } }) => {
   return (
     <section className=''>
       <div className='text-brown-500 rounded-lg text-center'>
-        <div className='bg-peach-50 py-4'>
+        <div className='py-4'>
           <div className='container mx-auto px-2'>
-            <h1 className='font-pacifico text-6xl font-normal'>{title}</h1>
-            <h2 className='mt-2 text-4xl font-medium'>{subTitle}</h2>
-            <p className='mt-2 text-2xl font-bold'>{price}</p>
+            <h1 className='font-pacifico mb-8 text-5xl font-normal lg:text-6xl'>
+              {title}
+            </h1>
+            <Image
+              src='/images/services/leaf.svg'
+              alt='artsy-leaf'
+              width={300}
+              height={200}
+              className='mx-auto my-4'
+            />
+            <h2 className='font-libre mt-2 text-2xl font-medium'>{subTitle}</h2>
+            <p className='font-libre mt-2 text-3xl font-semibold tracking-widest'>
+              {price}
+            </p>
           </div>
         </div>
 
-        <div className='container mx-auto px-8 text-2xl'>
-          <p className='mt-6'>{body}</p>
-          <ul className='mt-8 px-14'>
+        <div className='font-libre container mx-auto px-4 text-lg lg:text-2xl'>
+          <p className='mt-2 font-bold lg:mt-6'>{body}</p>
+          <ul className='mt-8 px-2 text-sm lg:px-12 lg:text-xl'>
             {services.map((service) => (
               <li
                 key={service}
@@ -59,7 +71,7 @@ const Service = ({ params }: { params: { slug: string } }) => {
                 <div className='py-2'>
                   <AiFillHeart />
                 </div>
-                {service}
+                <span className='self-center'>{service}</span>
               </li>
             ))}
           </ul>

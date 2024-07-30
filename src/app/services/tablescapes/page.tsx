@@ -34,7 +34,7 @@ const Service = ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
 
-        <div className='container mx-auto px-8 text-2xl'>
+        <div className='container mx-auto px-4 text-2xl'>
           <p className='mt-6'>{body}</p>
           <ul className='mt-8'>
             {services.map((service) => (
