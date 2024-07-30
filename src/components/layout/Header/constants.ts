@@ -29,8 +29,8 @@ export const MAIN_LINKS: LinkType[] = [
     label: 'Wedding Planning',
     route: '/#ourServices',
     items: [
-      { label: 'Planning', route: '/services/planning-and-coordination' },
-      { label: 'Coordination', route: '/services/planning-and-coordination' },
+      { label: 'Planning', route: '/services/socially-atelier' },
+      { label: 'Coordination', route: '/services/social-affair' },
       { label: 'Tablescapes', route: '/services/tablescapes' },
     ],
   },

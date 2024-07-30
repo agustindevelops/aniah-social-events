@@ -10,7 +10,8 @@ const Hero = () => {
             backgroundImage: "url('/images/aniah-social-events-flowers.jpg')",
           }}
         >
-          <div className='container mx-auto text-center text-center text-white'>
+          <div className='absolute inset-0 bg-pink-950 opacity-30'></div>
+          <div className='container mx-auto text-center text-white'>
             <div className='absolute inset-0 flex items-center justify-center sm:hidden'>
               <Image
                 src='/images/aniah-social-events-large-logo.png'

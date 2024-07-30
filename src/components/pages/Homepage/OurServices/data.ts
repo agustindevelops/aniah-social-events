@@ -7,7 +7,7 @@ export const servicesData: Service[] = [
     description:
       "Transform your vision into reality with our comprehensive event planning package. Starting from $1600, we ensure every detail is meticulously crafted to your taste. From venue selection to vendor coordination, we're with you every step to create an unforgettable celebration.",
     image: '/images/event-planning.png',
-    link: '/services/planning-and-coordination',
+    link: '/services/socially-atelier',
   },
   {
     title: 'Coordination',
@@ -15,7 +15,7 @@ export const servicesData: Service[] = [
     description:
       'Navigate your event seamlessly with our professional coordination services. For $95/Hr or $1000/Day, we manage the intricacies of your day with precision. Experience stress-free festivities as we orchestrate the flow, timing, and execution of your event schedule.',
     image: '/images/coordinator.png',
-    link: '/services/planning-and-coordination',
+    link: '/services/social-affair',
   },
   {
     title: 'Event Design & Tablescapes',
