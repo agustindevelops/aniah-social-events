@@ -15,7 +15,7 @@ const Tabs = () => {
       className='isolate grid grid-cols-2 divide-x divide-gray-200 rounded-lg shadow'
     >
       {tabs.map((p, tabIdx) => (
-        <BottomHeart {...p} />
+        <BottomHeart {...p} key={`service-tab-${tabIdx}`} />
       ))}
     </nav>
   );
