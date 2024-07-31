@@ -1,6 +1,7 @@
 export const SERVICES = {
   TABLESCAPES: {
-    slug: 'all-about-tablescapes',
+    slug: 'tablescapes',
+    pathname: '/services/tablescapes',
     title: 'All About Tablescapes',
     subTitle:
       'Create a visually appealing and cohesive table display for your event',
@@ -17,6 +18,7 @@ export const SERVICES = {
   PLANNING_AND_COORDINATION: {
     TRUE_DAY_OF_COORDINATION: {
       slug: 'true-day-of-coordination',
+      pathname: '/services/true-day-of-coordination',
       title: 'True Day of Coordination',
       subTitle: '6 HR. MINIMUM',
       price: '$95/HR.',
@@ -33,6 +35,7 @@ export const SERVICES = {
     },
     THIRTY_DAYS_OUT_COORDINATION: {
       slug: '30-days-out-coordination',
+      pathname: '/services/30-days-out-coordination',
       title: '30-Days Out Coordination',
       subTitle: '',
       price: '$1000',
@@ -45,6 +48,7 @@ export const SERVICES = {
     },
     PARTIAL_PLANNING: {
       slug: 'partial-planning',
+      pathname: '/services/partial-planning',
       title: 'Partial Planning',
       subTitle: '',
       price: '$1,800',
@@ -64,6 +68,7 @@ export const SERVICES = {
     },
     FULL_PLANNING: {
       slug: 'full-planning',
+      pathname: '/services/full-planning',
       title: 'Full Planning',
       subTitle: '',
       price: '$2,600',

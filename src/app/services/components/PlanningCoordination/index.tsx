@@ -1,5 +1,5 @@
 import { SERVICES } from '@/utils/data';
-import BottomHeart from '@/app/services/PlanningCoordination/BottomHeart';
+import BottomHeart from '@/app/services/components/PlanningCoordination/BottomHeart';
 
 const {
   TRUE_DAY_OF_COORDINATION,

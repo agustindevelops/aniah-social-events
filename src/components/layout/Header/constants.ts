@@ -1,4 +1,10 @@
 import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
+import { SERVICES } from '@/utils/data';
+
+const {
+  TABLESCAPES,
+  PLANNING_AND_COORDINATION: { TRUE_DAY_OF_COORDINATION, FULL_PLANNING },
+} = SERVICES;
 
 export const LINKS = [
   { href: '/events/blossoms-&-brews', label: 'Blossoms & Brews' },
@@ -29,9 +35,12 @@ export const MAIN_LINKS: LinkType[] = [
     label: 'Wedding Planning',
     route: '/#ourServices',
     items: [
-      { label: 'Planning', route: '/services/socially-atelier' },
-      { label: 'Coordination', route: '/services/social-affair' },
-      { label: 'Tablescapes', route: '/services/tablescapes' },
+      { label: 'Planning', route: `/services/${FULL_PLANNING.slug}` },
+      {
+        label: 'Coordination',
+        route: `/services/${TRUE_DAY_OF_COORDINATION.slug}`,
+      },
+      { label: 'Tablescapes', route: `/services/${TABLESCAPES.slug}` },
     ],
   },
   { label: 'Reviews', route: '/reviews' },

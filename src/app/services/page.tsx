@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import PlanningCoordination from '@/app/services/PlanningCoordination';
+import PlanningCoordination from 'src/app/services/components/PlanningCoordination';
 interface ServiceLayoutProps {
   children: ReactNode;
 }

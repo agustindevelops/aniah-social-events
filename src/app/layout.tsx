@@ -24,7 +24,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <body>
         <GoogleAnalytics />
         <Header />
-        <main className='bg-cream text-brown-500 min-h-screen'>
+        <main className='bg-cream text-brown-500'>
           <Providers>{children}</Providers>
         </main>
         <footer className='layout relative flex flex-col items-center justify-center py-12 text-center'>

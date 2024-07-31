@@ -2,16 +2,14 @@ import { Service } from './servicesTypes';
 import { SERVICES } from '@/utils/data';
 
 const {
-  TRUE_DAY_OF_COORDINATION,
-  THIRTY_DAYS_OUT_COORDINATION,
-  PARTIAL_PLANNING,
-  FULL_PLANNING,
-} = SERVICES.PLANNING_AND_COORDINATION;
+  TABLESCAPES,
+  PLANNING_AND_COORDINATION: { TRUE_DAY_OF_COORDINATION, FULL_PLANNING },
+} = SERVICES;
 
 export const servicesData: Service[] = [
   {
     title: 'Event Planning',
-    price: '$1600 - $2800',
+    price: '$1800 - $2600',
     description:
       "Transform your vision into reality with our comprehensive event planning package. Starting from $1600, we ensure every detail is meticulously crafted to your taste. From venue selection to vendor coordination, we're with you every step to create an unforgettable celebration.",
     image: '/images/event-planning.png',
@@ -31,6 +29,6 @@ export const servicesData: Service[] = [
     description:
       "Begin your event's story with stunning design and tablescapes starting at $600. Aniah Social Events Co. specializes in creating atmospheric settings that speak to the heart. Let us curate a visual feast that will enchant you and your guests alike.",
     image: '/images/tablescape-event-design.jpg',
-    link: '/services/tablescapes',
+    link: `/services/${TABLESCAPES.slug}`,
   },
 ];
