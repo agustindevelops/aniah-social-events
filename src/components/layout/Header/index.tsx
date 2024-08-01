@@ -105,7 +105,10 @@ const Header = () => {
             </ul>
           </div>
           <div className='navbar-end'>
-            <UnstyledLink href={cta.route} className='btn btn-primary w-full'>
+            <UnstyledLink
+              href={cta.route}
+              className='btn w-full bg-blue-500 text-white hover:bg-blue-600'
+            >
               {cta?.label}
             </UnstyledLink>
           </div>
