@@ -3,31 +3,35 @@ import { SERVICES } from '@/utils/data';
 
 const {
   TABLESCAPES,
-  PLANNING_AND_COORDINATION: { TRUE_DAY_OF_COORDINATION, FULL_PLANNING },
+  PLANNING_AND_COORDINATION: {
+    THIRTY_DAYS_OUT_COORDINATION,
+    PLANNING_AND_COORDINATION,
+    ATELIER_PLANNING_AND_COORDINATION,
+  },
 } = SERVICES;
 
 export const servicesData: Service[] = [
   {
     title: 'Event Planning',
-    price: '$1800 - $2600',
+    price: `${PLANNING_AND_COORDINATION.price} - ${ATELIER_PLANNING_AND_COORDINATION.price}`,
     description:
-      "Transform your vision into reality with our comprehensive event planning package. Starting from $1600, we ensure every detail is meticulously crafted to your taste. From venue selection to vendor coordination, we're with you every step to create an unforgettable celebration.",
+      'Transform your vision into reality with our comprehensive event planning package. Starting at $2000, includes everything from custom invitation design to post-wedding wrap-up. Let Aniah Social Events Co. handle every detail to create an unforgettable celebration.',
     image: '/images/event-planning.png',
-    link: `/services/${FULL_PLANNING.slug}`,
+    link: `/services/${ATELIER_PLANNING_AND_COORDINATION.slug}`,
   },
   {
-    title: 'Coordination',
-    price: '$95/Hr or $1000/Day',
+    title: '30 Days Out Coordination',
+    price: THIRTY_DAYS_OUT_COORDINATION.price,
     description:
-      'Navigate your event seamlessly with our professional coordination services. For $95/Hr or $1000/Day, we manage the intricacies of your day with precision. Experience stress-free festivities as we orchestrate the flow, timing, and execution of your event schedule.',
+      'Ensure your event is meticulously planned with our "30-Days Out Coordination" service. This package includes rehearsal coordination, minimal decor setup, and comprehensive cleanup. Experience stress-free festivities as we handle the details and execution of your event schedule.',
     image: '/images/coordinator.png',
-    link: `/services/${TRUE_DAY_OF_COORDINATION.slug}`,
+    link: `/services/${THIRTY_DAYS_OUT_COORDINATION.slug}`,
   },
   {
     title: 'Event Design & Tablescapes',
-    price: 'Starts at $600',
+    price: 'Starts at $800',
     description:
-      "Begin your event's story with stunning design and tablescapes starting at $600. Aniah Social Events Co. specializes in creating atmospheric settings that speak to the heart. Let us curate a visual feast that will enchant you and your guests alike.",
+      "Begin your event's story with stunning design and tablescapes starting at $800. Aniah Social Events Co. specializes in creating atmospheric settings that speak to the heart. Let us curate a visual feast that will enchant you and your guests alike.",
     image: '/images/tablescape-event-design.jpg',
     link: `/services/${TABLESCAPES.slug}`,
   },

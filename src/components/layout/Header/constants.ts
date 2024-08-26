@@ -3,7 +3,10 @@ import { SERVICES } from '@/utils/data';
 
 const {
   TABLESCAPES,
-  PLANNING_AND_COORDINATION: { TRUE_DAY_OF_COORDINATION, FULL_PLANNING },
+  PLANNING_AND_COORDINATION: {
+    THIRTY_DAYS_OUT_COORDINATION,
+    ATELIER_PLANNING_AND_COORDINATION,
+  },
 } = SERVICES;
 
 export const LINKS = [
@@ -35,10 +38,13 @@ export const MAIN_LINKS: LinkType[] = [
     label: 'Wedding Planning',
     route: '/#ourServices',
     items: [
-      { label: 'Planning', route: `/services/${FULL_PLANNING.slug}` },
+      {
+        label: 'Planning',
+        route: `/services/${ATELIER_PLANNING_AND_COORDINATION.slug}`,
+      },
       {
         label: 'Coordination',
-        route: `/services/${TRUE_DAY_OF_COORDINATION.slug}`,
+        route: `/services/${THIRTY_DAYS_OUT_COORDINATION.slug}`,
       },
       { label: 'Tablescapes', route: `/services/${TABLESCAPES.slug}` },
     ],
