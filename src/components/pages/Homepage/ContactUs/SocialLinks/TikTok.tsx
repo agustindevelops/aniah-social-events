@@ -1,4 +1,3 @@
-import { FaTiktok } from 'react-icons/fa';
 import Image from 'next/image';
 
 const TikTok = () => {
@@ -9,7 +8,7 @@ const TikTok = () => {
       rel='noopener noreferrer'
       className='transition-transform hover:scale-110'
     >
-      <Image src='/svg/tiktok.svg' alt='Instagram' width={25} height={25} />
+      <Image src='/svg/tiktok.svg' alt='Instagram' width={60} height={60} />
     </a>
   );
 };

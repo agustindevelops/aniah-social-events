@@ -10,8 +10,8 @@ const TheKnot = () => {
       <Image
         alt='TheKnot.com'
         src='https://d13ns7kbjmbjip.cloudfront.net/For_Your_Website/TK-icon_circle_large.png'
-        width={25}
-        height={25}
+        width={60}
+        height={60}
         quality={100}
       />
     </a>

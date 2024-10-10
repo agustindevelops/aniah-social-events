@@ -4,4 +4,5 @@ export type Service = {
   description: string;
   image: string;
   link: string;
+  ctaLabel: string;
 };

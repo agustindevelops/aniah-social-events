@@ -1,20 +1,4 @@
 export const SERVICES = {
-  TABLESCAPES: {
-    slug: 'tablescapes',
-    pathname: '/services/tablescapes',
-    title: 'All About Tablescapes',
-    subTitle:
-      'Create a visually appealing and cohesive table display for your event',
-    price: '$800',
-    body: "Tablescapes refer to the artful arrangement of table settings, centerpieces, decor, and other design elements to create a visually appealing and cohesive table display. It's not just about putting plates and forks on a table, but it's more like creating a whole vibe or theme for the table. You might use different colors, textures, and decorations to make it look beautiful and exciting. It's a fun way to make a dinner or party feel extra special! As a company specializing in event planning, Aniah Social Events Co. can provide the expertise and creativity needed to make your event memorable with a beautiful and unique tablescape.",
-    services: [
-      'Professional Expertise',
-      'Time-Saving',
-      'Attention to Detail',
-      'Customization',
-    ],
-    callToAction: 'Contact us today for a free quote',
-  },
   PLANNING_AND_COORDINATION: {
     THIRTY_DAYS_OUT_COORDINATION: {
       slug: '30-days-out-coordination',
@@ -56,6 +40,21 @@ export const SERVICES = {
         'Custom Invitation Design: Access to our Invitation Templates, 1 consultation meeting, and 1 revision meeting.',
         'Design & Decor Assistance: Access to our basic decor packages, offer guidance on decor and theme.',
         'Post-Wedding Wrap-Up: Assist with vendor follow-ups and wrap-up tasks up to 15 days after event.',
+      ],
+    },
+    PARTY_PLANNING: {
+      slug: 'party-planning',
+      pathname: '/services/party-planning',
+      title: 'Party Planning',
+      subTitle: '',
+      price: 'Starting at  $1,600',
+      body: 'Everything included in Atelier Planning & Coordination +',
+      services: [
+        'Custom Invitation Design: Professionally designed, digital themed invitations to match your event style. Includes digital and/or printed invitations.',
+        'Custom Decor Design: A comprehensive decor plan based on your theme, colors, and preferences.',
+        'Decor Purchase & Rental: We handle all decor needs, including sourcing, purchasing, and renting items. We offer curated decor options for rent or purchase, ensuring your event is beautifully styled with no hassle.',
+        'Setup & Breakdown: Full setup and breakdown of all rentals and decor, ensuring a seamless event experience.',
+        'Event Coordination: Day-of coordination to ensure everything runs smoothly. Vendor management, timeline creation, and on-site support.',
       ],
     },
   },

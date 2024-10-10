@@ -1,26 +1,26 @@
 'use client';
 
-import UnstyledLink from '@/components/links/UnstyledLink';
-import { Service } from '@/components/pages/Homepage/OurServices/servicesTypes';
 import Image from 'next/image';
 
-const ServiceCard = ({ service, i = 1 }: { service: Service; i?: number }) => {
-  return (
-    <UnstyledLink
-      href={service.link}
-      className='bg-peach-100 relative overflow-hidden rounded-t-lg border transition duration-300 hover:scale-105 hover:shadow-lg lg:p-4'
-    >
-      <div className={'relative h-72'}>
-        <Image
-          src={service.image}
-          alt={service.title}
-          className='rounded-t-full'
-          fill
-          style={{ objectFit: 'cover' }}
-        />
-      </div>
+import Button from '@/components/buttons/Button';
+import UnstyledLink from '@/components/links/UnstyledLink';
+import { Service } from '@/components/pages/Homepage/OurServices/servicesTypes';
 
-      <div className='p-2 md:p-4'>
+const ServiceCard = ({ service }: { service: Service; i?: number }) => (
+  <div
+    className='bg-peach-100 relative overflow-hidden rounded-lg border lg:p-4 flex flex-col h-full'
+  >
+    <div className="relative h-72 flex-shrink-0">
+      <Image
+        src={service.image}
+        alt={service.title}
+        className='rounded-t-lg'
+        fill
+        style={{ objectFit: 'cover' }} />
+    </div>
+
+    <div className='flex flex-col justify-between flex-grow p-4'>
+      <div>
         <h2 className='font-gentySans mb-2 text-lg md:mb-1 md:text-2xl'>
           {service.title}
         </h2>
@@ -31,8 +31,11 @@ const ServiceCard = ({ service, i = 1 }: { service: Service; i?: number }) => {
           {service.description}
         </p>
       </div>
-    </UnstyledLink>
-  );
-};
+      <UnstyledLink href={service.link} className='flex flex-col mt-4'>
+        <Button className='bg-peach-500 border-white transition duration-300 hover:scale-105'>{service.ctaLabel}</Button>
+      </UnstyledLink>
+    </div>
+  </div>
+);
 
 export default ServiceCard;

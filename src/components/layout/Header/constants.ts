@@ -2,10 +2,10 @@ import { BLOSSOMS_AND_BREWS } from '@/utils/content/events';
 import { SERVICES } from '@/utils/data';
 
 const {
-  TABLESCAPES,
   PLANNING_AND_COORDINATION: {
     THIRTY_DAYS_OUT_COORDINATION,
     ATELIER_PLANNING_AND_COORDINATION,
+    PARTY_PLANNING,
   },
 } = SERVICES;
 
@@ -35,18 +35,18 @@ export const BLOSSOMS_AND_BREWS_CTA = {
 
 export const MAIN_LINKS: LinkType[] = [
   {
-    label: 'Wedding Planning',
+    label: 'Our Services',
     route: '/#ourServices',
     items: [
       {
-        label: 'Planning',
+        label: 'Wedding Planning',
         route: `/services/${ATELIER_PLANNING_AND_COORDINATION.slug}`,
       },
       {
         label: 'Coordination',
         route: `/services/${THIRTY_DAYS_OUT_COORDINATION.slug}`,
       },
-      { label: 'Tablescapes', route: `/services/${TABLESCAPES.slug}` },
+      { label: 'Party Planning', route: `/services/${PARTY_PLANNING.slug}` },
     ],
   },
   { label: 'Reviews', route: '/reviews' },

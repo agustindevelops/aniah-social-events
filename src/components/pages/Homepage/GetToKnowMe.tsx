@@ -2,45 +2,33 @@ import Image from 'next/image';
 
 const GetToKnowMe = () => {
   return (
-    <div>
-      <div className='grid grid-cols-1 items-center gap-4 p-4 text-center text-lg md:grid-cols-2 md:text-2xl'>
+    <div className="py-12">
+      <div className='container mx-auto grid grid-cols-1 items-center gap-8 p-4 text-center md:grid-cols-2'>
         <Image
           src='/images/get-to-know-me-photo-squiggle.png'
-          alt="Get To Know Me Aniah's Photo"
+          alt="Aniah's Photo"
           width={414}
           height={414}
-          className='mx-auto'
+          className='mx-auto rounded-full shadow-lg'
         />
-        <div>
+        <div className="space-y-6">
           <Image
             src='/images/get-to-know-me-title.png'
-            alt="Get To Know Me Aniah's Title"
+            alt="Get To Know Me"
             width={452}
             height={104}
-            className='mx-auto p-2'
+            className='mx-auto'
           />
-          <p>
-            Introducing Aniah's Social Events Co. - where creativity meets
-            unforgettable moments. I'm Aniah, and I founded this company out of
-            my deep love for creating and designing beautiful projects. Having
-            worked as a bridal seamstress, coordinator, decorator, and now a
-            planner, I've gained a wealth of experience in the wedding industry.
+          <p className="text-lg md:text-xl leading-relaxed">
+            Welcome to Aniah's Social Events Co., where creativity blossoms into unforgettable moments. I'm Aniah, the founder, and my passion for creating beautiful experiences drives everything we do. With a background as a bridal seamstress, coordinator, and decorator, I've cultivated a rich tapestry of skills in the wedding industry.
           </p>
         </div>
 
-        <p className={'md:col-span-2'}>
-          My goal is simple: to share my creativity and help others create
-          unique and memorable events. I believe in the power of meticulous
-          attention to detail and the transformative nature of design. With
-          Aniah's Social Events Co., I bring my unique artistic vision to every
-          project, ensuring that no element is overlooked.
+        <p className='md:col-span-2 text-lg md:text-xl leading-relaxed'>
+          My mission is to infuse every event with creativity and uniqueness. I believe in the magic that lies in the details and the transformative power of thoughtful design. At Aniah's Social Events Co., we bring a distinctive artistic vision to each project, ensuring every element contributes to a cohesive and stunning result.
         </p>
-        <p className={'md:col-span-2'}>
-          When you choose Aniah's Social Events Co., you can trust in my
-          expertise to turn your dreams into extraordinary, lifelong memories.
-          Let me elevate your event and make it truly magical. Together, we'll
-          create an unforgettable experience that reflects your individuality
-          and leaves a lasting impression on all who attend.
+        <p className='md:col-span-2 text-lg md:text-xl leading-relaxed'>
+          When you choose us, you're entrusting your dreams to a team dedicated to turning them into extraordinary realities. We don't just plan events; we craft experiences that resonate with your personality and leave an indelible mark on all who attend. Let's embark on this creative journey together and make your special day truly magical.
         </p>
       </div>
     </div>
