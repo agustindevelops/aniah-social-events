@@ -1,5 +1,5 @@
-import { SERVICES } from '@/utils/data';
-import Service from '@/app/services/components/Service';
+import { SERVICES } from "@/utils/data";
+import Service from "@/app/services/components/Service";
 
 export type Package = {
   slug: string;

@@ -1,8 +1,8 @@
-import { BLOCKS } from '@contentful/rich-text-types/dist/types/blocks';
+import { BLOCKS } from "@contentful/rich-text-types/dist/types/blocks";
 import {
   Node,
   TopLevelBlock,
-} from '@contentful/rich-text-types/dist/types/types';
+} from "@contentful/rich-text-types/dist/types/types";
 
 interface BasicObject {}
 

@@ -4,47 +4,47 @@ import {
   Playfair,
   Libre_Baskerville,
   Style_Script,
-} from 'next/font/google';
-import { ReactNode } from 'react';
-import localFont from 'next/font/local';
+} from "next/font/google";
+import { ReactNode } from "react";
+import localFont from "next/font/local";
 
 const shrikhand = Shrikhand({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-shrikhand',
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-shrikhand",
 });
 
 const pacifico = Pacifico({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-pacifico',
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pacifico",
 });
 
 const gentySans = localFont({
-  src: './genty-sans-regular.otf',
-  variable: '--font-gentySans',
+  src: "./genty-sans-regular.otf",
+  variable: "--font-gentySans",
 });
 
 const bright = localFont({
-  src: './bright.otf',
-  display: 'swap',
-  variable: '--font-bright',
+  src: "./bright.otf",
+  display: "swap",
+  variable: "--font-bright",
 });
 const playfair = Playfair({
-  subsets: ['latin'],
-  variable: '--font-playfair',
+  subsets: ["latin"],
+  variable: "--font-playfair",
 });
 const libre = Libre_Baskerville({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '700'],
-  variable: '--font-libre',
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
+  variable: "--font-libre",
 });
 const styleScript = Style_Script({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: '400',
-  variable: '--font-styleScript',
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-styleScript",
 });
 
 const Fonts = ({ children }: { children: ReactNode }) => {
