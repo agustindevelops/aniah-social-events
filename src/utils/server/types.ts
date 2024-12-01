@@ -1,7 +1,7 @@
 export interface ErrorResponse {
-    response?: {
-        body?: {
-            detail?: string;
-        };
+  response?: {
+    body?: {
+      detail?: string;
     };
+  };
 }

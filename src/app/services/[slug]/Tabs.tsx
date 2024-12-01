@@ -1,15 +1,17 @@
-import { SERVICES } from '@/utils/data';
-import BottomHeart from '@/app/services/components/PlanningCoordination/BottomHeart';
+import BottomHeart from "@/app/services/components/PlanningCoordination/BottomHeart";
+import { TypeServiceFields } from "@/lib/contentful/types";
 
-const tabs = Object.values(SERVICES.PLANNING_AND_COORDINATION);
+type PropTypes = {
+  services: TypeServiceFields[];
+};
 
-const Tabs = () => (
+const Tabs = ({ services }: PropTypes) => (
   <nav
-    aria-label='Services Tabs'
-    className='isolate grid grid-cols-2 divide-x divide-gray-200 rounded-lg shadow'
+    aria-label="Services Tabs"
+    className="isolate grid grid-cols-2 divide-x divide-gray-200 rounded-lg shadow"
   >
-    {tabs.map((p, tabIdx) => (
-      <BottomHeart {...p} key={`service-tab-${tabIdx}`} />
+    {services.map((service, tabIdx) => (
+      <BottomHeart {...service} key={`service-tab-${tabIdx}`} />
     ))}
   </nav>
 );

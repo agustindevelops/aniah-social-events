@@ -1,8 +1,8 @@
-import Service from '@/app/services/components/Service';
+import Service from "@/app/services/components/Service";
 
 const Tablescapes = () => (
-  <div className='mt-32'>
-    <Service params={{ slug: 'tablescapes' }} />
+  <div className="mt-32">
+    <Service params={{ slug: "tablescapes" }} />
   </div>
 );
 

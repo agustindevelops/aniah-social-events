@@ -1,30 +1,30 @@
 const data = [
   {
-    title: 'Tea',
+    title: "Tea",
     items: [
-      'Peony & Rose Tea',
-      'Blooming Flower Tea',
-      'Butterfly Pea Flower Tea',
+      "Peony & Rose Tea",
+      "Blooming Flower Tea",
+      "Butterfly Pea Flower Tea",
     ],
   },
   {
-    title: 'Étagère',
+    title: "Étagère",
     items: [
       {
-        course: '1st Course',
+        course: "1st Course",
         courseItems: [
-          'Quiche',
-          'Cucumber Tea Sandwich',
-          'Chicken Salad Tea Sandwich',
+          "Quiche",
+          "Cucumber Tea Sandwich",
+          "Chicken Salad Tea Sandwich",
         ],
       },
       {
-        course: '2nd Course',
-        courseItems: ['Assorted Scones', 'Jams'],
+        course: "2nd Course",
+        courseItems: ["Assorted Scones", "Jams"],
       },
       {
-        course: '3rd Course',
-        courseItems: ['Macarons', 'Madeleines'],
+        course: "3rd Course",
+        courseItems: ["Macarons", "Madeleines"],
       },
     ],
   },

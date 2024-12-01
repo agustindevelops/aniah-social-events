@@ -1,11 +1,11 @@
-import { revalidatePath } from 'next/cache';
-import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from "next/cache";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  console.log('Webhook payload:', request.body);
+  console.log("Webhook payload:", request.body);
 
-  const path = request.nextUrl.searchParams.get('path');
-  const secretHeader = request.headers.get('secret');
+  const path = request.nextUrl.searchParams.get("path");
+  const secretHeader = request.headers.get("secret");
 
   return NextResponse.json({ body: request.body, path, secretHeader });
   //

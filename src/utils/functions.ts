@@ -1,5 +1,5 @@
 export const strToUTCDate = (dateString: string) => {
-  const [year, month, day] = dateString.split('-').map(Number);
+  const [year, month, day] = dateString.split("-").map(Number);
 
   const date = new Date(year, month - 1, day);
 
@@ -10,12 +10,12 @@ export const strToUTCDate = (dateString: string) => {
 };
 
 export const isVideo = (endOfUrl: string) =>
-  ['mp4'].some((ext) => endOfUrl.includes(ext));
+  ["mp4"].some((ext) => endOfUrl.includes(ext));
 export const isPhoto = (endOfUrl: string) =>
-  ['jpg', 'png'].some((ext) => endOfUrl.includes(ext));
+  ["jpg", "png"].some((ext) => endOfUrl.includes(ext));
 export const getFileExt = (filePath?: string) => {
-  if (!filePath) return '';
+  if (!filePath) return "";
 
-  const parts = filePath.split('.');
-  return parts.at(-1) || '';
+  const parts = filePath.split(".");
+  return parts.at(-1) || "";
 };

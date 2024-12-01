@@ -1,5 +1,6 @@
-import { SERVICES } from '@/utils/data';
-import Service from '@/app/services/components/Service';
+import { SERVICES } from "@/utils/data";
+import Service from "@/app/services/components/Service";
+import { getServices } from "@/lib/contentful/api";
 
 export type Package = {
   slug: string;
@@ -12,7 +13,7 @@ export type Package = {
 };
 
 export const generateStaticParams = async () =>
-  Object.values(SERVICES.PLANNING_AND_COORDINATION).map(({ slug }) => ({
+  (await getServices()).map(({ slug }) => ({
     slug,
   }));
 

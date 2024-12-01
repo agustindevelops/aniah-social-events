@@ -1,16 +1,16 @@
-import { SERVICES } from '@/utils/data';
-import BottomHeart from '@/app/services/components/PlanningCoordination/BottomHeart';
+import BottomHeart from "@/app/services/components/PlanningCoordination/BottomHeart";
+import { TypeServiceFields } from "@/lib/contentful/types";
 
-const { PLANNING_AND_COORDINATION } = SERVICES;
+type PropTypes = {
+  services: TypeServiceFields[];
+};
 
-const PlanningCoordination = () => {
+const PlanningCoordination = async ({ services }: PropTypes) => {
   return (
-    <div>
-      <div className='flex flex-col items-center gap-4'>
-        {Object.values(PLANNING_AND_COORDINATION).map((props, key) => (
-          <BottomHeart key={props.slug} {...props} />
-        ))}
-      </div>
+    <div className="flex flex-col items-center gap-4">
+      {services.map((service) => (
+        <BottomHeart key={service.slug} {...service} />
+      ))}
     </div>
   );
 };
