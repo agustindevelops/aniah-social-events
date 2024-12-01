@@ -1,11 +1,9 @@
 import type { Entry, EntryFields } from "contentful";
-import type { TypeComponentSeoFields } from "./TypeComponentSeo";
-import type { TypePageBlogPostFields } from "./TypePageBlogPost";
 
 export interface TypePageLandingFields {
-    internalName: EntryFields.Symbol;
-    seoFields?: Entry<TypeComponentSeoFields>;
-    featuredBlogPost?: Entry<TypePageBlogPostFields>;
+  internalName: EntryFields.Symbol;
+  seoFields?: Entry<any>;
+  featuredBlogPost?: Entry<any>;
 }
 
-export type TypePageLanding = Entry<TypePageLandingFields>;
+export type TypePageLanding = Entry<any>;
