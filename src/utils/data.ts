@@ -5,7 +5,7 @@ export const SERVICES = {
       pathname: "/services/30-days-out-coordination",
       title: "30-Days Out Coordination",
       subTitle: "",
-      price: "$1,400",
+      price: "$1,500",
       body: "Everything included in True day of Coordination +",
       services: [
         "Rehearsal Coordination: Organize and direct the rehearsal.",
@@ -30,8 +30,8 @@ export const SERVICES = {
       ],
     },
     ATELIER_PLANNING_AND_COORDINATION: {
-      slug: "atelier-planning-and-coordination",
-      pathname: "/services/atelier-planning-and-coordination",
+      slug: "atelier-planning-coordination",
+      pathname: "/services/atelier-planning-coordination",
       title: "Atelier: Planning & Coordination",
       subTitle: "",
       price: "$3,500",

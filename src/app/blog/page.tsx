@@ -1,13 +1,10 @@
-import contentfulClientApi from "@/lib/contentful/contentfulClientApi";
-import { GetEntriesType } from "@/lib/contentful/types";
-import Link from "next/link";
+import { getBlogs } from "@/lib/contentful/api";
 import Author from "@/lib/contentful/components/Author";
 import Date from "@/lib/contentful/components/Date";
+import Link from "next/link";
 
 export default async function Blogs() {
-  const blogs: GetEntriesType = (await contentfulClientApi.getEntries({
-    content_type: "pageBlogPost",
-  })) as unknown as GetEntriesType;
+  const blogs = await getBlogs();
 
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -23,18 +20,16 @@ export default async function Blogs() {
             delight guests. Your journey to the perfect event starts here.
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-            {blogs.items.map(
+            {blogs.map(
               ({
-                fields: {
-                  slug,
-                  publishedDate,
-                  title,
-                  shortDescription,
-                  author,
-                  featuredImage: {
-                    fields: {
-                      file: { url: featuredUrl },
-                    },
+                slug,
+                publishedDate,
+                title,
+                shortDescription,
+                author,
+                featuredImage: {
+                  fields: {
+                    file: { url: featuredUrl },
                   },
                 },
               }) => (

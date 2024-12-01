@@ -1,31 +1,15 @@
+import { getServiceBySlug } from "@/lib/contentful/api";
 import Image from "next/image";
 import { AiFillHeart } from "react-icons/ai";
-import { SERVICES } from "@/utils/data";
-import { Package } from "@/app/services/[slug]/page";
 
-const DEFAULT_VALUE: Package = {
-  slug: "",
-  pathname: "",
-  title: "",
-  subTitle: "",
-  price: "",
-  body: "",
-  services: [],
-};
-
-const { PLANNING_AND_COORDINATION, TABLESCAPES } = SERVICES;
-
-const getService: (params: { slug?: string }) => Package = (params) => {
-  const slug = params?.slug as string;
-  return (
-    [...Object.values(PLANNING_AND_COORDINATION), TABLESCAPES].find((item) => {
-      return item.slug === slug;
-    }) || DEFAULT_VALUE
-  );
-};
-
-const Service = ({ params }: { params: { slug: string } }) => {
-  const { title, subTitle, price, body, services } = getService(params);
+const Service = async ({ params }: { params: { slug: string } }) => {
+  const {
+    title,
+    subtitle,
+    price,
+    body,
+    services = [],
+  } = await getServiceBySlug(params?.slug);
 
   return (
     <section className="">
@@ -42,9 +26,9 @@ const Service = ({ params }: { params: { slug: string } }) => {
               height={200}
               className="mx-auto my-4"
             />
-            <h2 className="font-libre mt-2 text-2xl font-medium">{subTitle}</h2>
+            <h2 className="font-libre mt-2 text-2xl font-medium">{subtitle}</h2>
             <p className="font-libre mt-2 text-3xl font-semibold tracking-widest">
-              {price}
+              ${price}
             </p>
           </div>
         </div>
