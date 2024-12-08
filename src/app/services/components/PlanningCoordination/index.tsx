@@ -5,7 +5,7 @@ type PropTypes = {
   services: TypeServiceFields[];
 };
 
-const PlanningCoordination = async ({ services }: PropTypes) => {
+const PlanningCoordination = ({ services }: PropTypes) => {
   return (
     <div className="flex flex-col items-center gap-4">
       {services.map((service) => (

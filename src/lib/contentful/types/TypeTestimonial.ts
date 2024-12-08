@@ -10,4 +10,4 @@ export interface TypeTestimonialFields {
     images?: Asset[];
 }
 
-export type TypeTestimonial = Entry<TypeTestimonialFields>;
+export type TypeTestimonial = Entry<any>;

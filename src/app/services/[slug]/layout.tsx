@@ -1,12 +1,12 @@
 import Tabs from "@/app/services/[slug]/Tabs";
 import { getServices } from "@/lib/contentful/api";
-import { FC, ReactNode } from "react";
+import { ReactNode } from "react";
 import PlanningCoordination from "src/app/services/components/PlanningCoordination";
 interface ServiceLayoutProps {
   children: ReactNode;
 }
 
-const ServiceLayout: FC<ServiceLayoutProps> = async ({ children }) => {
+const ServiceLayout = async ({ children }: ServiceLayoutProps) => {
   const services = await getServices();
 
   return (

@@ -1,9 +1,10 @@
-import type { Asset, Entry, EntryFields } from "contentful";
+import type { EntryFields } from "contentful";
+import type { CustomEntry, Asset } from "@/lib/contentful/customTypes";
 
 export interface TypeComponentAuthorFields {
-    internalName: EntryFields.Symbol;
-    name: EntryFields.Symbol;
-    avatar?: Asset;
+  internalName: EntryFields.Symbol;
+  name: EntryFields.Symbol;
+  avatar?: Asset;
 }
 
-export type TypeComponentAuthor = Entry<TypeComponentAuthorFields>;
+export type TypeComponentAuthor = CustomEntry<TypeComponentAuthorFields>;

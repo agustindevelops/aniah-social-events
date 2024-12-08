@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-import { AuthorType } from "@/lib/contentful/types";
+import { FC } from "react";
 
-const Author: FC<AuthorType> = ({
+const Author: FC<any> = ({
   fields: {
     name,
     avatar: {
