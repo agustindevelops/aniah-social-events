@@ -1,5 +1,5 @@
-import type { Asset, Entry, EntryFields } from "contentful";
-
+import type { EntryFields } from "contentful";
+import type { Asset, CustomEntry } from "../customTypes";
 export interface TypeProjectFields {
   title: EntryFields.Symbol;
   date: EntryFields.Date;
@@ -8,4 +8,4 @@ export interface TypeProjectFields {
   location?: EntryFields.Location;
 }
 
-export type TypeProject = Entry<any>;
+export type TypeProject = CustomEntry<TypeProjectFields>;

@@ -1,6 +1,7 @@
-import { getServiceBySlug } from "@/lib/contentful/api";
 import Image from "next/image";
 import { AiFillHeart } from "react-icons/ai";
+
+import { getServiceBySlug } from "@/lib/contentful/api";
 
 const Service = async ({ params }: { params: { slug: string } }) => {
   const {
