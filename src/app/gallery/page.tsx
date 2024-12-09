@@ -13,7 +13,7 @@ const Page = async () => {
       <div className="container mx-auto grid w-full grid-cols-2 px-4 md:grid-cols-4">
         {projects.map(
           ({
-            id,
+            slug,
             title,
             date,
             thumbnail: {
@@ -29,7 +29,7 @@ const Page = async () => {
             return (
               <div key={title} className="mb-4 overflow-hidden rounded-lg">
                 <Link
-                  href={`/gallery/${id}`}
+                  href={`/gallery/${slug}`}
                   className="group relative block"
                   aria-label={`View ${title} project details`}
                 >
