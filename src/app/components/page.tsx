@@ -21,8 +21,8 @@ import PrimaryLink from "@/components/links/PrimaryLink";
 import UnderlineLink from "@/components/links/UnderlineLink";
 import UnstyledLink from "@/components/links/UnstyledLink";
 import NextImage from "@/components/NextImage";
-import Seo from "@/components/Seo";
 import Skeleton from "@/components/Skeleton";
+import Seo from "../DefaultSeo";
 
 type Color = (typeof colorList)[number];
 

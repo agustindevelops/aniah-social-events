@@ -1,5 +1,6 @@
-import BottomHeart from "@/app/services/components/PlanningCoordination/BottomHeart";
 import { TypeServiceFields } from "@/lib/contentful/types";
+
+import BottomHeart from "@/app/services/components/PlanningCoordination/BottomHeart";
 
 type PropTypes = {
   services: TypeServiceFields[];

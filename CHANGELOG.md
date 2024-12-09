@@ -15,7 +15,7 @@ This changelog is manually generated and not accurate with the package.json, onl
 ### Improvements & Bug Fixes
 
 - #### More Efficient Lint Actions
-    
+
     Lint workflow is now cached and will cancel previous run if there are 2 concurrent runs.
 
 ## 0.5.3 - 2022-02-27
@@ -23,11 +23,10 @@ This changelog is manually generated and not accurate with the package.json, onl
 ### New Features
 
 - #### Shimmer for NextImage and Skeleton
-    
+
     Addition of shimmer & blur placeholder for NextImage, and new Skeleton Component with shimmer effect.
 
-    https://user-images.githubusercontent.com/55318172/155867729-8c3176ad-ede4-4443-b42b-780517615e5a.mp4
-
+    <https://user-images.githubusercontent.com/55318172/155867729-8c3176ad-ede4-4443-b42b-780517615e5a.mp4>
 
 - #### Support for SVGR
 
@@ -56,7 +55,7 @@ This changelog is manually generated and not accurate with the package.json, onl
 - #### ESLint Curly Brace Rule
 
     New autofixable rule
-    
+
     ```tsx
     props={'hi'}
 
@@ -87,26 +86,25 @@ This changelog is manually generated and not accurate with the package.json, onl
 
     The shade of the button is now using the `500` instead of `400`.
 
-
 ## 0.5.1 - 2021-12-26
 
 ### New Features
 
 - #### New Snippets Wrap: clsx and fragment `<></>`
-    
-    You can select text then wrap it with clsx or React.Fragment shorthand.
-    
-    https://user-images.githubusercontent.com/55318172/147401848-3db5dba0-ef71-4f25-9f47-c7908beba69e.mp4
 
+    You can select text then wrap it with clsx or React.Fragment shorthand.
+
+    <https://user-images.githubusercontent.com/55318172/147401848-3db5dba0-ef71-4f25-9f47-c7908beba69e.mp4>
 
 ## 0.5.0 - 2021-12-21
 
 ### New Features
 
 - #### Expansion Pack
+
     You can easily add expansion such as React Hook Form + Components, Storybook, and more just using a single command line.
 
-    https://user-images.githubusercontent.com/55318172/146631994-e1cac137-1664-4cfe-950b-a96decc1eaa6.mp4
+    <https://user-images.githubusercontent.com/55318172/146631994-e1cac137-1664-4cfe-950b-a96decc1eaa6.mp4>
 
     Check out the [expansion pack repository](https://github.com/theodorusclarence/expansion-pack) for the commands
 
@@ -120,14 +118,13 @@ This changelog is manually generated and not accurate with the package.json, onl
 
     Adds `items-center` to make the button vertically centered
 
-
 ## 0.4.1 - 2021-12-12
 
 ### New Features
 
 - #### Tailwind CSS v3
-    
-    The color palette configuration is also updated accordingly. 
+
+    The color palette configuration is also updated accordingly.
 
 ## 0.4.0 - 2021-12-02
 
@@ -135,14 +132,13 @@ This changelog is manually generated and not accurate with the package.json, onl
 
 - #### Button & ButtonLink Variants
 
-    - New Variant: **Outline** and **Ghost**, you can also add `isDarkBg` prop if you are using these variants with dark background.
-    - Animated Underline style on **Primary**, **Dark**, **Light** is removed
-    - Added `ring-primary-500` on `focus-visible`
+  - New Variant: **Outline** and **Ghost**, you can also add `isDarkBg` prop if you are using these variants with dark background.
+  - Animated Underline style on **Primary**, **Dark**, **Light** is removed
+  - Added `ring-primary-500` on `focus-visible`
 
     ![Button Variants](https://user-images.githubusercontent.com/55318172/144385213-632b3e1f-9a0e-4184-82e0-7905ee3318b4.gif)
 
 - #### ArrowLink
-
 
     Adds an animated arrow, this component is Polymorphic, the default element is `CustomLink`, you can extend it with `as` prop.
 
@@ -236,7 +232,6 @@ This changelog is manually generated and not accurate with the package.json, onl
 - #### CustomLink Component
 
     ![customlink](https://user-images.githubusercontent.com/55318172/129183546-4e8c2059-0493-4459-a1e9-755fbd32fe39.gif)
-
 
 - #### Absolute Import
 
@@ -410,4 +405,3 @@ Snippets: `reg`
 ```
 
 You should also use [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) extension.
-

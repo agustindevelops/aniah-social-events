@@ -27,6 +27,10 @@ const nextConfig = {
         port: "",
       },
     ],
+    domains: [
+      // ... other domains if any
+      "images.ctfassets.net",
+    ],
   },
 
   // SVGR

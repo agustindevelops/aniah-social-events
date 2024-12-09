@@ -6,4 +6,10 @@ export type CustomEntry<EntrySkeleton> = {
   fields: EntrySkeleton;
 };
 
-export type Asset = { file: { url: string } };
+export type Asset = {
+  fields: {
+    title: string;
+    description: string;
+    file: { url: string };
+  };
+};

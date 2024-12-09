@@ -1,4 +1,4 @@
-import { TypeServiceFields } from "@/lib/contentful/types";
+import { TypeProjectFields, TypeServiceFields } from "@/lib/contentful/types";
 
 const SERVICE: TypeServiceFields = {
   slug: "",
@@ -7,9 +7,26 @@ const SERVICE: TypeServiceFields = {
   price: 0,
   body: "",
   services: [],
-  mainImage: { file: { url: "" } },
+  mainImage: {
+    fields: {
+      file: { url: "" },
+      title: "",
+      description: "",
+    },
+  },
 };
 
-const DEFAULT = { SERVICE };
+const PROJECT: TypeProjectFields = {
+  slug: "",
+  title: "",
+  date: "2024-01-01T00:00:00Z",
+  metaDescription: "",
+  description: "",
+  thumbnail: {
+    fields: { file: { url: "" }, title: "", description: "" },
+  },
+};
 
-export default DEFAULT
+const DEFAULT = { SERVICE, PROJECT };
+
+export default DEFAULT;

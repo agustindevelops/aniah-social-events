@@ -13,7 +13,7 @@ export const sort = (
   return !gallery;
 };
 
-const getGallery = async () => {
+const getGallery = async (): Promise<_Object[]> => {
   try {
     const bucketName = process.env.S3_BUCKET_NAME;
     const command = new ListObjectsV2Command({

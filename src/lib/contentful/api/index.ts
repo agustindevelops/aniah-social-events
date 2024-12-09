@@ -1,5 +1,7 @@
 import {
   TypePageBlogPostFields,
+  TypeProject,
+  TypeProjectFields,
   TypeService,
   TypeServiceFields,
 } from "../types";
@@ -50,4 +52,29 @@ export const getServiceBySlug = async (
   const service = rawServices.items[0]?.fields || DEFAULT.SERVICE;
 
   return service;
+};
+
+export const getProjects = async (): Promise<
+  (TypeProjectFields & { id: string })[]
+> => {
+  const rawProjects = await client.getEntries({
+    content_type: "project",
+    order: ["-fields.date"],
+  });
+
+  return rawProjects.items.map(({ fields, sys: { id } }) => ({
+    id,
+    ...fields,
+  })) as unknown as (TypeProjectFields & { id: string })[];
+};
+
+export const getProjectBySlug = async (
+  slug: string
+): Promise<TypeProjectFields> => {
+  const rawProjects = (await client.getEntries({
+    content_type: "project",
+    "fields.slug": slug,
+  })) as unknown as TypeProject;
+
+  return rawProjects.items[0]?.fields || DEFAULT.PROJECT;
 };
