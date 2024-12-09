@@ -11,8 +11,8 @@ export interface TypePageBlogPostFields {
   publishedDate: EntryFields.Date;
   title: EntryFields.Symbol;
   shortDescription?: EntryFields.Text;
-  featuredImage: CustomEntry<Asset>;
-  featuredVideo?: CustomEntry<Asset>;
+  featuredImage: Asset;
+  featuredVideo?: Asset;
   content: EntryFields.RichText;
   relatedBlogPosts?: CustomEntries<TypePageBlogPostFields>[];
 }

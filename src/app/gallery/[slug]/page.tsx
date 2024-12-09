@@ -1,4 +1,3 @@
-import SEO from "@/components/Seo";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +13,7 @@ import { format } from "date-fns";
 import { HomeIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
+import SEO from "../../../components/seo";
 
 type Props = {
   params: {
