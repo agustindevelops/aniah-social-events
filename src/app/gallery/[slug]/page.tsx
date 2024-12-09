@@ -50,8 +50,8 @@ const GalleryPage = async ({ params }: Props) => {
         image={imageUrl}
         url={`/gallery/${params.slug}`}
       />
-      <div className="container">
-        <Card className="mx-auto mb-8 overflow-hidden">
+      <div className="container m-2">
+        <Card className="mx-auto mb-4 overflow-hidden">
           <div className="relative h-[540px] w-full">
             <Image
               src={imageUrl}
@@ -64,7 +64,7 @@ const GalleryPage = async ({ params }: Props) => {
           <CardContent className="p-6">
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <p className="mb-2 text-sm">
+                <p className="mb-4 text-xs md:text-sm">
                   {format(new Date(date), "MMMM d, yyyy")}
                 </p>
                 <h1 className="font-bol font-bright text-3xl">{title}</h1>
@@ -73,7 +73,7 @@ const GalleryPage = async ({ params }: Props) => {
             </div>
           </CardContent>
         </Card>
-        <Breadcrumb className="my-2">
+        <Breadcrumb className="m-2">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">
@@ -90,7 +90,7 @@ const GalleryPage = async ({ params }: Props) => {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className="grid grid-cols-2 grid-cols-4 gap-4">
+        <div className="m-2 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {images?.map(({ fields: { file, title, description } }) => {
             const imageUrl = `https:${file?.url}`;
             return (
