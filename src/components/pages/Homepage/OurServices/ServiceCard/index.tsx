@@ -8,7 +8,7 @@ import { Service } from "@/components/pages/Homepage/OurServices/servicesTypes";
 
 const ServiceCard = ({ service }: { service: Service; i?: number }) => (
   <div className="bg-peach-100 relative flex h-full flex-col overflow-hidden rounded-lg border lg:p-4">
-    <div className="relative h-72 flex-shrink-0">
+    <div className="relative h-96 flex-shrink-0">
       <Image
         src={service.image}
         alt={service.title}
