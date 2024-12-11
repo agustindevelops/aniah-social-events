@@ -21,15 +21,12 @@ const nextConfig = {
         port: "",
         pathname: "/homepage/**",
       },
-      {
-        protocol: "https",
-        hostname: "d13ns7kbjmbjip.cloudfront.net",
-        port: "",
-      },
     ],
     domains: [
       // ... other domains if any
       "images.ctfassets.net",
+      "downloads.ctfassets.net",
+      "d13ns7kbjmbjip.cloudfront.net",
     ],
   },
 
