@@ -57,6 +57,7 @@ const GalleryPage = async ({ params }: Props) => {
               src={imageUrl}
               alt={thumbnail?.fields?.description || title}
               fill
+              priority
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
             />
