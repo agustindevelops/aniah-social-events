@@ -17,7 +17,7 @@ export const LINKS = [
   { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
   {
-    href: "https://www.honeybook.com/widget/aniah_social_events_258611/cf_id/64ac6b5f5c67b511146db09e",
+    href: "/schedule",
     label: "Let's get in touch!",
   },
 ];
@@ -56,7 +56,6 @@ export const MAIN_LINKS: LinkType[] = [
   { label: "Blossoms & Brews", route: "/events/blossoms-&-brews" },
   {
     label: "Let's Get in Touch!",
-    route:
-      "https://www.honeybook.com/widget/aniah_social_events_258611/cf_id/64ac6b5f5c67b511146db09e",
+    route: "/schedule",
   },
 ];
