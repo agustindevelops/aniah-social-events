@@ -70,7 +70,7 @@ const GalleryPage = async ({ params }: Props) => {
                 </p>
                 <h1 className="font-bol font-bright text-3xl">{title}</h1>
               </div>
-              <p className="font-playfair col-span-2">{description}</p>
+              <p className="col-span-2">{description}</p>
             </div>
           </CardContent>
         </Card>

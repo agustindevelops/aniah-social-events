@@ -41,7 +41,10 @@ export const metadata: Metadata = {
     "Aniah Social Events offers exceptional event planning, wedding coordination, and personalized services in San Antonio, Texas & Austin, Texas.",
   themeColor: "#f5e0c3",
   robots: "index,follow",
-  viewport: "width=device-width, initial-scale=1",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
   openGraph: {
     type: "website",
     url: "https://www.aniahsocialevents.com",
