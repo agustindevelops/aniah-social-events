@@ -1,5 +1,5 @@
 export const SERVICES = {
-  PLANNING_AND_COORDINATION: {
+  WEDDINGS: {
     THIRTY_DAYS_OUT_COORDINATION: {
       slug: "30-days-out-coordination",
       pathname: "/services/30-days-out-coordination",
@@ -42,12 +42,14 @@ export const SERVICES = {
         "Post-Wedding Wrap-Up: Assist with vendor follow-ups and wrap-up tasks up to 15 days after event.",
       ],
     },
+  },
+  SOCIAL_EVENTS: {
     PARTY_PLANNING: {
       slug: "party-planning",
       pathname: "/services/party-planning",
       title: "Party Planning",
       subTitle: "",
-      price: "Starting at  $1,600",
+      price: "Starting at $1,600",
       body: "Everything included in Atelier Planning & Coordination +",
       services: [
         "Custom Invitation Design: Professionally designed, digital themed invitations to match your event style. Includes digital and/or printed invitations.",

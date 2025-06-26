@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import logo from "public/images/aniah-social-events-logo.png";
-import UnstyledLink from "@/components/links/UnstyledLink";
-import { RiMenu2Line } from "react-icons/ri";
 import {
   BLOSSOMS_AND_BREWS_CTA,
   MAIN_LINKS,
 } from "@/components/layout/Header/constants";
+import UnstyledLink from "@/components/links/UnstyledLink";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import logo from "public/images/aniah-social-events-logo.png";
+import { RiMenu2Line } from "react-icons/ri";
 
 const Header = () => {
   const pathname = usePathname();
@@ -114,7 +114,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="bg-peach-200 h-4" />
+      <div className="bg-peach-200 h-1" />
     </header>
   );
 };

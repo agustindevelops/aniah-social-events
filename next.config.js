@@ -11,22 +11,29 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: process.env.S3_BUCKET_NAME + ".s3.amazonaws.com",
-        port: "",
+        hostname: `${process.env.S3_BUCKET_NAME}.s3.amazonaws.com`,
         pathname: "/Portfolio/**",
       },
       {
         protocol: "https",
-        hostname: process.env.S3_BUCKET_NAME + ".s3.amazonaws.com",
-        port: "",
+        hostname: `${process.env.S3_BUCKET_NAME}.s3.amazonaws.com`,
         pathname: "/homepage/**",
       },
-    ],
-    domains: [
-      // ... other domains if any
-      "images.ctfassets.net",
-      "downloads.ctfassets.net",
-      "d13ns7kbjmbjip.cloudfront.net",
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "downloads.ctfassets.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "d13ns7kbjmbjip.cloudfront.net",
+        pathname: "/**",
+      },
     ],
   },
 

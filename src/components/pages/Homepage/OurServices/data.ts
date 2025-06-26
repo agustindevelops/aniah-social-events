@@ -3,12 +3,12 @@ import { SERVICES } from "@/utils/data";
 import { Service } from "./servicesTypes";
 
 const {
-  PLANNING_AND_COORDINATION: {
-    THIRTY_DAYS_OUT_COORDINATION,
+  WEDDINGS: {
     PLANNING_AND_COORDINATION,
+    THIRTY_DAYS_OUT_COORDINATION,
     ATELIER_PLANNING_AND_COORDINATION,
-    PARTY_PLANNING,
   },
+  SOCIAL_EVENTS: { PARTY_PLANNING },
 } = SERVICES;
 
 export const servicesData: Service[] = [

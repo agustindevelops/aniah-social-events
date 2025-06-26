@@ -9,6 +9,7 @@ export interface TypeServiceFields {
   body?: EntryFields.Text;
   services?: EntryFields.Symbol[];
   mainImage: Asset;
+  category: EntryFields.Symbol;
 }
 
 export type TypeService = CustomEntries<TypeServiceFields>;

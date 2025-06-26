@@ -4,6 +4,7 @@ const SERVICE: TypeServiceFields = {
   slug: "",
   title: "",
   subtitle: "",
+  category: "",
   price: 0,
   body: "",
   services: [],
