@@ -3,15 +3,17 @@ import UnderlineLink from "@/components/links/UnderlineLink";
 import Providers from "@/components/providers";
 import GoogleAnalytics from "@/components/third-party/GoogleAnalytics";
 import "@/styles/globals.css";
-import { Metadata } from "next";
 import Script from "next/script";
 import { FC, ReactNode } from "react";
+
+import type { Metadata, Viewport } from "next";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.aniahsocialevents.com"),
   title: "Aniah Social Events",
   generator: "Next.js",
   applicationName: "Aniah Social Events",
@@ -39,12 +41,7 @@ export const metadata: Metadata = {
   ],
   description:
     "Aniah Social Events offers exceptional event planning, wedding coordination, and personalized services in San Antonio, Texas & Austin, Texas.",
-  themeColor: "#f5e0c3",
   robots: "index,follow",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   openGraph: {
     type: "website",
     url: "https://www.aniahsocialevents.com",
@@ -53,7 +50,7 @@ export const metadata: Metadata = {
       "Exceptional event planning and coordination services in San Antonio, Texas & Austin, Texas.",
     images: [
       {
-        url: "https://www.aniahsocialevents.com/og-image.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Aniah Social Events",
@@ -73,6 +70,11 @@ export const metadata: Metadata = {
   },
   category: "Event Planning",
   classification: "Professional Services",
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 const Layout: FC<LayoutProps> = ({ children }) => {
