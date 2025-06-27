@@ -46,11 +46,16 @@ const styleScript = Style_Script({
   weight: "400",
   variable: "--font-styleScript",
 });
+const moonjelly = localFont({
+  src: "./moonjelly-light.woff.ttf",
+  display: "swap",
+  variable: "--font-moonjelly",
+});
 
 const Fonts = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`${nickainley.variable} ${gentySans.variable} ${shrikhand.variable} ${pacifico.variable} ${bright.variable} ${libre.variable} ${styleScript.variable} font-sans`}
+      className={`${nickainley.variable} ${moonjelly.variable} ${gentySans.variable} ${shrikhand.variable} ${pacifico.variable} ${bright.variable} ${libre.variable} ${styleScript.variable} font-sans`}
     >
       {children}
     </div>
