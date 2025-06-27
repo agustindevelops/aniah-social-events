@@ -12,11 +12,11 @@ const ServicesCard = ({
 }: TypeServiceFields) => {
   return (
     <div
-      className="service-card bg-cream rounded-lg shadow-md"
+      className="service-card bg-cream flex flex-col justify-between rounded-lg shadow-md"
       data-slug={slug}
     >
-      <div className="h-96 w-full overflow-hidden rounded-lg bg-opacity-20">
-        <div className="bg-peach-200 relative h-48">
+      <div className=" w-full overflow-hidden rounded-lg bg-opacity-20">
+        <div className="bg-peach-200 relative h-64">
           <NextImage
             src={`https:${mainImage.fields.file.url}`}
             alt={title}
