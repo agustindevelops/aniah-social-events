@@ -18,6 +18,7 @@ export default {
         libre: ["var(--font-libre)"],
         styleScript: ["var(--font-styleScript)"],
         nickainley: ["var(--font-nickainley)"],
+        moonjelly: ["var(--font-moonjelly)"],
       },
       colors: {
         ...colors,
