@@ -4,7 +4,7 @@ import MainCTA from "@/components/buttons/MainCTA";
 const Hero = () => {
   return (
     <section>
-      <div className="absolute top-16 h-[calc(100vh-8rem)] w-full md:h-[calc(100vh-16rem)]">
+      <div className="absolute top-16 w-full h-[32rem] sm:h-[34rem] md:h-[36rem] lg:h-[38rem] xl:h-[40rem]">
         <div
           className="flex h-full w-full flex-col items-center justify-center bg-cover"
           style={{
@@ -28,10 +28,10 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-2 left-0 right-0 flex justify-center md:bottom-16">
+      <div className="h-[36rem] sm:h-[38rem] md:h-[40rem] lg:h-[42rem] xl:h-[44rem]" />
+      <div className="my-4">
         <MainCTA />
       </div>
-      <div className="h-screen" />
     </section>
   );
 };
