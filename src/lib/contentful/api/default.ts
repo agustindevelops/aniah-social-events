@@ -14,6 +14,7 @@ const SERVICE: TypeServiceFields = {
       title: "",
       description: "",
     },
+    sys: { id: "" },
   },
 };
 
@@ -25,6 +26,7 @@ const PROJECT: TypeProjectFields = {
   description: "",
   thumbnail: {
     fields: { file: { url: "" }, title: "", description: "" },
+    sys: { id: "" },
   },
 };
 
