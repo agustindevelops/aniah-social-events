@@ -1,24 +1,26 @@
-"use client";
-
-import Hero from "@/components/pages/Homepage/Hero";
-import SectionLayout from "@/components/pages/Homepage/SectionLayout";
-import OurServices from "@/components/pages/Homepage/OurServices";
-import GetToKnowMe from "@/components/pages/Homepage/GetToKnowMe";
 import ContactUs from "@/components/pages/Homepage/ContactUs";
 import Gallery from "@/components/pages/Homepage/Gallery";
+import Hero from "@/components/pages/Homepage/Hero";
+import SectionLayout from "@/components/pages/Homepage/SectionLayout";
+import Services from "./services/Services";
+import Testimonials from "./testimonials/Testimonials";
 
-const Homepage = () => {
+const Homepage = async () => {
   return (
-    <div className={"w-full text-center"} id={"home"}>
+    <div className="w-full text-center" id="home">
       <Hero />
-      <SectionLayout id={"ourServices"}>
-        <OurServices />
+
+      <section className="mt-36 my-24">
+        <Gallery />
+      </section>
+
+      <SectionLayout id="ourServices">
+        <Services />
       </SectionLayout>
-      <Gallery />
-      <SectionLayout id={"getToKnowMe"}>
-        <GetToKnowMe />
+      <SectionLayout id="testimonials">
+        <Testimonials />
       </SectionLayout>
-      <SectionLayout id={"contactUs"}>
+      <SectionLayout id="contactUs">
         <ContactUs />
       </SectionLayout>
     </div>

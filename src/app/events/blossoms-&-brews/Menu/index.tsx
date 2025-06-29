@@ -33,7 +33,7 @@ const Menu = () => {
 
               return (
                 <ul className="mb-4" key={course}>
-                  <li className="font-bright mb-2 mt-6 text-2xl font-bold">
+                  <li className="font-nickainley mb-2 mt-6 text-2xl font-bold">
                     {course}
                   </li>
                   <ul>

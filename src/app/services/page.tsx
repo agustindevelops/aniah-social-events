@@ -1,18 +1,11 @@
-import ServicesGroup from "@/app/services/components/Group";
-import { getServicesGrouped } from "@/app/services/utils/functions";
-import Header from "./components/Header";
+import Services from "@/app/services/Services";
 
-const Services = async () => {
-  const groupedServices = await getServicesGrouped();
-
+const ServicesPage = async () => {
   return (
-    <div className="layout container my-24 grid gap-2 p-2">
-      <Header />
-      {groupedServices.map(({ category, services }) => (
-        <ServicesGroup key={category} category={category} services={services} />
-      ))}
+    <div className="my-24">
+      <Services />
     </div>
   );
 };
 
-export default Services;
+export default ServicesPage;

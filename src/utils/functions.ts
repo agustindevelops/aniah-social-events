@@ -19,3 +19,11 @@ export const getFileExt = (filePath?: string) => {
   const parts = filePath.split(".");
   return parts.at(-1) || "";
 };
+
+export const getRandomFromId = (id: string, min: number, max: number) => {
+  const hash = id.split("").reduce((a, b) => {
+    a = (a << 5) - a + b.charCodeAt(0);
+    return a & a;
+  }, 0);
+  return (Math.abs(hash) % (max - min)) + min;
+};

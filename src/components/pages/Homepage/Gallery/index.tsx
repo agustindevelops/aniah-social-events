@@ -1,55 +1,39 @@
-import Image from "next/image";
+import ImageCarousel from "@/components/pages/Homepage/Gallery/ImageCarousel";
+import { getProjects } from "@/lib/contentful/api";
+import _ from "lodash";
 import Link from "next/link";
 
-const posts = [
-  {
-    id: 1,
-    imageUrl:
-      "https://aniah-social-events.s3.amazonaws.com/homepage/gallery_thumbnail_1.JPG",
-  },
-  {
-    id: 2,
-    imageUrl:
-      "https://aniah-social-events.s3.amazonaws.com/homepage/gallery_thumbnail_2.JPG",
-  },
+const Gallery = async () => {
+  const projects = await getProjects();
 
-  {
-    id: 3,
-    imageUrl:
-      "https://aniah-social-events.s3.amazonaws.com/homepage/gallery_thumbnail_3.JPG",
-  },
-];
+  const images = _.shuffle(
+    projects
+      .map((project) =>
+        project.images?.map((image) => ({
+          id: image.sys.id,
+          alt: image.fields.title,
+          imageUrl: `https:${image.fields.file.url}`,
+        }))
+      )
+      .flat()
+  ) as { id: string; alt: string; imageUrl: string }[];
 
-const Gallery = () => {
   return (
-    <Link
-      className="bg-white py-24 hover:scale-105 hover:shadow-2xl sm:py-32"
-      href="/gallery"
-    >
+    <div className="bg-white py-12 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-primary text-3xl font-bold tracking-tight sm:text-4xl">
-            Checkout our Gallery
-          </h2>
-        </div>
-        <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <div
-              key={post.id}
-              className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 transition duration-300 hover:scale-105 hover:shadow-lg sm:pt-48 lg:pt-96"
-            >
-              <Image
-                src={post.imageUrl}
-                height={800}
-                width={500}
-                alt={post.imageUrl}
-                className="absolute inset-0 -z-10 h-full w-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        <h2 className="font-nickainley text-4xl sm:text-5xl md:text-6xl">
+          Our Wedding & Event Planning Gallery
+        </h2>
+
+        <ImageCarousel images={images} />
       </div>
-    </Link>
+      <Link
+        href="/gallery"
+        className="font-bold bg-peach-200 hover:bg-peach-300 inline-flex items-center px-6 py-3 text-base text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
+      >
+        View Gallery
+      </Link>
+    </div>
   );
 };
 

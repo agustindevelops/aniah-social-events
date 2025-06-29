@@ -59,7 +59,7 @@ const GalleryPage = async ({ params }: Props) => {
               fill
               priority
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             />
           </div>
           <CardContent className="p-6">
@@ -68,7 +68,7 @@ const GalleryPage = async ({ params }: Props) => {
                 <p className="mb-4 text-xs md:text-sm">
                   {format(new Date(date), "MMMM d, yyyy")}
                 </p>
-                <h1 className="font-bol font-bright text-3xl">{title}</h1>
+                <h1 className="font-bol font-nickainley text-3xl">{title}</h1>
               </div>
               <p className="col-span-2">{description}</p>
             </div>

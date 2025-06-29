@@ -8,9 +8,11 @@ import UnstyledLink from "@/components/links/UnstyledLink";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "public/images/aniah-social-events-logo.png";
+import { useRef } from "react";
 import { RiMenu2Line } from "react-icons/ri";
 
 const Header = () => {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
   const cta =
     pathname === "/events/blossoms-&-brews"
@@ -81,15 +83,29 @@ const Header = () => {
               {filteredLinks.map(({ label, route, items }) => (
                 <li key={label}>
                   {items ? (
-                    <details>
+                    <details ref={detailsRef}>
                       <summary>
-                        <UnstyledLink href={route}>{label}</UnstyledLink>
+                        <UnstyledLink
+                          href={route}
+                          onClick={() => {
+                            detailsRef.current?.removeAttribute("open");
+                          }}
+                        >
+                          {label}
+                        </UnstyledLink>
                       </summary>
                       {items ? (
                         <ul className="border-peach-200 border-b-4 border-l-2 border-r-2 p-2">
                           {items.map(({ label, route }) => (
                             <li key={label}>
-                              <UnstyledLink href={route}>{label}</UnstyledLink>
+                              <UnstyledLink
+                                href={route}
+                                onClick={() => {
+                                  detailsRef.current?.removeAttribute("open");
+                                }}
+                              >
+                                {label}
+                              </UnstyledLink>
                             </li>
                           ))}
                         </ul>
