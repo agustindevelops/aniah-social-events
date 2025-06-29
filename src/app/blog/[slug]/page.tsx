@@ -28,10 +28,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div className="mt-24">
       <div className="relative bg-white">
         <div className="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end">
-          {featuredVideo?.fields?.file?.url ? (
+          {featuredVideo?.fields?.file?.url || featuredImageUrl ? (
             <Media
               video={featuredVideo?.fields?.file?.url}
-              image={featuredImageUrl}
+              image={`https:${featuredImageUrl}`}
+              alt={title}
             />
           ) : (
             <></>
