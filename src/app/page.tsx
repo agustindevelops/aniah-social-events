@@ -7,7 +7,7 @@ import Testimonials from "./testimonials/Testimonials";
 
 const Homepage = async () => {
   return (
-    <div className="w-full text-center" id="home">
+    <div className="w-full text-center overflow-x-hidden" id="home">
       <Hero />
 
       <section className="mt-36 my-24">

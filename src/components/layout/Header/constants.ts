@@ -2,17 +2,14 @@ import { BLOSSOMS_AND_BREWS } from "@/utils/content/events";
 import { SERVICES } from "@/utils/data";
 
 const {
-  WEDDINGS: {
-    THIRTY_DAYS_OUT_COORDINATION,
-    ATELIER_PLANNING_AND_COORDINATION,
-  },
+  WEDDINGS: { THIRTY_DAYS_OUT_COORDINATION, ATELIER_PLANNING_AND_COORDINATION },
   SOCIAL_EVENTS: { PARTY_PLANNING },
 } = SERVICES;
 
 export const LINKS = [
   { href: "/events/blossoms-&-brews", label: "Blossoms & Brews" },
-  { href: "/#ourServices", label: "Services" },
-  { href: "/#getToKnowMe", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/about-us", label: "About Us" },
   { href: "/reviews", label: "Reviews" },
   { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
@@ -51,7 +48,7 @@ export const MAIN_LINKS: LinkType[] = [
   },
   { label: "Reviews", route: "/reviews" },
   { label: "Gallery", route: "/gallery" },
-  { label: "About Us", route: "/#getToKnowMe" },
+  { label: "About Us", route: "/about-us" },
   { label: "Blog", route: "/blog" },
   {
     label: "Let's Get in Touch!",
