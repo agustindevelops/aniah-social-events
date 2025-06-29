@@ -59,7 +59,7 @@ const GalleryPage = async ({ params }: Props) => {
               fill
               priority
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             />
           </div>
           <CardContent className="p-6">

@@ -43,7 +43,7 @@ const Page = async () => {
                         alt={thumbnailDescription}
                         title={thumbnailTitle}
                         fill
-                        sizes="(max-width: 768px) 280px, (max-width: 1200px) 280px, 280px"
+                        sizes="(max-width: 768px) 560px, (max-width: 1200px) 560px, 560px"
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
