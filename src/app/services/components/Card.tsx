@@ -7,7 +7,6 @@ const ServicesCard = ({
   title,
   subtitle,
   price,
-  body,
   mainImage,
 }: TypeServiceFields) => {
   return (

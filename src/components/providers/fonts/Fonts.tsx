@@ -24,11 +24,6 @@ const gentySans = localFont({
   variable: "--font-gentySans",
 });
 
-const bright = localFont({
-  src: "./bright.otf",
-  display: "swap",
-  variable: "--font-bright",
-});
 const nickainley = localFont({
   src: "./Nickainley-Normal.otf",
   display: "swap",
@@ -55,7 +50,7 @@ const moonjelly = localFont({
 const Fonts = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`${nickainley.variable} ${moonjelly.variable} ${gentySans.variable} ${shrikhand.variable} ${pacifico.variable} ${bright.variable} ${libre.variable} ${styleScript.variable} font-sans`}
+      className={`${nickainley.variable} ${moonjelly.variable} ${gentySans.variable} ${shrikhand.variable} ${pacifico.variable} ${libre.variable} ${styleScript.variable} font-sans`}
     >
       {children}
     </div>

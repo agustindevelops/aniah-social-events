@@ -14,7 +14,6 @@ export default {
         shrikhand: ["var(--font-shrikhand)"],
         gentySans: ["var(--font-gentySans)"],
         pacifico: ["var(--font-pacifico)"],
-        bright: ["var(--font-bright)"],
         libre: ["var(--font-libre)"],
         styleScript: ["var(--font-styleScript)"],
         nickainley: ["var(--font-nickainley)"],

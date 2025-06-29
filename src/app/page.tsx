@@ -9,10 +9,14 @@ const Homepage = async () => {
   return (
     <div className="w-full text-center" id="home">
       <Hero />
+
+      <section className="mt-36 my-24">
+        <Gallery />
+      </section>
+
       <SectionLayout id="ourServices">
         <Services />
       </SectionLayout>
-      <Gallery />
       <SectionLayout id="getToKnowMe">
         <GetToKnowMe />
       </SectionLayout>

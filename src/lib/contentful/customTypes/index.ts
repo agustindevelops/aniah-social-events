@@ -12,4 +12,7 @@ export type Asset = {
     description: string;
     file: { url: string };
   };
+  sys: {
+    id: string;
+  };
 };

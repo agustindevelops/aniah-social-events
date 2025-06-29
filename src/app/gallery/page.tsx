@@ -9,8 +9,8 @@ const Page = async () => {
 
   return (
     <div className="my-24 flex flex-col items-center justify-center">
-      <h1 className="my-12">Gallery</h1>
-      <div className="container mx-auto grid w-full grid-cols-2 px-4 md:grid-cols-4">
+      <h1 className="my-12 font-moonjelly text-7xl">Gallery</h1>
+      <div className="container mx-auto grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {projects.map(
           ({
             slug,
@@ -27,13 +27,16 @@ const Page = async () => {
             const imageUrl = `https:${file?.url}`;
 
             return (
-              <div key={title} className="mb-4 overflow-hidden rounded-lg">
+              <div
+                key={title}
+                className="mb-4 overflow-hidden rounded-lg w-full text-center"
+              >
                 <Link
                   href={`/gallery/${slug}`}
-                  className="group relative block"
+                  className="group relative flex justify-center w-full"
                   aria-label={`View ${title} project details`}
                 >
-                  <Card className="group relative h-[420px] w-full max-w-[280px] overflow-hidden">
+                  <Card className="group relative h-[420px] w-full max-w-[320px] overflow-hidden">
                     <div className="relative h-full w-full">
                       <Image
                         src={imageUrl}

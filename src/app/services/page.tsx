@@ -1,3 +1,11 @@
 import Services from "@/app/services/Services";
 
-export default Services;
+const ServicesPage = async () => {
+  return (
+    <div className="my-24">
+      <Services />
+    </div>
+  );
+};
+
+export default ServicesPage;
