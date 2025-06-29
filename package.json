@@ -28,6 +28,7 @@
     "@react-hooks-library/core": "^0.5.1",
     "@tailwindcss/typography": "^0.5.12",
     "@types/lodash": "^4.17.6",
+    "@types/react-star-rating-component": "^1.4.4",
     "axios": "^1.6.8",
     "cf-content-types-generator": "^2.15.5",
     "class-variance-authority": "^0.7.1",
@@ -47,6 +48,7 @@
     "react-icons": "^4.8.0",
     "react-iframe": "^1.8.5",
     "react-scroll-parallax": "^3.4.2",
+    "react-star-rating-component": "^1.4.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -1,12 +1,5 @@
 import Image from "next/image";
-
-const getRandomFromId = (id: string, min: number, max: number) => {
-  const hash = id.split("").reduce((a, b) => {
-    a = (a << 5) - a + b.charCodeAt(0);
-    return a & a;
-  }, 0);
-  return (Math.abs(hash) % (max - min)) + min;
-};
+import { getRandomFromId } from "@/utils/functions";
 
 const ImageCard = ({
   imageUrl,

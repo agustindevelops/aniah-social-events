@@ -1,9 +1,9 @@
 import ContactUs from "@/components/pages/Homepage/ContactUs";
 import Gallery from "@/components/pages/Homepage/Gallery";
-import GetToKnowMe from "@/components/pages/Homepage/GetToKnowMe";
 import Hero from "@/components/pages/Homepage/Hero";
 import SectionLayout from "@/components/pages/Homepage/SectionLayout";
 import Services from "./services/Services";
+import Testimonials from "./testimonials/Testimonials";
 
 const Homepage = async () => {
   return (
@@ -17,8 +17,8 @@ const Homepage = async () => {
       <SectionLayout id="ourServices">
         <Services />
       </SectionLayout>
-      <SectionLayout id="getToKnowMe">
-        <GetToKnowMe />
+      <SectionLayout id="testimonials">
+        <Testimonials />
       </SectionLayout>
       <SectionLayout id="contactUs">
         <ContactUs />
