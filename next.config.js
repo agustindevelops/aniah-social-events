@@ -31,9 +31,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "d13ns7kbjmbjip.cloudfront.net",
+        hostname: "videos.ctfassets.net",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "d13ns7kbjmbjip.cloudfront.net",
+        pathname: "/**",
+      }
     ],
   },
 

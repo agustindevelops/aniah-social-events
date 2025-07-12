@@ -19,7 +19,7 @@ const ServicesCard = ({
           src={`https:${mainImage.fields.file.url}`}
           alt={title}
           fill
-          className="object-cover"
+          className="object-cover object-top"
         />
         <div className="from-peach-500 absolute inset-0 bg-gradient-to-t to-transparent opacity-20"></div>
       </div>
