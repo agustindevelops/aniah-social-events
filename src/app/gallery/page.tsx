@@ -67,4 +67,10 @@ const Page = async () => {
   );
 };
 
+export const metadata = {
+  title: "Event Gallery – Weddings & Parties by Aniah Social Events",
+  description:
+    "View our portfolio of beautifully designed weddings and events in Austin and San Antonio. Real moments, real celebrations.",
+};
+
 export default Page;

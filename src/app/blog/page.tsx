@@ -71,3 +71,9 @@ export default async function Blogs() {
     </div>
   );
 }
+
+export const metadata = {
+  title: "Event Planning Tips & Advice – Blog by Aniah Social Events",
+  description:
+    "Explore expert event and wedding planning tips, inspiration, and behind-the-scenes insights from the Aniah Social Events team.",
+};

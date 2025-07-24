@@ -13,4 +13,10 @@ const Schedule = () => {
   );
 };
 
+export const metadata = {
+  title: "Schedule a Planning Consultation | Aniah Social Events",
+  description:
+    "Book your free consultation with Aniah Social Events to start planning your dream wedding or special event in Austin or San Antonio.",
+};
+
 export default Schedule;

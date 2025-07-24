@@ -53,4 +53,10 @@ const images: ImageProps[] = [
   { url: "image-12", height: 200 },
 ];
 
+export const metadata = {
+  title: "Client Reviews of Aniah Social Events – Trusted Event Planning",
+  description:
+    "Read testimonials from happy couples and clients who trusted Aniah Social Events for weddings, parties, and special moments.",
+};
+
 export default Reviews;

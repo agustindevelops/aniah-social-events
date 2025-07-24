@@ -160,4 +160,10 @@ const AboutUsPage = () => {
   );
 };
 
+export const metadata = {
+  title: "About Aniah Social Events | Wedding & Event Planner in Texas",
+  description:
+    "Learn about the passion and expertise behind Aniah Social Events. Serving Austin and San Antonio with personalized wedding and event planning services.",
+};
+
 export default AboutUsPage;

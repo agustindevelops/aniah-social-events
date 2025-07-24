@@ -14,7 +14,8 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aniahsocialevents.com"),
-  title: "Aniah Social Events",
+  title:
+    "Aniah Social Events | Wedding & Event Planning in Austin & San Antonio",
   generator: "Next.js",
   applicationName: "Aniah Social Events",
   keywords: [
