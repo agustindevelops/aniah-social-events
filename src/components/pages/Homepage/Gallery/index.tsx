@@ -9,14 +9,17 @@ const Gallery = async () => {
   const images = _.shuffle(
     projects
       .map((project) =>
-        project.images?.map((image) => ({
-          id: image.sys.id,
-          alt: image.fields.title,
-          imageUrl: `https:${image.fields.file.url}`,
-        }))
+        project.images
+          ?.map((image) => ({
+            id: image.sys.id,
+            alt: image.fields.title,
+            imageUrl: `https:${image.fields.file.url}`,
+            mediaType: image.fields.file.contentType,
+          }))
+          .filter((image) => image.mediaType?.includes("image"))
       )
       .flat()
-  ) as { id: string; alt: string; imageUrl: string }[];
+  ) as { id: string; alt: string; imageUrl: string; mediaType: string }[];
 
   return (
     <div className="bg-white py-12 relative overflow-hidden">

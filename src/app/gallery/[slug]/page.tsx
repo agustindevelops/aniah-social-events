@@ -14,6 +14,7 @@ import { HomeIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import SEO from "../../../components/seo";
+import MediaCard from "@/lib/contentful/components/MediaCard";
 
 type Props = {
   params: {
@@ -92,23 +93,9 @@ const GalleryPage = async ({ params }: Props) => {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="m-2 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {images?.map(({ fields: { file, title, description } }) => {
-            const imageUrl = `https:${file?.url}`;
-            return (
-              <div key={title} className="relative mb-8 h-[540px] w-full">
-                <Image
-                  src={imageUrl}
-                  alt={description || title}
-                  title={title}
-                  fill
-                  sizes="(max-width: 768px) 280px, (max-width: 1200px) 280px, 280px"
-                  className="rounded-lg object-cover"
-                  loading="lazy"
-                  quality={85}
-                />
-              </div>
-            );
-          })}
+          {images?.map((media) => (
+            <MediaCard key={media.fields.title} fields={media.fields} />
+          ))}
         </div>
       </div>
     </div>

@@ -32,6 +32,7 @@ const ImageCarousel = ({ images }: Props) => {
               imageUrl={image.imageUrl}
               alt={image.alt}
               id={image.id}
+              mediaType={image.mediaType}
             />
           ))}
         </div>
@@ -41,7 +42,7 @@ const ImageCarousel = ({ images }: Props) => {
 };
 
 type Props = {
-  images: { id: string; alt: string; imageUrl: string }[];
+  images: { id: string; alt: string; imageUrl: string; mediaType: string }[];
 };
 
 export default ImageCarousel;

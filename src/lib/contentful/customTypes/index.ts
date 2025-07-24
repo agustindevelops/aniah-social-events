@@ -10,7 +10,7 @@ export type Asset = {
   fields: {
     title: string;
     description: string;
-    file: { url: string };
+    file: { url: string; contentType: string };
   };
   sys: {
     id: string;

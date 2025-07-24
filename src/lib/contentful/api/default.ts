@@ -10,7 +10,7 @@ const SERVICE: TypeServiceFields = {
   services: [],
   mainImage: {
     fields: {
-      file: { url: "" },
+      file: { url: "", contentType: "" },
       title: "",
       description: "",
     },
@@ -25,7 +25,7 @@ const PROJECT: TypeProjectFields = {
   metaDescription: "",
   description: "",
   thumbnail: {
-    fields: { file: { url: "" }, title: "", description: "" },
+    fields: { file: { url: "", contentType: "" }, title: "", description: "" },
     sys: { id: "" },
   },
 };
