@@ -1,5 +1,5 @@
 "use client";
-import CardStack from "../components/CardStack";
+import CardStack from "../../components/CardStack";
 import TestimonialsCard from "./Card";
 import data from "./data";
 

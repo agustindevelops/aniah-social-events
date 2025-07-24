@@ -19,7 +19,7 @@ const ServicesCard = ({
           src={`https:${mainImage.fields.file.url}`}
           alt={title}
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_30%]"
         />
         <div className="from-peach-500 absolute inset-0 bg-gradient-to-t to-transparent opacity-20"></div>
       </div>
@@ -34,7 +34,7 @@ const ServicesCard = ({
             </span>
           </div>
           <div className="mt-4">
-            <p className="text-brown-400 font-libre mt-1">{subtitle}</p>
+            <p className="text-brown-500 font-libre mt-1">{subtitle}</p>
           </div>
         </div>
         <NextLink

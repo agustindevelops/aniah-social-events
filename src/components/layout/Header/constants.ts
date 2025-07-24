@@ -15,7 +15,7 @@ export const LINKS = [
   { href: "/blog", label: "Blog" },
   {
     href: "/schedule",
-    label: "Let's get in touch!",
+    label: "Contact Us",
   },
 ];
 
@@ -51,7 +51,7 @@ export const MAIN_LINKS: LinkType[] = [
   { label: "About Us", route: "/about-us" },
   { label: "Blog", route: "/blog" },
   {
-    label: "Let's Get in Touch!",
+    label: "Contact Us",
     route: "/schedule",
   },
 ];

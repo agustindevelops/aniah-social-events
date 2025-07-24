@@ -1,9 +1,9 @@
+import Button from "@/components/buttons/Button";
 import Image from "next/image";
-import Link from "next/link";
 
 const AboutUsPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 mt-24">
+    <div className="min-h-screen py-12 mt-24">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -153,12 +153,7 @@ const AboutUsPage = () => {
             ready, let's sit down for a coffee (or a glass of champagne!) and
             dream up something beautiful together.
           </p>
-          <Link
-            href="/schedule"
-            className="bg-[#e6b89c] hover:bg-[#d9a589] text-white font-medium py-3 px-8 rounded-full transition duration-300 shadow-sm inline-block"
-          >
-            Contact Us
-          </Link>
+          <Button href="/schedule">Contact Us</Button>
         </div>
       </div>
     </div>

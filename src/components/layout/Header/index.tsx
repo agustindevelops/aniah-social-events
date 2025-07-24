@@ -5,6 +5,7 @@ import {
   MAIN_LINKS,
 } from "@/components/layout/Header/constants";
 import UnstyledLink from "@/components/links/UnstyledLink";
+import Button from "@/components/buttons/Button";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "public/images/aniah-social-events-logo.png";
@@ -121,12 +122,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <UnstyledLink
-              href={cta.route}
-              className="btn w-full bg-blue-500 text-white hover:bg-blue-600"
-            >
-              {cta?.label}
-            </UnstyledLink>
+            <Button href="/schedule">Contact Us</Button>
           </div>
         </div>
       </div>

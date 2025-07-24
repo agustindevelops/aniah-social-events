@@ -25,7 +25,7 @@ const CardStack = <T,>({ data, children, getKey }: CardStackProps<T>) => {
       }}
     >
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl md:text-4xl font-bold font-moonjelly max-w-xs">
-        🎉 WOW! You found our secret 10% OFF code: ASE24 🎉
+        🎉 WOW! You found our secret $100 OFF code: ASE24 🎉
       </div>
       {stack.map((item, i) => (
         <CardWrapper key={getKey(item)} index={i} id={getKey(item)}>

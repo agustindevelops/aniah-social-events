@@ -42,7 +42,7 @@ export default function FAQ() {
     <section>
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold leading-10 tracking-tight text-blue-500">
+          <h2 className="text-2xl font-bold leading-10 tracking-tight text-green-700">
             Frequently Asked Questions
           </h2>
         </div>

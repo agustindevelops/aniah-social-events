@@ -1,6 +1,5 @@
 import Image from "next/image";
-
-import MainCTA from "@/components/buttons/MainCTA";
+import Button from "@/components/buttons/Button";
 const Hero = () => {
   return (
     <section>
@@ -13,7 +12,7 @@ const Hero = () => {
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
           <div className="container mx-auto text-center">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-8">
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
               <Image
                 src="/images/aniah-social-events-logo.png"
                 alt="Placeholder image"
@@ -30,7 +29,7 @@ const Hero = () => {
       </div>
       <div className="h-[36rem] sm:h-[38rem] md:h-[40rem] lg:h-[42rem] xl:h-[44rem]" />
       <div className="my-4">
-        <MainCTA />
+        <Button href="/schedule">Contact Us</Button>
       </div>
     </section>
   );
