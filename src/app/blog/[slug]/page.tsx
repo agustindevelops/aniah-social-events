@@ -6,8 +6,13 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const blogs = await getBlogsBySlug(params.slug);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const blogs = await getBlogsBySlug(slug);
 
   const [
     {

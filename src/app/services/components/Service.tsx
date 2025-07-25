@@ -3,14 +3,15 @@ import { AiFillHeart } from "react-icons/ai";
 
 import { getServiceBySlug } from "@/lib/contentful/api";
 
-const Service = async ({ params }: { params: { slug: string } }) => {
+const Service = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   const {
     title,
     subtitle,
     price,
     body,
     services = [],
-  } = await getServiceBySlug(params?.slug);
+  } = await getServiceBySlug(slug);
 
   return (
     <section className="">

@@ -8,25 +8,26 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { getProjectBySlug } from "@/lib/contentful/api";
+import MediaCard from "@/lib/contentful/components/MediaCard";
 import createMetadata from "@/utils/seo/metaData";
 import { format } from "date-fns";
 import { HomeIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import SEO from "../../../components/seo";
-import MediaCard from "@/lib/contentful/components/MediaCard";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = await getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
   const { title, metaDescription, thumbnail } = project;
   const imageUrl = thumbnail ? `https:${thumbnail.fields.file.url}` : undefined;
-  const pageUrl = `/gallery/${params.slug}`;
+  const pageUrl = `/gallery/${slug}`;
 
   return createMetadata({
     title,
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const GalleryPage = async ({ params }: Props) => {
-  const project = await getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
   const { title, metaDescription, description, date, thumbnail, images } =
     project;
 
@@ -49,7 +51,7 @@ const GalleryPage = async ({ params }: Props) => {
         title={title}
         description={metaDescription}
         image={imageUrl}
-        url={`/gallery/${params.slug}`}
+        url={`/gallery/${slug}`}
       />
       <div className="container m-2">
         <Card className="mx-auto mb-4 overflow-hidden">

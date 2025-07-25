@@ -21,17 +21,16 @@ export const generateStaticParams = async () =>
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { title, subtitle, body, mainImage } = await getServiceBySlug(
-    params?.slug
-  );
+  const { slug } = await params;
+  const { title, subtitle, body, mainImage } = await getServiceBySlug(slug);
 
   return createMetadata({
     title: `${title} | Aniah Social Events – Austin & San Antonio Planners`,
     description: subtitle || body || "",
     image: `https:${mainImage.fields.file.url}`,
-    url: `/services/${params?.slug}`,
+    url: `/services/${slug}`,
   });
 }
 
