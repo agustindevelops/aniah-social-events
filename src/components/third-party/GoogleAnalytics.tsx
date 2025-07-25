@@ -1,13 +1,13 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 
 const GoogleAnalytics = () => {
-  const ga_id = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+  const GA4_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
 
-  if (!ga_id) return <></>;
+  if (!GA4_ID) return <></>;
 
   return (
     <>
-      <GoogleTagManager gtmId={ga_id} />
+      <GoogleTagManager gtmId={GA4_ID} />
     </>
   );
 };
