@@ -28,7 +28,7 @@ const getGallery = async (): Promise<_Object[]> => {
 
     return [];
   } catch (error) {
-    console.error(error);
+
     return [];
   }
 };

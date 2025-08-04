@@ -2,34 +2,24 @@ import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  console.log("Webhook payload:", request.body);
+  const token = request.headers.get("ASE_WEBHOOK_TOKEN");
+  if (!token || token !== process.env.CONTENTFUL_WEBHOOK_SECRET) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
+  }
 
-  const path = request.nextUrl.searchParams.get("path");
-  const secretHeader = request.headers.get("secret");
+  try {
+    revalidatePath("/");
+    revalidatePath("/blog");
+    revalidatePath("/about");
 
-  return NextResponse.json({ body: request.body, path, secretHeader });
-  //
-  // if (!secretHeader || secretHeader !== process.env.WEBHOOK_SECRET) {
-  //   return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
-  // }
-  //
-  // if (path) {
-  //   try {
-  //     await revalidatePath(path);
-  //     return NextResponse.json(
-  //       { revalidated: true, now: Date.now() },
-  //       { status: 200 }
-  //     );
-  //   } catch (error) {
-  //     return NextResponse.json(
-  //       { error: 'Revalidation failed' },
-  //       { status: 500 }
-  //     );
-  //   }
-  // }
-  //
-  // return NextResponse.json(
-  //   { error: 'Missing path to revalidate' },
-  //   { status: 422 }
-  // );
+    return NextResponse.json(
+      { revalidated: true, now: Date.now(), paths: ["/", "/blog", "/about"] },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Revalidation failed", details: (error as Error).message },
+      { status: 500 }
+    );
+  }
 }

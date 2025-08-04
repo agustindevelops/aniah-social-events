@@ -1,4 +1,5 @@
-import type { Asset, Entry, EntryFields } from "contentful";
+import type { CustomEntry } from "@/lib/contentful/customTypes";
+import type { Asset, EntryFields } from "contentful";
 
 export interface TypeComponentSeoFields {
   internalName: EntryFields.Symbol;
@@ -10,4 +11,4 @@ export interface TypeComponentSeoFields {
   shareImages?: Asset[];
 }
 
-export type TypeComponentSeo = Entry<any>;
+export type TypeComponentSeo = CustomEntry<TypeComponentSeoFields>;

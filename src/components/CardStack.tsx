@@ -28,8 +28,12 @@ const CardStack = <T,>({ data, children, getKey }: CardStackProps<T>) => {
         🎉 WOW! You found our secret $100 OFF code: ASE24 🎉
       </div>
       {stack.map((item, i) => (
-        <CardWrapper key={getKey(item)} index={i} id={getKey(item)}>
-          <Card key={getKey(item)} onSwipe={() => remove(i)}>
+        <CardWrapper
+          key={`card-wrapper-${getKey(item)}-${i}`}
+          index={i}
+          id={getKey(item)}
+        >
+          <Card key={`card-${getKey(item)}-${i}`} onSwipe={() => remove(i)}>
             {children(item, i)}
           </Card>
         </CardWrapper>

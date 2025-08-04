@@ -1,3 +1,4 @@
+"use client";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 const GoogleAnalytics = () => {

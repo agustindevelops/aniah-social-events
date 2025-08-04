@@ -1,5 +1,5 @@
 export type { TypeComponentAuthor, TypeComponentAuthorFields } from "./TypeComponentAuthor";
-export type { TypeComponentRichImage, TypeComponentRichImageFields } from "./TypeComponentRichImage";
+export type { TypeComponentRichImageFields } from "./TypeComponentRichImage";
 export type { TypeComponentSeo, TypeComponentSeoFields } from "./TypeComponentSeo";
 export type { TypePageBlogPost, TypePageBlogPostFields } from "./TypePageBlogPost";
 export type { TypePageLanding, TypePageLandingFields } from "./TypePageLanding";

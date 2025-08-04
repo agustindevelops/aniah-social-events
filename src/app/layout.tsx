@@ -88,12 +88,11 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <GoogleAnalytics />
         <Header />
         <main className="bg-cream text-brown-500">
-          <Providers>{children}</Providers>
+          <Providers>{children}</Providers>{" "}
         </main>
         <footer className="layout relative flex flex-col items-center justify-center py-12 text-center">
           <div className="absolute bottom-2 text-gray-700">
-            © {new Date().getFullYear()} By{" "}
-            <UnderlineLink href="">Ragustin</UnderlineLink>
+            © 2024 By <UnderlineLink href="">Ragustin</UnderlineLink>
           </div>
         </footer>
       </body>

@@ -1,4 +1,4 @@
-import type { Asset, Entry, EntryFields } from "contentful";
+import type { Asset, EntryFields } from "contentful";
 
 export interface TypeComponentRichImageFields {
   internalName: EntryFields.Symbol;
@@ -6,5 +6,3 @@ export interface TypeComponentRichImageFields {
   caption?: EntryFields.Symbol;
   fullWidth?: EntryFields.Boolean;
 }
-
-export type TypeComponentRichImage = Entry<any>;

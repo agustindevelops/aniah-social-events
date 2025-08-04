@@ -2,7 +2,6 @@ import Hero from "@/app/events/blossoms-&-brews/Hero";
 import CTA from "@/app/events/blossoms-&-brews/CTA";
 import Emotion from "@/app/events/blossoms-&-brews/Emotion";
 import Banner from "@/app/events/blossoms-&-brews/Banner";
-import Facts from "@/app/events/blossoms-&-brews/Facts";
 import type { Metadata } from "next";
 import Attire from "@/app/events/blossoms-&-brews/Attire";
 import Links from "@/app/events/blossoms-&-brews/Links";

@@ -1,4 +1,5 @@
-import type { Asset, Entry, EntryFields } from "contentful";
+import type { Asset, EntryFields } from "contentful";
+import type { CustomEntry } from "../customTypes";
 
 export interface TypeTestimonialFields {
     title: EntryFields.Symbol;
@@ -10,4 +11,4 @@ export interface TypeTestimonialFields {
     images?: Asset[];
 }
 
-export type TypeTestimonial = Entry<any>;
+export type TypeTestimonial = CustomEntry<TypeTestimonialFields>;

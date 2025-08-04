@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import colors from "tailwindcss/colors";
 import defaultTheme from "tailwindcss/defaultTheme";
 

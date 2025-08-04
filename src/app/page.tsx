@@ -13,7 +13,6 @@ const Homepage = async () => {
       <section className="mt-36 my-24">
         <Gallery />
       </section>
-
       <SectionLayout id="ourServices">
         <Services />
       </SectionLayout>

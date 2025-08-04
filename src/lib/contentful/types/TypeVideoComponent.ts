@@ -1,4 +1,5 @@
-import type { Asset, Entry, EntryFields } from "contentful";
+import type { Asset, EntryFields } from "contentful";
+import type { CustomEntry } from "../customTypes";
 
 export interface TypeVideoComponentFields {
   title?: EntryFields.Symbol;
@@ -7,4 +8,4 @@ export interface TypeVideoComponentFields {
   tags?: EntryFields.Symbol[];
 }
 
-export type TypeVideoComponent = Entry<any>;
+export type TypeVideoComponent = CustomEntry<TypeVideoComponentFields>;

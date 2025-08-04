@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { BLOSSOMS_AND_BREWS } from "@/utils/content/events";
+import Image from "next/image";
 
 type FeatureType = { name?: string; description?: string[]; url?: string };
 
@@ -48,7 +49,7 @@ const Attire = () => {
 
 const Feature: FC<FeatureType> = ({ name = "", description = [], url = "" }) =>
   url ? (
-    <img
+    <Image
       src={url}
       alt={BLOSSOMS_AND_BREWS.BANNER.ALT}
       className="w-full object-cover xl:rounded-3xl"

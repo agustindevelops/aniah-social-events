@@ -1,6 +1,7 @@
 import { getBlogs } from "@/lib/contentful/api";
 import Author from "@/lib/contentful/components/Author";
 import Date from "@/lib/contentful/components/Date";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Blogs() {
@@ -38,7 +39,7 @@ export default async function Blogs() {
                   className="relative isolate flex flex-col gap-8 lg:flex-row"
                 >
                   <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                    <img
+                    <Image
                       src={featuredUrl}
                       alt=""
                       className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover object-bottom"
