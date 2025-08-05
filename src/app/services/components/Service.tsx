@@ -52,6 +52,7 @@ const Service = async ({ params }: { params: Promise<{ slug: string }> }) => {
           </ul>
         </div>
       </div>
+
     </section>
   );
 };

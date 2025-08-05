@@ -22,7 +22,7 @@ const Gallery = async () => {
   ) as { id: string; alt: string; imageUrl: string; mediaType: string }[];
 
   return (
-    <div className="bg-white py-12 relative overflow-hidden">
+    <div className="bg-white py-12 relative overflow-hidden text-center">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="font-nickainley text-4xl sm:text-5xl md:text-6xl">
           Our Wedding & Event Planning Gallery

@@ -5,7 +5,6 @@ import { TypeServiceFields } from "@/lib/contentful/types";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
-import { AiFillHeart } from "react-icons/ai";
 
 const BottomHeart: FC<TypeServiceFields> = ({ title, slug }) => {
   const currPathname = usePathname();
@@ -13,7 +12,6 @@ const BottomHeart: FC<TypeServiceFields> = ({ title, slug }) => {
 
   return (
     <div className="flex w-full items-center gap-2">
-      <AiFillHeart />
       <UnstyledLink
         href={pathname}
         className={classNames(
