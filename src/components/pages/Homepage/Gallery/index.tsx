@@ -32,7 +32,7 @@ const Gallery = async () => {
       </div>
       <Link
         href="/gallery"
-        className="font-bold bg-peach-400 hover:bg-peach-500 inline-flex items-center px-6 py-3 text-base text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
+        className="font-bold bg-peach-400 hover:bg-peach-500 inline-flex items-center px-8 py-4 text-2xl text-white border border-transparent rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
       >
         View Gallery
       </Link>

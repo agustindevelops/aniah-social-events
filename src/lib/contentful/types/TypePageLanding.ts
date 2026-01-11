@@ -16,6 +16,8 @@ export interface TypePageLandingFields {
   whoWeAreForTitle?: EntryFields.Symbol;
   whoWeAreForParagraph?: EntryFields.Text;
   whoWeAreForList?: EntryFields.Symbol[];
+  faqTitle?: EntryFields.Symbol;
+  faqParagraph?: EntryFields.Text;
 }
 
 export type TypePageLanding = CustomEntry<TypePageLandingFields>;
