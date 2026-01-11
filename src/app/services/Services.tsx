@@ -1,7 +1,7 @@
 import ServicesGrid from "@/app/services/components/Grid";
 import ServicesGroup from "@/app/services/components/Group";
 import { getServicesGrouped } from "@/app/services/utils/functions";
-import { getServices } from "@/lib/contentful/api";
+import { getLandingPage, getServices } from "@/lib/contentful/api";
 import Header from "./components/Header";
 
 const Services = async ({
@@ -9,7 +9,14 @@ const Services = async ({
 }: {
   display?: "grid" | "grouped";
 }) => {
-  return display === "grouped" ? <LoadGroupedServices /> : <LoadGridServices />;
+  const landingPage = await getLandingPage(["serviceLayout"]);
+  const serviceLayout = landingPage.serviceLayout || display;
+
+  return serviceLayout === "Grouped" ? (
+    <LoadGroupedServices />
+  ) : (
+    <LoadGridServices />
+  );
 };
 
 const LoadGroupedServices = async () => {

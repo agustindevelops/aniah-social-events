@@ -80,10 +80,18 @@ export const getProjectBySlug = async (
   return rawProjects.items[0]?.fields || DEFAULT.PROJECT;
 };
 
-export const getLandingPage = async (): Promise<TypePageLandingFields> => {
-  const rawLandingPage = await client.getEntries({
+export const getLandingPage = async (
+  select?: string[]
+): Promise<TypePageLandingFields> => {
+  const query: { content_type: string; select?: string } = {
     content_type: "pageHome",
-  });
+  };
+
+  if (select?.length) {
+    query.select = select.map((field) => `fields.${field}`).join(",");
+  }
+
+  const rawLandingPage = await client.getEntries(query);
 
   return (
     (rawLandingPage.items[0]?.fields as unknown as TypePageLandingFields) ||
