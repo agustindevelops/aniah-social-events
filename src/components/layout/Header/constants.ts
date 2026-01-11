@@ -1,10 +1,4 @@
 import { BLOSSOMS_AND_BREWS } from "@/utils/content/events";
-import { SERVICES } from "@/utils/data";
-
-const {
-  WEDDINGS: { THIRTY_DAYS_OUT_COORDINATION, ATELIER_PLANNING_AND_COORDINATION },
-  SOCIAL_EVENTS: { PARTY_PLANNING },
-} = SERVICES;
 
 export const LINKS = [
   { href: "/events/blossoms-&-brews", label: "Blossoms & Brews" },
@@ -36,14 +30,17 @@ export const MAIN_LINKS: LinkType[] = [
     route: "/services",
     items: [
       {
-        label: "Wedding Planning",
-        route: `/services/${ATELIER_PLANNING_AND_COORDINATION.slug}`,
+        label: "Styled Celebrations",
+        route: "/services/styled-celebrations",
       },
       {
-        label: "Coordination",
-        route: `/services/${THIRTY_DAYS_OUT_COORDINATION.slug}`,
+        label: "Brand Events",
+        route: "/services/small-business-brand-event-design-and-production",
       },
-      { label: "Party Planning", route: `/services/${PARTY_PLANNING.slug}` },
+      {
+        label: "Wedding Coordination",
+        route: "/services/wedding-day-coordination",
+      },
     ],
   },
   { label: "Reviews", route: "/reviews" },
