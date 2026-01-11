@@ -26,7 +26,7 @@ const Hero = ({
                 width={300}
                 height={300}
               />
-              <h2 className="font-nickainley text-peach-200 max-w-lg text-3xl font-bold sm:max-w-xl sm:text-4xl md:max-w-3xl md:text-5xl lg:max-w-4xl lg:text-6xl">
+              <h2 className="font-nickainley text-peach-200 max-w-lg text-4xl font-bold sm:max-w-xl sm:text-5xl md:max-w-3xl md:text-6xl lg:max-w-4xl lg:text-7xl">
                 {title}
               </h2>
             </div>
@@ -34,9 +34,13 @@ const Hero = ({
         </div>
       </div>
       <div className="h-[36rem] sm:h-[38rem] md:h-[40rem] lg:h-[42rem] xl:h-[44rem]" />
-      <div className="my-4 flex gap-4 justify-center">
-        <Button href="/services">Services</Button>
-        <Button href="/schedule">Book Now</Button>
+      <div className="my-16 flex gap-4 justify-center">
+        <Button href="/services" className="text-2xl md:text-4xl">
+          Services
+        </Button>
+        <Button href="/schedule" className="text-2xl md:text-4xl">
+          Book Now
+        </Button>
       </div>
     </section>
   );

@@ -26,13 +26,11 @@ export interface ListWrapperProps {
 // Extract the repeated list rendering as a component
 const ListItems = ({
   items,
-  iconColor,
   primaryTextFont,
   secondaryTextFont,
   textColor,
 }: {
   items: string[] | ListItem[];
-  iconColor: string;
   primaryTextFont: string;
   secondaryTextFont: string;
   textColor?: string | null;
@@ -43,20 +41,22 @@ const ListItems = ({
       const secondaryText =
         typeof item === "string" ? undefined : item.secondary;
       const key = typeof item === "string" ? item : `${item.primary}-${index}`;
+      const colorGroup = Math.floor(index / 3) % 2;
+      // Use textColor if provided, otherwise alternate between default colors
+      const itemTextColor =
+        textColor || (colorGroup === 0 ? "text-pink-600" : "text-pink-500");
       return (
         <li key={key} className="my-4 flex items-start gap-4 text-left">
-          <div className={`py-2 ${iconColor}`}>
+          <div className={`py-2 ${itemTextColor}`}>
             <AiFillHeart />
           </div>
           <div className="flex flex-col self-center text-lg">
-            <span className={`${primaryTextFont} ${textColor || ""}`}>
+            <span className={`${primaryTextFont} ${itemTextColor}`}>
               {primaryText}
             </span>
             {secondaryText && (
               <span
-                className={`${secondaryTextFont} ${
-                  textColor || ""
-                } text-xs lg:text-sm mt-1`}
+                className={`${secondaryTextFont} ${itemTextColor} text-xs lg:text-sm mt-1`}
               >
                 {secondaryText}
               </span>
@@ -96,7 +96,6 @@ const ListWrapper = ({
     >
       <ListItems
         items={items}
-        iconColor={iconColor}
         primaryTextFont={primaryTextFont}
         secondaryTextFont={secondaryTextFont}
         textColor={textColor}

@@ -1,3 +1,5 @@
+import { AiFillHeart } from "react-icons/ai";
+
 const Section = ({
   children,
   title,
@@ -11,6 +13,9 @@ const Section = ({
 }) => {
   if (!children && !title && !paragraph && !list) return <></>;
 
+  const textColor = "text-[#ce6b69]";
+  const iconColor = "text-[#ce6b69]";
+
   return (
     <section className="container mx-auto my-24 flex scroll-mt-20 flex-col justify-between bg-soft-peach bg-opacity-50 pb-16 pt-24">
       <h3 className="font-nickainley text-5xl sm:text-6xl md:text-7xl lg:text-8xl pb-16 pt-24">
@@ -20,21 +25,19 @@ const Section = ({
         {paragraph}
       </p>
       <ul className="list-inside mx-auto my-4 text-center">
-        {list?.map((item, idx) => (
-          <li
-            key={`${title}-item-${idx}`}
-            className="flex items-center justify-center gap-2 text-2xl lg:text-3xl font-libre my-2"
-          >
-            <span
-              role="img"
-              aria-label="heart"
-              className="text-peach-500 mt-0.5"
+        {list?.map((item, idx) => {
+          return (
+            <li
+              key={`${title}-item-${idx}`}
+              className="flex items-center justify-center gap-2 text-2xl lg:text-3xl my-2"
             >
-              ❤️
-            </span>
-            <span>{item}</span>
-          </li>
-        ))}
+              <div className={`py-2 ${iconColor}`}>
+                <AiFillHeart />
+              </div>
+              <span className={`font-pacifico ${textColor}`}>{item}</span>
+            </li>
+          );
+        })}
       </ul>
       {children}
     </section>
