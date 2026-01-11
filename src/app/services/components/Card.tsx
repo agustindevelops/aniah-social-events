@@ -29,7 +29,7 @@ const ServicesCard = ({
             <div>
               <h3 className="text-brown-500 text-xl font-moonjelly">{title}</h3>
             </div>
-            <span className="bg-peach-100 text-peach-600 font-libre rounded-full bg-opacity-50 px-2.5 py-0.5 text-xs">
+            <span className="bg-[#ce6b69] text-white font-libre rounded-full px-2.5 py-0.5 text-xs">
               ${price}
             </span>
           </div>
@@ -39,7 +39,7 @@ const ServicesCard = ({
         </div>
         <NextLink
           href={`/services/${slug}`}
-          className="view-service-btn bg-peach-500 hover:bg-peach-600 font-libre w-full rounded-md px-4 py-2 text-white transition duration-300"
+          className="view-service-btn bg-[#ce6b69] hover:bg-[#b85a57] font-libre w-full rounded-md px-4 py-2 text-white transition duration-300"
         >
           View Details
         </NextLink>

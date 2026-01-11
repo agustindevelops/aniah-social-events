@@ -15,7 +15,7 @@ const ServiceLayout = async ({ children }: ServiceLayoutProps) => {
       <div className="col-span-1 hidden lg:block">
         <PlanningCoordination groupedServices={groupedServices} />
       </div>
-      <div className="col-span-3 lg:col-span-3">
+      <div className="col-span-3 lg:col-span-3 bg-cream">
         <div className="lg:hidden">
           <details className="group">
             <summary className="bg-peach-50 hover:bg-peach-100 flex cursor-pointer items-center justify-between rounded-lg p-4">
