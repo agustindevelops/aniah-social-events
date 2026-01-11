@@ -12,11 +12,11 @@ const ServiceLayout = async ({ children }: ServiceLayoutProps) => {
 
   return (
     <div className="layout container mt-24 grid grid-cols-3 gap-2 p-2 lg:grid-cols-4">
-      <div className="col-span-1 hidden md:block">
+      <div className="col-span-1 hidden lg:block">
         <PlanningCoordination groupedServices={groupedServices} />
       </div>
-      <div className="col-span-3 md:col-span-2 lg:col-span-3">
-        <div className="md:hidden">
+      <div className="col-span-3 lg:col-span-3">
+        <div className="lg:hidden">
           <details className="group">
             <summary className="bg-peach-50 hover:bg-peach-100 flex cursor-pointer items-center justify-between rounded-lg p-4">
               <span className="font-moonjelly text-lg">Services Menu</span>

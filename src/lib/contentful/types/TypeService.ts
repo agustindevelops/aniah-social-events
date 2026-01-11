@@ -8,6 +8,8 @@ export interface TypeServiceFields {
   price: EntryFields.Number;
   body?: EntryFields.Text;
   services?: EntryFields.Symbol[];
+  addons?: EntryFields.Symbol[];
+  disclaimer?: EntryFields.Symbol[];
   mainImage: Asset;
   category: EntryFields.Symbol;
 }
