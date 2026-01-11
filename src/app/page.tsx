@@ -1,4 +1,5 @@
 import ContactUs from "@/components/pages/Homepage/ContactUs";
+import FAQ from "@/components/pages/Homepage/FAQ";
 import Gallery from "@/components/pages/Homepage/Gallery";
 import Hero from "@/components/pages/Homepage/Hero";
 import SectionLayout from "@/components/pages/Homepage/SectionLayout";
@@ -46,7 +47,9 @@ const Homepage = async () => {
       <SectionLayout id="testimonials">
         <Testimonials />
       </SectionLayout>
-      <Section title={faqTitle} paragraph={faqParagraph} list={[]} />
+      <Section title={faqTitle} paragraph={faqParagraph}>
+        <FAQ />
+      </Section>
       <SectionLayout id="contactUs">
         <ContactUs />
       </SectionLayout>

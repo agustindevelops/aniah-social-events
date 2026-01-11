@@ -1,4 +1,5 @@
 import {
+  TypeFaqFields,
   TypePageBlogPostFields,
   TypePageLandingFields,
   TypeProject,
@@ -97,4 +98,14 @@ export const getLandingPage = async (
     (rawLandingPage.items[0]?.fields as unknown as TypePageLandingFields) ||
     DEFAULT.LANDING_PAGE
   );
+};
+
+export const getFaqs = async (): Promise<TypeFaqFields[]> => {
+  const rawFaqs = await client.getEntries({
+    content_type: "faq",
+  });
+
+  return rawFaqs.items.map(
+    ({ fields }) => fields
+  ) as unknown as TypeFaqFields[];
 };
