@@ -9,7 +9,7 @@ import UnstyledLink from "@/components/links/UnstyledLink";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "public/images/aniah-social-events-logo.png";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RiMenu2Line } from "react-icons/ri";
 
 const Header = () => {
@@ -106,7 +106,10 @@ const Header = () => {
             </UnstyledLink>
           </div>
           <div className="flex items-center">
-            <UnstyledLink href="/" className="lg:hidden p-2 hover:bg-brown-100 rounded-lg transition-colors">
+            <UnstyledLink
+              href="/"
+              className="lg:hidden p-2 hover:bg-brown-100 rounded-lg transition-colors"
+            >
               <Image
                 src={logo}
                 width={60}

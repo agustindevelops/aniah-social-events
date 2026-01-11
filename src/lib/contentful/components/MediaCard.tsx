@@ -33,7 +33,7 @@ const MediaCard = (props: MediaCardProps) => {
         alt={description || title}
         title={title}
         fill
-        sizes="(max-width: 768px) 280px, (max-width: 1200px) 280px, 280px"
+        sizes="(max-width: 768px) 540px, (max-width: 1200px) 720px, 1080px"
         className="rounded-lg object-cover"
         loading="lazy"
         quality={85}
