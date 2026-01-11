@@ -155,7 +155,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="flex items-center">
-            <Button href="/schedule">Contact Us</Button>
+            <Button href="/schedule">Book Now</Button>
           </div>
         </nav>
       </div>

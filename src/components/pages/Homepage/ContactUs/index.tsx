@@ -5,7 +5,7 @@ import SocialLinks from "@/components/pages/Homepage/ContactUs/SocialLinks";
 const ContactUs = () => {
   return (
     <div>
-      <Button href="/schedule">Contact Us</Button>
+      <Button href="/schedule">Book Now</Button>
       <p>(210)426-5860</p>
       <p>aniahsocialevents@gmail.com</p>
       <SocialLinks />

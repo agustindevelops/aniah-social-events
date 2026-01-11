@@ -75,10 +75,10 @@
       ]
     },
     {
-      "name": "Contact Us",
-      "short_name": "Contact",
-      "description": "Get in touch with us",
-      "url": "/#contactUs",
+      "name": "Book Now",
+      "short_name": "Book Now",
+      "description": "Book your event with us",
+      "url": "/schedule",
       "icons": [
         {
           "src": "/favicon/favicon-32x32.png",

@@ -153,7 +153,7 @@ const AboutUsPage = () => {
             ready, let's sit down for a coffee (or a glass of champagne!) and
             dream up something beautiful together.
           </p>
-          <Button href="/schedule">Contact Us</Button>
+          <Button href="/schedule">Book Now</Button>
         </div>
       </div>
     </div>

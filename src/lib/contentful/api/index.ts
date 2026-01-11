@@ -1,5 +1,6 @@
 import {
   TypePageBlogPostFields,
+  TypePageLandingFields,
   TypeProject,
   TypeProjectFields,
   TypeService,
@@ -77,4 +78,15 @@ export const getProjectBySlug = async (
   })) as unknown as TypeProject;
 
   return rawProjects.items[0]?.fields || DEFAULT.PROJECT;
+};
+
+export const getLandingPage = async (): Promise<TypePageLandingFields> => {
+  const rawLandingPage = await client.getEntries({
+    content_type: "pageHome",
+  });
+
+  return (
+    (rawLandingPage.items[0]?.fields as unknown as TypePageLandingFields) ||
+    DEFAULT.LANDING_PAGE
+  );
 };

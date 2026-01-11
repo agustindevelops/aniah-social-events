@@ -1,4 +1,8 @@
-import { TypeProjectFields, TypeServiceFields } from "@/lib/contentful/types";
+import {
+  TypePageLandingFields,
+  TypeProjectFields,
+  TypeServiceFields,
+} from "@/lib/contentful/types";
 
 const SERVICE: TypeServiceFields = {
   slug: "",
@@ -30,6 +34,19 @@ const PROJECT: TypeProjectFields = {
   },
 };
 
-const DEFAULT = { SERVICE, PROJECT };
+const LANDING_PAGE: TypePageLandingFields = {
+  internalName: "",
+  heroImage: {
+    fields: {
+      file: { url: "", contentType: "" },
+      title: "",
+      description: "",
+    },
+    sys: { id: "" },
+  },
+  title: "",
+};
+
+const DEFAULT = { SERVICE, PROJECT, LANDING_PAGE };
 
 export default DEFAULT;
