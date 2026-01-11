@@ -15,17 +15,19 @@ const Author = (props: TypeComponentAuthor) => {
   } = avatar;
 
   return (
-    <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-      <div className="relative flex items-center gap-x-4">
-        <Image src={url} alt="" className="h-40 w-40 rounded-full bg-gray-50" />
-        <div className="text-sm leading-6">
-          <p className="font-semibold text-gray-900">
-            <span>
-              <span className="absolute inset-0" />
-              {name}
-            </span>
-          </p>
-          <p className="text-gray-600">Author</p>
+    <div className="flex border-gray-900/5 w-full">
+      <div className="relative flex items-center gap-x-4 justify-between lg:justify-start w-full">
+        <Image
+          src={`https:${url}`}
+          objectFit="cover"
+          alt={name}
+          className="w-24 h-12 rounded-full bg-gray-50 object-cover"
+          width={96}
+          height={96}
+        />
+        <div className="text-sm leading-6 flex flex-row gap-x-1 lg:flex-col">
+          <p className="text-gray-600">Written by:</p>
+          <p className="text-gray-900 font-semibold">{name}</p>
         </div>
       </div>
     </div>

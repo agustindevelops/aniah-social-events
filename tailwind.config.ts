@@ -3,10 +3,7 @@ import colors from "tailwindcss/colors";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
-  darkMode: ["class"],
-  daisyui: {
-    themes: ["pastel"],
-  },
+  darkMode: false,
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -147,7 +144,6 @@ export default {
   plugins: [
     require("@tailwindcss/forms"),
     require("tailwindcss-textshadow"),
-    require("daisyui"),
     require("@tailwindcss/typography"),
     require("tailwindcss-animate"),
   ],

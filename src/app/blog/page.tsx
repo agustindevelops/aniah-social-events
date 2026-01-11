@@ -20,7 +20,7 @@ export default async function Blogs() {
             and inspiration for creating memorable celebrations that charm and
             delight guests. Your journey to the perfect event starts here.
           </p>
-          <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+          <div className="mt-16 space-y-10 lg:space-y-10">
             {blogs.map(
               ({
                 slug,
@@ -34,36 +34,45 @@ export default async function Blogs() {
                   },
                 },
               }) => (
-                <article
-                  key={slug}
-                  className="relative isolate flex flex-col gap-8 lg:flex-row"
+                <Link
+                  href={`/blog/${slug}`}
+                  className="relative isolate flex flex-col lg:flex-row transition-shadow hover:shadow-xl focus:shadow-xl rounded-2xl border border-gray-200 shadow-md"
+                  tabIndex={0}
+                  aria-label={`View ${title} blog post`}
+                  key={`${slug}-${title}`}
                 >
-                  <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                    <Image
-                      src={featuredUrl}
-                      alt=""
-                      className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover object-bottom"
-                    />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-x-4 text-xs">
-                      <Date date={publishedDate} />
+                  <article className="flex flex-col lg:flex-row w-full">
+                    <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+                      <Image
+                        src={`https:${featuredUrl}`}
+                        alt={title}
+                        className="absolute inset-0 h-full w-full rounded-tl-2xl rounded-tr-2xl lg:rounded-tr-none lg:rounded-l-2xl bg-gray-50 object-cover object-center"
+                        width={512}
+                        height={512}
+                      />
                     </div>
-                    <div className="group relative max-w-xl">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                        <Link href={`/blog/${slug}`}>
-                          <span className="absolute inset-0" />
+                    <div className="py-4 mx-auto">
+                      <div className="flex flex-col lg:flex-row justify-between gap-x-4 text-xs px-4">
+                        <Date date={publishedDate} />
+                        <div className="lg:block hidden">
+                          <Author {...author} />
+                        </div>
+                      </div>
+                      <hr className="my-2" />
+                      <div className="group relative max-w-xl p-4">
+                        <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                           {title}
-                        </Link>
-                      </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-600">
-                        {shortDescription}
-                      </p>
+                        </h3>
+                        <p className="mt-5 text-sm leading-6 text-gray-600">
+                          {shortDescription}
+                        </p>
+                      </div>
+                      <div className="lg:hidden px-4">
+                        <Author {...author} />
+                      </div>
                     </div>
-                    <Author {...author} />
-                  </div>
-                </article>
+                  </article>
+                </Link>
               )
             )}
           </div>
