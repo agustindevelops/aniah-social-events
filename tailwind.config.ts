@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
-import colors from "tailwindcss/colors";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
-  darkMode: false,
+  // Class strategy only. Nothing adds `.dark`, so `dark:` utilities never apply.
+  darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -18,7 +18,6 @@ export default {
         moonjelly: ["var(--font-moonjelly)"],
       },
       colors: {
-        ...colors,
         cream: "#FFFCF9",
         brown: {
           "50": "#f9f7f4",

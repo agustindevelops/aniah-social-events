@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 
-import NotFoundPage from "@/pages/404";
+import NotFoundPage from "@/app/not-found";
 
-describe("404", () => {
+describe("NotFoundPage", () => {
   it("renders a heading", () => {
     render(<NotFoundPage />);
 
-    const heading = screen.getByText(/not found/i);
+    const heading = screen.getByRole("heading", { name: /not found/i });
 
     expect(heading).toBeInTheDocument();
   });

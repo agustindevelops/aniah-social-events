@@ -2,6 +2,7 @@ import ContactUs from "@/components/pages/Homepage/ContactUs";
 import FAQ from "@/components/pages/Homepage/FAQ";
 import Gallery from "@/components/pages/Homepage/Gallery";
 import Hero from "@/components/pages/Homepage/Hero";
+import Packages from "@/components/pages/Homepage/Packages";
 import SectionLayout from "@/components/pages/Homepage/SectionLayout";
 import Subtitle from "@/components/pages/Homepage/Subtitle";
 import Section from "@/components/Section";
@@ -34,6 +35,7 @@ const Homepage = async () => {
         list={whatWeDoList}
       />
       <SectionLayout id="ourServices">
+        <Packages />
         <Services />
       </SectionLayout>
       <Section

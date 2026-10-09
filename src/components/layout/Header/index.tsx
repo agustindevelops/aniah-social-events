@@ -118,14 +118,14 @@ const Header = () => {
                 priority
               />
             </UnstyledLink>
-            <ul className="hidden lg:flex items-center px-1 space-x-4">
+            <ul className="hidden lg:flex items-center px-1 space-x-1 xl:space-x-2">
               {filteredLinks.map(({ label, route, items }) => (
                 <li key={label} className="relative group">
                   {items ? (
                     <>
                       <UnstyledLink
                         href={route}
-                        className="px-4 py-2 hover:bg-brown-100 rounded-lg transition-colors block"
+                        className="whitespace-nowrap px-2 py-2 hover:bg-brown-100 rounded-lg transition-colors block xl:px-3"
                       >
                         {label}
                       </UnstyledLink>
@@ -145,7 +145,7 @@ const Header = () => {
                   ) : (
                     <UnstyledLink
                       href={route}
-                      className="px-4 py-2 hover:bg-brown-100 rounded-lg transition-colors block"
+                      className="whitespace-nowrap px-2 py-2 hover:bg-brown-100 rounded-lg transition-colors block xl:px-3"
                     >
                       {label}
                     </UnstyledLink>

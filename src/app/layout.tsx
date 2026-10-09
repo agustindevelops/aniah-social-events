@@ -92,7 +92,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         </main>
         <footer className="layout relative flex flex-col items-center justify-center py-12 text-center">
           <div className="absolute bottom-2 text-gray-700">
-            © 2024 By <UnderlineLink href="">Ragustin</UnderlineLink>
+            © By <UnderlineLink href="https://hhais.com">HHAIS</UnderlineLink>
           </div>
         </footer>
       </body>

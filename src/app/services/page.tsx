@@ -1,4 +1,5 @@
 import Services from "@/app/services/Services";
+import { WEDDINGS_AND_EVENTS } from "@/utils/content/offerings";
 
 const ServicesPage = async () => {
   return (
@@ -9,8 +10,8 @@ const ServicesPage = async () => {
 };
 
 export const metadata = {
-  title: "Our Event Planning Services | Aniah Social Events",
-  description: "Discover wedding, party, and event planning services offered by Aniah Social Events in Austin and San Antonio. Tailored packages for every occasion."
-}
+  title: "Weddings & Events | Aniah Social Events",
+  description: WEDDINGS_AND_EVENTS.description,
+};
 
 export default ServicesPage;

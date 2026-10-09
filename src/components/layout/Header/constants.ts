@@ -1,8 +1,13 @@
 import { BLOSSOMS_AND_BREWS } from "@/utils/content/events";
+import {
+  AT_HOME_EXPERIENCES,
+  WEDDINGS_AND_EVENTS,
+} from "@/utils/content/offerings";
 
 export const LINKS = [
   { href: "/events/blossoms-&-brews", label: "Blossoms & Brews" },
-  { href: "/services", label: "Services" },
+  { href: AT_HOME_EXPERIENCES.href, label: AT_HOME_EXPERIENCES.navLabel },
+  { href: WEDDINGS_AND_EVENTS.href, label: WEDDINGS_AND_EVENTS.navLabel },
   { href: "/about-us", label: "About Us" },
   { href: "/reviews", label: "Reviews" },
   { href: "/gallery", label: "Gallery" },
@@ -25,9 +30,10 @@ export const BLOSSOMS_AND_BREWS_CTA = {
 };
 
 export const MAIN_LINKS: LinkType[] = [
+  { label: AT_HOME_EXPERIENCES.navLabel, route: AT_HOME_EXPERIENCES.href },
   {
-    label: "Our Services",
-    route: "/services",
+    label: WEDDINGS_AND_EVENTS.navLabel,
+    route: WEDDINGS_AND_EVENTS.href,
     items: [
       {
         label: "Styled Celebrations",
