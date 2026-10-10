@@ -1,11 +1,11 @@
 import Button from "@/components/buttons/Button";
 import SocialLinks from "@/components/pages/Homepage/ContactUs/SocialLinks";
-import { APPOINTMENT_ROUTE } from "@/utils/content/schedule";
+import { START_PLANNING_ROUTE } from "@/utils/content/schedule";
 
 const ContactUs = () => {
   return (
     <div>
-      <Button href={APPOINTMENT_ROUTE}>Start Planning</Button>
+      <Button href={START_PLANNING_ROUTE}>Start Planning</Button>
       <p className="mt-2">(210)426-5860</p>
       <p>aniahsocialevents@gmail.com</p>
       <SocialLinks />

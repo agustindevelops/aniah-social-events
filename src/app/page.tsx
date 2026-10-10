@@ -2,6 +2,7 @@ import ContactUs from "@/components/pages/Homepage/ContactUs";
 import FAQ from "@/components/pages/Homepage/FAQ";
 import Gallery from "@/components/pages/Homepage/Gallery";
 import Hero from "@/components/pages/Homepage/Hero";
+import HowItWorks from "@/components/pages/Homepage/HowItWorks";
 import Packages from "@/components/pages/Homepage/Packages";
 import SectionLayout from "@/components/pages/Homepage/SectionLayout";
 import Subtitle from "@/components/pages/Homepage/Subtitle";
@@ -15,9 +16,6 @@ const Homepage = async () => {
     heroImage,
     title,
     subtitle,
-    whatWeDoTitle,
-    whatWeDoParagraph,
-    whatWeDoList,
     whoWeAreForTitle,
     whoWeAreForParagraph,
     whoWeAreForList,
@@ -29,11 +27,7 @@ const Homepage = async () => {
     <div className="w-full text-center overflow-x-hidden" id="home">
       <Hero heroImage={heroImage} title={title} />
       <Subtitle subtitle={subtitle} />
-      <Section
-        title={whatWeDoTitle}
-        paragraph={whatWeDoParagraph}
-        list={whatWeDoList}
-      />
+      <HowItWorks />
       <SectionLayout id="ourServices">
         <Packages />
         <Services />

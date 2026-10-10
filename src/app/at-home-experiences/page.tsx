@@ -2,7 +2,7 @@ import Button from "@/components/buttons/Button";
 import PackageCard from "@/components/packages/PackageCard";
 import { getPublicPackages } from "@/lib/ase-admin/packages";
 import { AT_HOME_EXPERIENCES } from "@/utils/content/offerings";
-import { APPOINTMENT_ROUTE } from "@/utils/content/schedule";
+import { START_PLANNING_ROUTE } from "@/utils/content/schedule";
 
 const AtHomeExperiencesPage = async () => {
   const packages = await getPublicPackages();
@@ -18,7 +18,7 @@ const AtHomeExperiencesPage = async () => {
             {AT_HOME_EXPERIENCES.description}
           </p>
           <div className="mt-10">
-            <Button href={APPOINTMENT_ROUTE}>Start Planning</Button>
+            <Button href={START_PLANNING_ROUTE}>Start Planning</Button>
           </div>
         </div>
       </header>

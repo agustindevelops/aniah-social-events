@@ -1,3 +1,6 @@
+/** First question: a planning consultation, or an at-home package. */
+export const START_PLANNING_ROUTE = "/schedule";
+
 /** Weddings and large events start with a Calendly planning consultation. */
 export const APPOINTMENT_ROUTE = "/schedule/appointment";
 
