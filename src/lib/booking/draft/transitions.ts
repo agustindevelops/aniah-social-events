@@ -1,7 +1,7 @@
 import {
   getDefaultPickupOption,
   timeToMinutes,
-} from "@/lib/booking/dinnerExperience";
+} from "@/lib/booking/atHomeExperience";
 
 import type { BookingDraft } from "./types";
 

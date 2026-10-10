@@ -6,6 +6,17 @@ const nextConfig = {
 
   reactStrictMode: true,
 
+  // Old bookmarks and shared links; site links point straight at the new routes.
+  async redirects() {
+    return [
+      {
+        source: "/schedule",
+        destination: "/schedule/appointment",
+        permanent: true,
+      },
+    ];
+  },
+
   images: {
     remotePatterns: [
       {

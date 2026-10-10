@@ -1,4 +1,4 @@
-import { DINNER_EXPERIENCE_TIME_ZONE } from "@/lib/booking/dinnerExperience";
+import { AT_HOME_EXPERIENCE_TIME_ZONE } from "@/lib/booking/atHomeExperience";
 
 export function formatMoney(cents: number) {
   return new Intl.NumberFormat("en-US", {
@@ -18,7 +18,7 @@ export function formatTimeOfDay(time: string) {
 
 export function formatEventDay(instant: Date) {
   return new Intl.DateTimeFormat("en-US", {
-    timeZone: DINNER_EXPERIENCE_TIME_ZONE,
+    timeZone: AT_HOME_EXPERIENCE_TIME_ZONE,
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -27,18 +27,8 @@ export function formatEventDay(instant: Date) {
 
 export function formatEventClock(instant: Date) {
   return new Intl.DateTimeFormat("en-US", {
-    timeZone: DINNER_EXPERIENCE_TIME_ZONE,
+    timeZone: AT_HOME_EXPERIENCE_TIME_ZONE,
     hour: "numeric",
     minute: "2-digit",
   }).format(instant);
-}
-
-/** Today's date at the event location as YYYY-MM-DD. */
-export function todayAtEventLocation() {
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: DINNER_EXPERIENCE_TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date());
 }

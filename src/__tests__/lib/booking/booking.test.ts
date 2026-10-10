@@ -1,3 +1,4 @@
+import { earliestBookableDate } from "@/lib/booking/atHomeExperience";
 import {
   type BookingDraft,
   type BookingPhoto,
@@ -9,6 +10,7 @@ import {
 } from "@/lib/booking/draft";
 import { toBookingRequest } from "@/lib/booking/bookingRequest";
 import {
+  bookingSteps,
   firstInvalidStep,
   validateBookingStep,
 } from "@/lib/booking/validation";
@@ -96,14 +98,31 @@ describe("booking draft", () => {
   });
 });
 
+describe("earliest bookable date", () => {
+  it("is three days out in Chicago time", () => {
+    // Friday afternoon in Chicago → Monday.
+    expect(earliestBookableDate(new Date("2026-10-09T20:00:00Z"))).toBe(
+      "2026-10-12"
+    );
+    // Still Friday evening in Chicago even though it is Saturday in UTC.
+    expect(earliestBookableDate(new Date("2026-10-10T03:00:00Z"))).toBe(
+      "2026-10-12"
+    );
+    // November 29 opens the calendar on December.
+    expect(earliestBookableDate(new Date("2026-11-29T18:00:00Z"))).toBe(
+      "2026-12-02"
+    );
+  });
+});
+
 describe("booking validation", () => {
   it("passes a complete booking", () => {
     expect(firstInvalidStep(completeDraft, [readyPhoto], EARLIEST)).toBeNull();
   });
 
-  it("requires a finished photo upload and table details", () => {
+  it("requires a finished photo upload and table details with client furniture", () => {
     const errors = validateBookingStep(
-      0,
+      "tables",
       { ...completeDraft, table: { ...completeDraft.table, numberOfChairs: "" } },
       [{ ...readyPhoto, status: "uploading" }],
       EARLIEST
@@ -111,13 +130,20 @@ describe("booking validation", () => {
     expect(errors).toEqual([
       "Add how many chairs you have.",
       "Wait for your photos to finish uploading.",
-      "Add at least one photo.",
+      "Add at least one photo of your tables.",
     ]);
+  });
+
+  it("needs no photos or tables step when we provide the furniture", () => {
+    const ours = { ...completeDraft, furniture: "OURS" as const };
+    expect(bookingSteps("OURS")).not.toContain("tables");
+    expect(bookingSteps("CLIENT")[0]).toBe("tables");
+    expect(firstInvalidStep(ours, [], EARLIEST)).toBeNull();
   });
 
   it("requires a morning time for next-morning pickup", () => {
     expect(
-      validateBookingStep(1, { ...completeDraft, morningTime: "" }, [], EARLIEST)
+      validateBookingStep("event", { ...completeDraft, morningTime: "" }, [], EARLIEST)
     ).toEqual(["Choose a next-morning pickup time."]);
   });
 
@@ -127,7 +153,7 @@ describe("booking validation", () => {
       [readyPhoto],
       EARLIEST
     );
-    expect(result?.step).toBe(2);
+    expect(result?.step).toBe("access");
   });
 });
 
@@ -149,7 +175,7 @@ describe("booking request", () => {
     expect(request).not.toHaveProperty("quote");
   });
 
-  it("drops table details and access notes when they don't apply", () => {
+  it("drops table details, photos and access notes when they don't apply", () => {
     const request = toBookingRequest(
       "pkg_1",
       { ...completeDraft, furniture: "OURS", accessType: "STANDARD" },
@@ -157,6 +183,6 @@ describe("booking request", () => {
     );
     expect(request.clientTableDetails).toBeNull();
     expect(request.details.accessNotes).toBeNull();
-    expect(request.uploads[0].uploadType).toBe("SETUP_SPACE");
+    expect(request.uploads).toEqual([]);
   });
 });

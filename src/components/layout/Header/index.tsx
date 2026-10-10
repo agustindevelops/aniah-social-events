@@ -6,6 +6,7 @@ import {
   MAIN_LINKS,
 } from "@/components/layout/Header/constants";
 import UnstyledLink from "@/components/links/UnstyledLink";
+import { APPOINTMENT_ROUTE } from "@/utils/content/schedule";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "public/images/aniah-social-events-logo.png";
@@ -155,7 +156,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="flex items-center">
-            <Button href="/schedule">Book Now</Button>
+            <Button href={APPOINTMENT_ROUTE}>Start Planning</Button>
           </div>
         </nav>
       </div>

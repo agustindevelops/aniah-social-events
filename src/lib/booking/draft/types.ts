@@ -1,5 +1,5 @@
 import type { TableShape } from "@/lib/ase-admin/booking";
-import type { AccessType, PickupOption } from "@/lib/booking/dinnerExperience";
+import type { AccessType, PickupOption } from "@/lib/booking/atHomeExperience";
 
 export type FurnitureChoice = "OURS" | "CLIENT";
 

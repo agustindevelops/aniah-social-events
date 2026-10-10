@@ -8,7 +8,7 @@ const PackageCard = ({ pkg }: { pkg: PublicPackage }) => {
 
   return (
     <Link
-      href={`/at-home-experiences/${pkg.id}`}
+      href={`/at-home-experiences/${pkg.slug}`}
       className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
     >
       <article className="flex w-full flex-col overflow-hidden rounded-2xl bg-cream text-start shadow-md transition group-hover:shadow-lg sm:min-h-80 sm:flex-row">

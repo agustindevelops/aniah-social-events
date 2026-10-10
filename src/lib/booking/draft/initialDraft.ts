@@ -1,10 +1,10 @@
-import { DINNER_EXPERIENCE_PRICING } from "@/lib/booking/dinnerExperience";
+import { AT_HOME_EXPERIENCE_PRICING } from "@/lib/booking/atHomeExperience";
 
 import type { BookingDraft } from "./types";
 
 export const INITIAL_BOOKING_DRAFT: BookingDraft = {
   furniture: "OURS",
-  guestCount: DINNER_EXPERIENCE_PRICING.baseGuestCount,
+  guestCount: AT_HOME_EXPERIENCE_PRICING.baseGuestCount,
   table: {
     tableShape: "",
     tableDimensions: "",

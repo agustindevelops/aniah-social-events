@@ -3,6 +3,7 @@ import {
   AT_HOME_EXPERIENCES,
   WEDDINGS_AND_EVENTS,
 } from "@/utils/content/offerings";
+import { APPOINTMENT_ROUTE } from "@/utils/content/schedule";
 
 export const LINKS = [
   { href: "/events/blossoms-&-brews", label: "Blossoms & Brews" },
@@ -13,8 +14,8 @@ export const LINKS = [
   { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
   {
-    href: "/schedule",
-    label: "Book Now",
+    href: APPOINTMENT_ROUTE,
+    label: "Start Planning",
   },
 ];
 
@@ -54,7 +55,7 @@ export const MAIN_LINKS: LinkType[] = [
   { label: "About Us", route: "/about-us" },
   { label: "Blog", route: "/blog" },
   {
-    label: "Book Now",
-    route: "/schedule",
+    label: "Start Planning",
+    route: APPOINTMENT_ROUTE,
   },
 ];

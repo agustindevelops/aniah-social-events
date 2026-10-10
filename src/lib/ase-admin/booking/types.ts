@@ -1,4 +1,4 @@
-import type { AccessType, PickupOption } from "@/lib/booking/dinnerExperience";
+import type { AccessType, PickupOption } from "@/lib/booking/atHomeExperience";
 
 export type BookingUploadType = "SETUP_SPACE" | "CLIENT_FURNITURE";
 

@@ -1,3 +1,4 @@
+import { BOOKING_LEAD_DAYS } from "@/lib/booking/atHomeExperience";
 import {
   type BookingDraft,
   type BookingPhoto,
@@ -7,23 +8,23 @@ import {
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ZIP_PATTERN = /^\d{5}(-\d{4})?$/;
 
-export function experienceErrors(draft: BookingDraft, photos: BookingPhoto[]) {
+/** Table details and photos; only asked when the client provides their own tables. */
+export function tablesErrors(draft: BookingDraft, photos: BookingPhoto[]) {
+  if (!usesClientFurniture(draft)) return [];
   const errors: string[] = [];
-  if (usesClientFurniture(draft)) {
-    const { table } = draft;
-    if (!table.tableShape) errors.push("Choose your table shape.");
-    if (!table.tableDimensions.trim()) errors.push("Add your table dimensions.");
-    if (!(Number(table.numberOfTables) >= 1))
-      errors.push("Add how many tables you have.");
-    if (!(Number(table.numberOfChairs) >= 1))
-      errors.push("Add how many chairs you have.");
-  }
+  const { table } = draft;
+  if (!table.tableShape) errors.push("Choose your table shape.");
+  if (!table.tableDimensions.trim()) errors.push("Add your table dimensions.");
+  if (!(Number(table.numberOfTables) >= 1))
+    errors.push("Add how many tables you have.");
+  if (!(Number(table.numberOfChairs) >= 1))
+    errors.push("Add how many chairs you have.");
   if (photos.some((photo) => photo.status === "uploading"))
     errors.push("Wait for your photos to finish uploading.");
   if (photos.some((photo) => photo.status === "error"))
     errors.push("Remove photos that failed to upload.");
   if (!photos.some((photo) => photo.status === "ready"))
-    errors.push("Add at least one photo.");
+    errors.push("Add at least one photo of your tables.");
   return errors;
 }
 
@@ -31,7 +32,9 @@ export function eventErrors(draft: BookingDraft, earliestDate: string) {
   const errors: string[] = [];
   const { address } = draft;
   if (!draft.eventDate || draft.eventDate < earliestDate)
-    errors.push("Choose an event date from tomorrow onward.");
+    errors.push(
+      `Choose an event date at least ${BOOKING_LEAD_DAYS} days from today.`
+    );
   if (!draft.startTime) errors.push("Choose an event start time.");
   if (!draft.endTime) errors.push("Choose an event end time.");
   if (!address.addressLine1.trim()) errors.push("Add the street address.");

@@ -2,6 +2,7 @@ import Button from "@/components/buttons/Button";
 import PackageCard from "@/components/packages/PackageCard";
 import { getPublicPackages } from "@/lib/ase-admin/packages";
 import { AT_HOME_EXPERIENCES } from "@/utils/content/offerings";
+import { APPOINTMENT_ROUTE } from "@/utils/content/schedule";
 
 const AtHomeExperiencesPage = async () => {
   const packages = await getPublicPackages();
@@ -17,7 +18,7 @@ const AtHomeExperiencesPage = async () => {
             {AT_HOME_EXPERIENCES.description}
           </p>
           <div className="mt-10">
-            <Button href="/schedule">Book Now</Button>
+            <Button href={APPOINTMENT_ROUTE}>Start Planning</Button>
           </div>
         </div>
       </header>
@@ -41,7 +42,7 @@ const AtHomeExperiencesPage = async () => {
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "Cozy At-Home Experiences | Aniah Social Events",
+  title: "At-Home Experiences | Aniah Social Events",
   description: AT_HOME_EXPERIENCES.description,
 };
 

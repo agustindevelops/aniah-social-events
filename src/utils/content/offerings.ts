@@ -9,7 +9,7 @@ export const WEDDINGS_AND_EVENTS = {
 
 export const AT_HOME_EXPERIENCES = {
   navLabel: "At-Home Experiences",
-  title: "Cozy At-Home Experiences",
+  title: "At-Home Experiences",
   description:
     "Curated dinner and celebration setups that transform your home for an unforgettable night in.",
   cta: "Explore At-Home Experiences",

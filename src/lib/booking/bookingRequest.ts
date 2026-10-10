@@ -17,7 +17,6 @@ export function toBookingRequest(
 
   const clientFurniture = usesClientFurniture(draft);
   const { address, contact, table } = draft;
-  const uploadType = clientFurniture ? "CLIENT_FURNITURE" : "SETUP_SPACE";
 
   return {
     packageId,
@@ -60,10 +59,13 @@ export function toBookingRequest(
             numberOfChairs: Number(table.numberOfChairs),
           }
         : null,
-    uploads: photos.flatMap((photo) =>
-      photo.status === "ready" && photo.fileUrl
-        ? [{ uploadType, fileUrl: photo.fileUrl }]
-        : []
-    ),
+    // Photos are only collected when the client provides their own tables.
+    uploads: clientFurniture
+      ? photos.flatMap((photo) =>
+          photo.status === "ready" && photo.fileUrl
+            ? [{ uploadType: "CLIENT_FURNITURE" as const, fileUrl: photo.fileUrl }]
+            : []
+        )
+      : [],
   };
 }

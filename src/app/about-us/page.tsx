@@ -1,4 +1,5 @@
 import Button from "@/components/buttons/Button";
+import { APPOINTMENT_ROUTE } from "@/utils/content/schedule";
 import Image from "next/image";
 
 const AboutUsPage = () => {
@@ -153,7 +154,7 @@ const AboutUsPage = () => {
             ready, let's sit down for a coffee (or a glass of champagne!) and
             dream up something beautiful together.
           </p>
-          <Button href="/schedule">Book Now</Button>
+          <Button href={APPOINTMENT_ROUTE}>Start Planning</Button>
         </div>
       </div>
     </div>

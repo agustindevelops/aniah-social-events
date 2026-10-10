@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Your Experience Is Booked | Aniah Social Events",
+  title: "Your At-Home Experience Is Booked | Aniah Social Events",
   robots: { index: false },
 };
 
@@ -20,7 +20,7 @@ const BookedPage = async ({ searchParams }: Props) => {
         You&apos;re booked!
       </h1>
       <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-brown-700">
-        Thank you for booking your at-home dinner experience. Your payment was
+        Thank you for booking your at-home experience. Your payment was
         received and a receipt is on its way to your inbox.
       </p>
       <div className="mx-auto mt-10 max-w-md rounded-2xl bg-white p-6 text-left shadow-md">

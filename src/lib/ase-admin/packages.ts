@@ -1,3 +1,4 @@
+import { isAxiosError } from "axios";
 import { unstable_cache } from "next/cache";
 
 import { aseAdminApi } from "@/lib/ase-admin/client";
@@ -16,6 +17,7 @@ export type PublicPackageItem = {
 
 export type PublicPackage = {
   id: string;
+  slug: string;
   name: string;
   summary: string | null;
   description: string | null;
@@ -26,6 +28,7 @@ export type PublicPackage = {
 
 const PACKAGES_REVALIDATE_SECONDS = 5 * 60;
 
+// Bump the version when the package shape changes so stale cache entries are skipped.
 export const getPublicPackages = unstable_cache(
   async (): Promise<PublicPackage[]> => {
     const { data } = await aseAdminApi.get<{ packages: PublicPackage[] }>(
@@ -33,11 +36,28 @@ export const getPublicPackages = unstable_cache(
     );
     return data.packages;
   },
-  ["ase-admin-public-packages"],
+  ["ase-admin-public-packages", "v2"],
   { revalidate: PACKAGES_REVALIDATE_SECONDS }
 );
 
-export async function getPublicPackage(
+export const getPublicPackageBySlug = unstable_cache(
+  async (slug: string): Promise<PublicPackage | null> => {
+    try {
+      const { data } = await aseAdminApi.get<{ package: PublicPackage }>(
+        `packages/${encodeURIComponent(slug)}`
+      );
+      return data.package;
+    } catch (error) {
+      if (isAxiosError(error) && error.response?.status === 404) return null;
+      throw error;
+    }
+  },
+  ["ase-admin-public-package-by-slug", "v1"],
+  { revalidate: PACKAGES_REVALIDATE_SECONDS }
+);
+
+/** Package pages used to be addressed by id; used to redirect those links. */
+export async function getPublicPackageById(
   packageId: string
 ): Promise<PublicPackage | null> {
   const packages = await getPublicPackages();

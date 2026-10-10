@@ -75,10 +75,10 @@
       ]
     },
     {
-      "name": "Book Now",
-      "short_name": "Book Now",
+      "name": "Start Planning",
+      "short_name": "Start Planning",
       "description": "Book your event with us",
-      "url": "/schedule",
+      "url": "/schedule/appointment",
       "icons": [
         {
           "src": "/favicon/favicon-32x32.png",

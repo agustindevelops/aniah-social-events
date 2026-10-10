@@ -1,12 +1,13 @@
+import { earliestBookableDate } from "@/lib/booking/atHomeExperience";
 import type { BookingDraft, BookingPhoto } from "@/lib/booking/draft";
 
-import { BOOKING_STEPS, type BookingStep, minEventDate } from "./steps";
+import { type BookingStep, bookingSteps } from "./steps";
 import {
   accessErrors,
   confirmErrors,
   contactErrors,
   eventErrors,
-  experienceErrors,
+  tablesErrors,
 } from "./stepValidators";
 
 export * from "./steps";
@@ -15,21 +16,19 @@ export function validateBookingStep(
   step: BookingStep,
   draft: BookingDraft,
   photos: BookingPhoto[],
-  earliestDate: string = minEventDate()
+  earliestDate: string = earliestBookableDate()
 ): string[] {
   switch (step) {
-    case 0:
-      return experienceErrors(draft, photos);
-    case 1:
+    case "tables":
+      return tablesErrors(draft, photos);
+    case "event":
       return eventErrors(draft, earliestDate);
-    case 2:
+    case "access":
       return accessErrors(draft);
-    case 3:
+    case "contact":
       return contactErrors(draft);
-    case 4:
+    case "confirm":
       return confirmErrors(draft);
-    default:
-      return [];
   }
 }
 
@@ -37,9 +36,9 @@ export function validateBookingStep(
 export function firstInvalidStep(
   draft: BookingDraft,
   photos: BookingPhoto[],
-  earliestDate: string = minEventDate()
+  earliestDate: string = earliestBookableDate()
 ): { step: BookingStep; errors: string[] } | null {
-  for (let step = 0; step < BOOKING_STEPS.length; step += 1) {
+  for (const step of bookingSteps(draft.furniture)) {
     const errors = validateBookingStep(step, draft, photos, earliestDate);
     if (errors.length > 0) return { step, errors };
   }

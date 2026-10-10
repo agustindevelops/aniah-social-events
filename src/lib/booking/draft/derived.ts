@@ -1,6 +1,6 @@
 import {
   addDays,
-  calculateDinnerExperienceQuote,
+  calculateAtHomeExperienceQuote,
   calculatePickupWindow,
   calculateSetupWindow,
   getAvailablePickupOptions,
@@ -8,7 +8,7 @@ import {
   isOutsideServiceArea,
   type PickupOption,
   zonedDateTime,
-} from "@/lib/booking/dinnerExperience";
+} from "@/lib/booking/atHomeExperience";
 import { formatEventDay } from "@/lib/booking/format";
 
 import type { BookingDraft } from "./types";
@@ -17,7 +17,7 @@ export const usesClientFurniture = (draft: BookingDraft) =>
   draft.furniture === "CLIENT";
 
 export function getBookingQuote(draft: BookingDraft) {
-  return calculateDinnerExperienceQuote({
+  return calculateAtHomeExperienceQuote({
     guestCount: draft.guestCount,
     usesClientFurniture: usesClientFurniture(draft),
     accessType: draft.accessType,
