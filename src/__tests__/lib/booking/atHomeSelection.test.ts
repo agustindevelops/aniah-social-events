@@ -42,18 +42,18 @@ describe("at-home selection", () => {
       eventDate: "2026-12-05",
     };
     expect(atHomeScheduleHref("fantasy-forest", selection)).toBe(
-      "/schedule/at-home-experience?package=fantasy-forest&date=2026-12-05&furniture=OURS&guests=7"
+      "/schedule/intimate-celebration?package=fantasy-forest&date=2026-12-05&furniture=OURS&guests=7"
     );
     expect(
       packagePageHref("fantasy-forest", { ...selection, eventDate: null })
-    ).toBe("/at-home-experiences/fantasy-forest?furniture=OURS&guests=7");
+    ).toBe("/intimate-celebrations/fantasy-forest?furniture=OURS&guests=7");
     expect(
       packagePageHref("fantasy-forest", {
         furniture: null,
         guestCount: null,
         eventDate: null,
       })
-    ).toBe("/at-home-experiences/fantasy-forest");
+    ).toBe("/intimate-celebrations/fantasy-forest");
   });
 
   it("prices each style and guest count", () => {

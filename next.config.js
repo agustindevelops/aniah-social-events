@@ -1,3 +1,22 @@
+/** Package photos are served from ASE admin, which redirects to storage. */
+function adminMediaPattern() {
+  const raw = process.env.NEXT_PUBLIC_ASE_ADMIN_URL;
+  if (!raw) return null;
+  try {
+    const url = new URL(raw);
+    return {
+      protocol: url.protocol.replace(":", ""),
+      hostname: url.hostname,
+      port: url.port,
+      pathname: "/api/public/**",
+    };
+  } catch {
+    return null;
+  }
+}
+
+const adminMedia = adminMediaPattern();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -5,6 +24,26 @@ const nextConfig = {
   },
 
   reactStrictMode: true,
+
+  async redirects() {
+    return [
+      {
+        source: "/at-home-experiences",
+        destination: "/intimate-celebrations",
+        permanent: true,
+      },
+      {
+        source: "/at-home-experiences/:path*",
+        destination: "/intimate-celebrations/:path*",
+        permanent: true,
+      },
+      {
+        source: "/schedule/at-home-experience",
+        destination: "/schedule/intimate-celebration",
+        permanent: true,
+      },
+    ];
+  },
 
   images: {
     remotePatterns: [
@@ -37,7 +76,8 @@ const nextConfig = {
         protocol: "https",
         hostname: "d13ns7kbjmbjip.cloudfront.net",
         pathname: "/**",
-      }
+      },
+      ...(adminMedia ? [adminMedia] : []),
     ],
   },
 

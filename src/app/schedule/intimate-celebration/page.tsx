@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import BookingForm from "@/app/schedule/at-home-experience/components/BookingForm";
-import SelectionSummary from "@/app/schedule/at-home-experience/components/SelectionSummary";
+import BookingForm from "@/app/schedule/intimate-celebration/components/BookingForm";
+import SelectionSummary from "@/app/schedule/intimate-celebration/components/SelectionSummary";
 import { getPublicPackageBySlug } from "@/lib/ase-admin/packages";
 import {
   isCompleteSelection,
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "Schedule Your At-Home Experience | Aniah Social Events",
+  title: "Schedule Your Intimate Celebration | Aniah Social Events",
   robots: { index: false },
 };
 
@@ -35,7 +35,7 @@ const AtHomeExperienceSchedulePage = async ({ searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 pb-32 pt-36 sm:px-6 lg:px-8 lg:pb-24">
       <h1 className="font-moonjelly text-3xl text-[#CE6B69] sm:text-4xl">
-        Schedule your at-home experience
+        Schedule your intimate celebration
       </h1>
       <SelectionSummary
         packageName={pkg.name}

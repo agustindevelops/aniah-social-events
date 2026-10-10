@@ -8,22 +8,22 @@ import {
 
 const CHOICES = [
   {
+    href: AT_HOME_EXPERIENCES.href,
+    eyebrow: "Intimate celebration",
+    title: "Choose a package",
+    description:
+      "A dinner or celebration set up in your home. Pick a package and we'll handle the planning, setup, and details.",
+    action: "See packages",
+    note: "Ready to book an intimate celebration.",
+  },
+  {
     href: APPOINTMENT_ROUTE,
     eyebrow: "Consultation",
     title: "Plan it with us",
     description:
       "Weddings, celebrations, and events that start with a conversation. We'll book a time to talk through your vision.",
-    action: "Book a consultation",
+    action: "Book a planning consultation",
     note: "Not sure yet? Start here.",
-  },
-  {
-    href: AT_HOME_EXPERIENCES.href,
-    eyebrow: "At-home experience",
-    title: "Choose a package",
-    description:
-      "A dinner or celebration set up in your home. Pick a package and we'll handle the planning, setup, and details.",
-    action: "See packages",
-    note: "Ready to book an at-home event.",
   },
 ];
 
@@ -73,7 +73,7 @@ const SchedulePage = () => {
 export const metadata = {
   title: "Start Planning | Aniah Social Events",
   description:
-    "Tell us what you're planning. Book a consultation or choose an at-home experience package.",
+    "Tell us what you're planning. Book a consultation or choose an intimate celebration package.",
   alternates: {
     canonical: `https://www.aniahsocialevents.com${START_PLANNING_ROUTE}`,
   },

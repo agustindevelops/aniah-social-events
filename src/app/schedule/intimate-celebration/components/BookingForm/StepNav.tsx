@@ -21,7 +21,7 @@ const StepNav = ({ steps, step, onSelect, experienceHref }: Props) => {
     <ol className="mb-8 flex flex-wrap gap-2" aria-label="Booking steps">
       <li>
         <Link href={experienceHref} className={clsxm(pillClass, doneClass, "block")}>
-          1. At-home experience
+          1. Intimate celebration
         </Link>
       </li>
       {steps.map((id, index) => (

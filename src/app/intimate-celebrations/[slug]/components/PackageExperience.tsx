@@ -29,8 +29,9 @@ type Props = {
 const listFormat = new Intl.ListFormat("en-US", { type: "conjunction" });
 
 /**
- * Step one of booking. Mobile order: gallery, details, options, calendar, button.
- * Desktop: gallery and calendar on the left, details, options and button on the right.
+ * Step one of booking. Gallery and details sit above a divider.
+ * Style, guests, and the calendar are one form under that line, with the
+ * schedule button centered beneath them.
  */
 const PackageExperience = ({
   packageSlug,
@@ -60,28 +61,17 @@ const PackageExperience = ({
     !eventDate && "an event date",
   ].filter((item): item is string => Boolean(item));
 
-  const columnClass = clsxm(
-    "contents",
-    gallery !== null && "lg:block lg:space-y-8"
-  );
-
   return (
-    <article
-      className={clsxm(
-        "mt-4 grid gap-8",
-        gallery !== null &&
-          "lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start"
-      )}
-    >
-      <div className={columnClass}>
-        {gallery}
-        <div className="order-4">
-          <EventDateCalendar value={eventDate} onChange={setEventDate} />
-        </div>
-      </div>
-
-      <div className={columnClass}>
-        <div className="order-2 min-w-0 space-y-6">
+    <article className="mt-4 space-y-8">
+      <div
+        className={clsxm(
+          "grid gap-8",
+          gallery !== null &&
+            "lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start"
+        )}
+      >
+        {gallery ? <div className="min-w-0">{gallery}</div> : null}
+        <div className="min-w-0 space-y-6">
           <header className="flex items-start justify-between gap-6">
             <h1 className="font-moonjelly text-3xl text-[#CE6B69] sm:text-4xl">
               {packageName}
@@ -99,8 +89,12 @@ const PackageExperience = ({
           </header>
           {description}
         </div>
+      </div>
 
-        <div className="order-3">
+      <hr className="border-brown-200" />
+
+      <div className="grid items-start gap-8 lg:grid-cols-2">
+        <div className="lg:order-2">
           <VariantOptions
             furniture={furniture}
             guestCount={guestCount}
@@ -108,26 +102,29 @@ const PackageExperience = ({
             onGuestCountChange={setGuestCount}
           />
         </div>
-
-        <div className="order-5">
-          <button
-            type="button"
-            disabled={!complete}
-            onClick={() => {
-              if (isCompleteSelection(selection)) {
-                router.push(atHomeScheduleHref(packageSlug, selection));
-              }
-            }}
-            className="w-full rounded-full bg-green-500 px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-brown-200 disabled:text-brown-600 disabled:shadow-none sm:w-auto"
-          >
-            Schedule your at-home experience
-          </button>
-          <p className="mt-2 text-sm text-brown-600">
-            {missing.length > 0
-              ? `Choose ${listFormat.format(missing)} to continue.`
-              : "Special access, late-night pickup and travel fees are added in the next step if they apply."}
-          </p>
+        <div className="lg:order-1">
+          <EventDateCalendar value={eventDate} onChange={setEventDate} />
         </div>
+      </div>
+
+      <div className="flex flex-col items-center text-center">
+        <button
+          type="button"
+          disabled={!complete}
+          onClick={() => {
+            if (isCompleteSelection(selection)) {
+              router.push(atHomeScheduleHref(packageSlug, selection));
+            }
+          }}
+          className="w-full rounded-full bg-green-500 px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-brown-200 disabled:text-brown-600 disabled:shadow-none sm:w-auto"
+        >
+          Schedule your intimate celebration
+        </button>
+        <p className="mt-2 max-w-md text-sm text-brown-600">
+          {missing.length > 0
+            ? `Choose ${listFormat.format(missing)} to continue.`
+            : "Special access, late-night pickup and travel fees are added in the next step if they apply."}
+        </p>
       </div>
     </article>
   );

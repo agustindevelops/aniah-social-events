@@ -8,12 +8,12 @@ export const WEDDINGS_AND_EVENTS = {
 };
 
 export const AT_HOME_EXPERIENCES = {
-  navLabel: "At-Home Experiences",
-  title: "At-Home Experiences",
+  navLabel: "Intimate Celebrations",
+  title: "Intimate Celebrations",
   description:
     "Curated dinner and celebration setups that transform your home for an unforgettable night in.",
-  cta: "Explore At-Home Experiences",
-  href: "/at-home-experiences",
+  cta: "Explore Intimate Celebrations",
+  href: "/intimate-celebrations",
 };
 
 export const OFFERINGS = [AT_HOME_EXPERIENCES, WEDDINGS_AND_EVENTS];

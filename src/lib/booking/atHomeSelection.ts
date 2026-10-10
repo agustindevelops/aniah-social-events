@@ -4,9 +4,10 @@ import {
   isValidGuestCount,
 } from "@/lib/booking/atHomeExperience";
 import type { FurnitureChoice } from "@/lib/booking/draft";
+import { AT_HOME_EXPERIENCES } from "@/utils/content/offerings";
 import { AT_HOME_EXPERIENCE_ROUTE } from "@/utils/content/schedule";
 
-/** What the package page hands to /schedule/at-home-experience through the URL. */
+/** What the package page hands to /schedule/intimate-celebration through the URL. */
 export type AtHomeSelection = {
   furniture: FurnitureChoice;
   guestCount: number;
@@ -82,7 +83,7 @@ export function packagePageHref(
   selection: PartialAtHomeSelection
 ): string {
   const query = selectionParams(selection).toString();
-  const path = `/at-home-experiences/${encodeURIComponent(packageSlug)}`;
+  const path = `${AT_HOME_EXPERIENCES.href}/${encodeURIComponent(packageSlug)}`;
   return query ? `${path}?${query}` : path;
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { type KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiMaximize2, FiPlay } from "react-icons/fi";
 
@@ -81,7 +82,7 @@ const PackageGallery = ({ media, name }: Props) => {
   if (count === 0) return null;
 
   return (
-    <div>
+    <div className="min-w-0">
       <div
         role="region"
         aria-roledescription="carousel"
@@ -93,7 +94,7 @@ const PackageGallery = ({ media, name }: Props) => {
         <div
           ref={trackRef}
           onScroll={handleScroll}
-          className="flex aspect-[4/3] snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex aspect-[3/4] w-full snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {media.map((item, index) => (
             <div
@@ -101,7 +102,7 @@ const PackageGallery = ({ media, name }: Props) => {
               role="group"
               aria-roledescription="slide"
               aria-label={`${index + 1} of ${count}`}
-              className="h-full w-full shrink-0 snap-center"
+              className="h-full w-full min-w-0 shrink-0 snap-center overflow-hidden"
             >
               <button
                 type="button"
@@ -195,12 +196,12 @@ const PackageGallery = ({ media, name }: Props) => {
                   </span>
                 </>
               ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={item.url}
                   alt=""
-                  loading="lazy"
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="80px"
+                  className="object-cover"
                 />
               )}
             </button>

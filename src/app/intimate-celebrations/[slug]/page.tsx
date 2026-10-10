@@ -3,13 +3,14 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
-import PackageExperience from "@/app/at-home-experiences/[slug]/components/PackageExperience";
-import PackageGallery from "@/app/at-home-experiences/[slug]/components/PackageGallery";
+import PackageExperience from "@/app/intimate-celebrations/[slug]/components/PackageExperience";
+import PackageGallery from "@/app/intimate-celebrations/[slug]/components/PackageGallery";
 import {
   getPublicPackageById,
   getPublicPackageBySlug,
 } from "@/lib/ase-admin/packages";
 import { parseAtHomeSelection, type SearchParams } from "@/lib/booking/atHomeSelection";
+import { AT_HOME_EXPERIENCES } from "@/utils/content/offerings";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,12 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pkg = await getPublicPackageBySlug(slug);
   if (!pkg) {
-    return { title: "Book an At-Home Experience | Aniah Social Events" };
+    return { title: "Book an Intimate Celebration | Aniah Social Events" };
   }
   return {
-    title: `${pkg.name} | At-Home Experiences | Aniah Social Events`,
+    title: `${pkg.name} | Intimate Celebrations | Aniah Social Events`,
     description: pkg.summary ?? undefined,
-    alternates: { canonical: `/at-home-experiences/${pkg.slug}` },
+    alternates: { canonical: `${AT_HOME_EXPERIENCES.href}/${pkg.slug}` },
   };
 }
 
@@ -34,7 +35,7 @@ async function findPackage(slug: string) {
   const pkg = await getPublicPackageBySlug(slug);
   if (pkg) return pkg;
   const legacy = await getPublicPackageById(slug);
-  if (legacy) permanentRedirect(`/at-home-experiences/${legacy.slug}`);
+  if (legacy) permanentRedirect(`${AT_HOME_EXPERIENCES.href}/${legacy.slug}`);
   notFound();
 }
 
@@ -48,10 +49,10 @@ const PackagePage = async ({ params, searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-6xl px-4 pb-24 pt-36 sm:px-6 lg:px-8">
       <Link
-        href="/at-home-experiences"
+        href={AT_HOME_EXPERIENCES.href}
         className="text-sm font-medium text-brown-600 hover:text-brown-800"
       >
-        ← All at-home experiences
+        ← All intimate celebrations
       </Link>
       <PackageExperience
         packageSlug={pkg.slug}
@@ -72,6 +73,7 @@ const PackagePage = async ({ params, searchParams }: Props) => {
                       {children}
                     </a>
                   ),
+                  hr: () => null,
                 }}
               >
                 {details}

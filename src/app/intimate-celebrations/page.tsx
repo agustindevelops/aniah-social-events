@@ -1,8 +1,6 @@
-import Button from "@/components/buttons/Button";
 import PackageCard from "@/components/packages/PackageCard";
 import { getPublicPackages } from "@/lib/ase-admin/packages";
 import { AT_HOME_EXPERIENCES } from "@/utils/content/offerings";
-import { START_PLANNING_ROUTE } from "@/utils/content/schedule";
 
 const AtHomeExperiencesPage = async () => {
   const packages = await getPublicPackages();
@@ -17,9 +15,6 @@ const AtHomeExperiencesPage = async () => {
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-brown-700 md:text-xl">
             {AT_HOME_EXPERIENCES.description}
           </p>
-          <div className="mt-10">
-            <Button href={START_PLANNING_ROUTE}>Start Planning</Button>
-          </div>
         </div>
       </header>
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -42,7 +37,7 @@ const AtHomeExperiencesPage = async () => {
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "At-Home Experiences | Aniah Social Events",
+  title: "Intimate Celebrations | Aniah Social Events",
   description: AT_HOME_EXPERIENCES.description,
 };
 

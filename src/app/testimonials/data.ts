@@ -89,4 +89,10 @@ const reviews = [
   },
 ];
 
-export default reviews;
+/** MM/DD/YYYY posted dates, newest first. Same-day reviews keep their original order. */
+function postedAt(date: string) {
+  const [month, day, year] = date.split("/").map(Number);
+  return new Date(year, month - 1, day).getTime();
+}
+
+export default reviews.sort((a, b) => postedAt(b.date) - postedAt(a.date));

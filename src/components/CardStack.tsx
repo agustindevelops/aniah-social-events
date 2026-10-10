@@ -24,8 +24,9 @@ const CardStack = <T,>({ data, children, getKey }: CardStackProps<T>) => {
         height: "420px",
       }}
     >
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl md:text-4xl font-bold font-moonjelly max-w-xs">
-        🎉 WOW! You found our secret $100 OFF code: ASE24 🎉
+      <div className="absolute left-1/2 top-1/2 max-w-xs -translate-x-1/2 -translate-y-1/2 text-center font-moonjelly text-2xl font-bold md:max-w-md md:text-4xl">
+        <p>🎉 WOW! You found our secret code.</p>
+        <p className="mt-3">ASE24 takes $100 off big events.</p>
       </div>
       {stack.map((item, i) => (
         <CardWrapper

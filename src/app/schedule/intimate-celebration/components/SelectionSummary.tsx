@@ -41,7 +41,7 @@ const SelectionSummary = ({ packageName, selection, changeHref }: Props) => {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-medium uppercase tracking-wide text-brown-500">
-            Your at-home experience
+            Your intimate celebration
           </p>
           <h2
             id="selection-heading"
