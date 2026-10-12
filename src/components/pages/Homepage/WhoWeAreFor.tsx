@@ -5,9 +5,8 @@ import {
   PaintBrushIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import type { ComponentType, SVGProps } from "react";
 
-type Icon = ComponentType<SVGProps<SVGSVGElement>>;
+type Icon = typeof ClockIcon;
 
 const PEOPLE: {
   label: string;
