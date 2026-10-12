@@ -48,3 +48,29 @@ export type BookingResponse = {
   order: { id: string; status: string; quote: number };
   checkoutUrl: string;
 };
+
+/** Booked-page summary from GET orders/checkout/{sessionId}. */
+export type BookingConfirmation = {
+  reference: string;
+  paid: boolean;
+  packageName: string | null;
+  firstName: string | null;
+  /** YYYY-MM-DD at the event location. */
+  eventDate: string | null;
+  /** HH:mm wall-clock at the event location. */
+  eventStartTime: string | null;
+  eventEndTime: string | null;
+  guestCount: number | null;
+  totalCents: number | null;
+  setupStartsAt: string | null;
+  setupEndsAt: string | null;
+  pickupStartsAt: string | null;
+  pickupEndsAt: string | null;
+  address: {
+    addressLine1: string | null;
+    addressLine2: string | null;
+    city: string | null;
+    state: string | null;
+    zipcode: string | null;
+  } | null;
+};
