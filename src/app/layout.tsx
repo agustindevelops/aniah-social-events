@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "Exceptional event planning and coordination services in San Antonio, Texas & Austin, Texas.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/favicon/large-og.jpg",
         width: 1200,
         height: 630,
         alt: "Aniah Social Events",
@@ -59,8 +59,26 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      {
+        url: "/favicon/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      { url: "/favicon.ico?v=2" },
+    ],
+    apple: [
+      {
+        url: "/favicon/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
   manifest: "/site.webmanifest",
   alternates: {

@@ -15,8 +15,7 @@ const defaultMeta = {
    * No need to be filled, will be populated with openGraph function
    * If you wish to use a normal image, just specify the path below
    */
-  image:
-    "https://aniahsocialevents.com/images/aniah-social-events-large-logo.png",
+  image: "https://aniahsocialevents.com/favicon/large-og.jpg",
 };
 
 type SeoProps = {
@@ -73,9 +72,9 @@ export default function Seo(props: SeoProps) {
       {favicons.map((linkProps) => (
         <link key={linkProps.href} {...linkProps} />
       ))}
-      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="msapplication-TileColor" content="#f5e0c3" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#f5e0c3" />
     </Head>
   );
 }
@@ -98,11 +97,6 @@ const favicons: Array<React.ComponentPropsWithoutRef<"link">> = [
     sizes: "16x16",
     href: "/favicon/favicon-16x16.png",
   },
-  { rel: "manifest", href: "/favicon/site.webmanifest" },
-  {
-    rel: "mask-icon",
-    href: "/favicon/safari-pinned-tab.svg",
-    color: "#00e887",
-  },
-  { rel: "shortcut icon", href: "/favicon/favicon.ico" },
+  { rel: "manifest", href: "/site.webmanifest" },
+  { rel: "shortcut icon", href: "/favicon/favicon.ico?v=2" },
 ];
