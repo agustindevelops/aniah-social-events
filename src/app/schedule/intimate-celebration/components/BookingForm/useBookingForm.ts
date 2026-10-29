@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from "react";
 
 import { bookingErrorMessage, createBooking } from "@/lib/ase-admin/booking";
+import type { PublicPackageVariant } from "@/lib/ase-admin/packages";
 import type { AtHomeSelection } from "@/lib/booking/atHomeSelection";
 import {
   type BookingDraft,
@@ -26,11 +27,22 @@ export type UpdateDraft = <K extends keyof BookingDraft>(
 ) => void;
 
 /** All booking-form state and actions; the step components stay presentational. */
-export function useBookingForm(packageId: string, selection: AtHomeSelection) {
-  const steps = bookingSteps(selection.furniture);
+export function useBookingForm(
+  packageId: string,
+  packageBasePriceCents: number,
+  variant: PublicPackageVariant,
+  selection: AtHomeSelection
+) {
+  const steps = bookingSteps(variant.forms);
   const [draft, setDraft] = useState<BookingDraft>(() => ({
     ...INITIAL_BOOKING_DRAFT,
-    ...selection,
+    variantId: variant.id,
+    variantName: variant.name,
+    packageBasePriceCents,
+    variantPriceCents: variant.priceCents,
+    forms: variant.forms,
+    guestCount: selection.guestCount,
+    eventDate: selection.eventDate,
   }));
   const [step, setStep] = useState<BookingStep>(steps[0]);
   const [errors, setErrors] = useState<string[]>([]);

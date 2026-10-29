@@ -7,6 +7,7 @@ export type TableShape = "RECTANGULAR" | "ROUND" | "SQUARE" | "OTHER";
 /** Facts only. The server builds setup/pickup windows and the price. */
 export type BookingRequest = {
   packageId: string;
+  variantId: string;
   guestCount: number;
   eventDate: string;
   eventStartTime: string;

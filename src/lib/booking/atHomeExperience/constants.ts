@@ -1,7 +1,4 @@
 export const AT_HOME_EXPERIENCE_PRICING = {
-  ourFurnitureBaseCents: 65_000,
-  clientFurnitureBaseCents: 45_000,
-
   baseGuestCount: 6,
   maxGuestCount: 10,
   additionalGuestCents: 2_500,
@@ -13,8 +10,8 @@ export const AT_HOME_EXPERIENCE_PRICING = {
 
 export const AT_HOME_EXPERIENCE_TIME_ZONE = "America/Chicago";
 
-/** Guests book at least this many days ahead: a Friday booking can be for Monday. */
-export const BOOKING_LEAD_DAYS = 3;
+/** Guests book at least this many days ahead: a Friday booking can be for Sunday. */
+export const BOOKING_LEAD_DAYS = 2;
 
 export const PICKUP_RULES = {
   sameDayPickupCutoffHour: 21,

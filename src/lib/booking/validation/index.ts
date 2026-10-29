@@ -38,7 +38,7 @@ export function firstInvalidStep(
   photos: BookingPhoto[],
   earliestDate: string = earliestBookableDate()
 ): { step: BookingStep; errors: string[] } | null {
-  for (const step of bookingSteps(draft.furniture)) {
+  for (const step of bookingSteps(draft.forms)) {
     const errors = validateBookingStep(step, draft, photos, earliestDate);
     if (errors.length > 0) return { step, errors };
   }

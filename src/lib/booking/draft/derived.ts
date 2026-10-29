@@ -13,13 +13,16 @@ import { formatEventDay } from "@/lib/booking/format";
 
 import type { BookingDraft } from "./types";
 
+/** BookingForm.code that collects the customer's tables and chairs. */
+export const BOOKING_FORM_YOUR_TABLES = "YOUR_TABLES";
+
 export const usesClientFurniture = (draft: BookingDraft) =>
-  draft.furniture === "CLIENT";
+  draft.forms.includes(BOOKING_FORM_YOUR_TABLES);
 
 export function getBookingQuote(draft: BookingDraft) {
   return calculateAtHomeExperienceQuote({
     guestCount: draft.guestCount,
-    usesClientFurniture: usesClientFurniture(draft),
+    basePriceCents: draft.packageBasePriceCents + draft.variantPriceCents,
     accessType: draft.accessType,
     isLateNightPickup: draft.pickupOption === "LATE_NIGHT",
     isOutsideServiceArea: isOutsideServiceArea(draft.address),

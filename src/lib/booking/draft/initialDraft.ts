@@ -3,7 +3,11 @@ import { AT_HOME_EXPERIENCE_PRICING } from "@/lib/booking/atHomeExperience";
 import type { BookingDraft } from "./types";
 
 export const INITIAL_BOOKING_DRAFT: BookingDraft = {
-  furniture: "OURS",
+  variantId: "",
+  variantName: "",
+  packageBasePriceCents: 0,
+  variantPriceCents: 0,
+  forms: [],
   guestCount: AT_HOME_EXPERIENCE_PRICING.baseGuestCount,
   table: {
     tableShape: "",

@@ -1,7 +1,7 @@
 "use client";
 
+import type { PublicPackageVariant } from "@/lib/ase-admin/packages";
 import type { AtHomeSelection } from "@/lib/booking/atHomeSelection";
-import { usesClientFurniture } from "@/lib/booking/draft";
 
 import ErrorList from "./ErrorList";
 import MobileTotalBar from "./MobileTotalBar";
@@ -18,6 +18,8 @@ import { useBookingForm } from "./useBookingForm";
 type Props = {
   packageId: string;
   packageName: string;
+  packageBasePriceCents: number;
+  variant: PublicPackageVariant;
   /** Style, guests and date chosen on the package page. */
   selection: AtHomeSelection;
   /** The package page with the same selection, for changing it. */
@@ -27,12 +29,18 @@ type Props = {
 const BookingForm = ({
   packageId,
   packageName,
+  packageBasePriceCents,
+  variant,
   selection,
   experienceHref,
 }: Props) => {
-  const form = useBookingForm(packageId, selection);
+  const form = useBookingForm(
+    packageId,
+    packageBasePriceCents,
+    variant,
+    selection
+  );
   const { draft, update, quote, schedule, step } = form;
-  const clientFurniture = usesClientFurniture(draft);
 
   return (
     <div ref={form.topRef} className="scroll-mt-28">
@@ -92,8 +100,8 @@ const BookingForm = ({
           <div className="sticky top-28">
             <QuoteSummary
               packageName={packageName}
+              styleName={variant.name}
               guestCount={draft.guestCount}
-              usesClientFurniture={clientFurniture}
               pickupOption={draft.pickupOption}
               quote={quote}
             />
@@ -102,7 +110,7 @@ const BookingForm = ({
       </div>
 
       <MobileTotalBar
-        usesClientFurniture={clientFurniture}
+        styleName={variant.name}
         guestCount={draft.guestCount}
         totalCents={quote.quotedTotalCents}
       />

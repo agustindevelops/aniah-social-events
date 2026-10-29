@@ -1,4 +1,4 @@
-import type { FurnitureChoice } from "@/lib/booking/draft";
+import { BOOKING_FORM_YOUR_TABLES } from "@/lib/booking/draft/derived";
 
 export const BOOKING_STEP_LABELS = {
   tables: "Your tables",
@@ -10,8 +10,11 @@ export const BOOKING_STEP_LABELS = {
 
 export type BookingStep = keyof typeof BOOKING_STEP_LABELS;
 
-/** Style, guests and date are picked on the package page; "Your tables" only applies to client furniture. */
-export function bookingSteps(furniture: FurnitureChoice): BookingStep[] {
+/**
+ * Style, guests and date are picked on the package page. Extra steps come from
+ * the forms attached to the selected variant; unknown codes are ignored.
+ */
+export function bookingSteps(forms: string[]): BookingStep[] {
   const steps: BookingStep[] = ["event", "access", "contact", "confirm"];
-  return furniture === "CLIENT" ? ["tables", ...steps] : steps;
+  return forms.includes(BOOKING_FORM_YOUR_TABLES) ? ["tables", ...steps] : steps;
 }

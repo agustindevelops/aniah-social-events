@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
-import ReactMarkdown from "react-markdown";
 
 import PackageExperience from "@/app/intimate-celebrations/[slug]/components/PackageExperience";
 import PackageGallery from "@/app/intimate-celebrations/[slug]/components/PackageGallery";
@@ -42,9 +41,7 @@ async function findPackage(slug: string) {
 const PackagePage = async ({ params, searchParams }: Props) => {
   const { slug } = await params;
   const pkg = await findPackage(slug);
-  const selection = parseAtHomeSelection(await searchParams);
-
-  const details = pkg.description ?? pkg.summary;
+  const selection = parseAtHomeSelection(await searchParams, pkg.variants);
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-24 pt-36 sm:px-6 lg:px-8">
@@ -57,30 +54,15 @@ const PackagePage = async ({ params, searchParams }: Props) => {
       <PackageExperience
         packageSlug={pkg.slug}
         packageName={pkg.name}
+        packageBasePriceCents={pkg.basePriceCents}
+        variants={pkg.variants}
         initialSelection={selection}
         gallery={
           pkg.media.length > 0 ? (
             <PackageGallery media={pkg.media} name={pkg.name} />
           ) : null
         }
-        description={
-          details ? (
-            <div className="prose max-w-none font-libre text-brown-700 prose-headings:font-moonjelly prose-headings:text-brown-800 prose-p:text-brown-700 prose-a:text-brown-800 prose-blockquote:text-brown-700 prose-strong:text-brown-800 prose-li:text-brown-700">
-              <ReactMarkdown
-                components={{
-                  a: ({ href, children }) => (
-                    <a href={href} target="_blank" rel="noopener noreferrer">
-                      {children}
-                    </a>
-                  ),
-                  hr: () => null,
-                }}
-              >
-                {details}
-              </ReactMarkdown>
-            </div>
-          ) : null
-        }
+        packageDescription={pkg.description ?? pkg.summary}
       />
     </div>
   );

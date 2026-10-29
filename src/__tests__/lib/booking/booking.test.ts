@@ -25,7 +25,11 @@ const readyPhoto: BookingPhoto = {
 
 const completeDraft: BookingDraft = {
   ...INITIAL_BOOKING_DRAFT,
-  furniture: "CLIENT",
+  variantId: "var_client",
+  variantName: "Intimate Styling",
+  packageBasePriceCents: 45_000,
+  variantPriceCents: 0,
+  forms: ["YOUR_TABLES"],
   guestCount: 8,
   table: {
     tableShape: "ROUND",
@@ -77,12 +81,16 @@ describe("booking draft", () => {
     expect(moved.pickupOption).toBeNull();
   });
 
-  it("prices client furniture, extra guests, and special access", () => {
+  it("prices package base + style modifier, extra guests, and special access", () => {
     expect(getBookingQuote(completeDraft).quotedTotalCents).toBe(45_000 + 5_000 + 5_000);
     expect(
-      getBookingQuote({ ...completeDraft, pickupOption: "LATE_NIGHT" })
-        .quotedTotalCents
-    ).toBe(65_000);
+      getBookingQuote({
+        ...completeDraft,
+        variantPriceCents: 20_000,
+        forms: [],
+        pickupOption: "LATE_NIGHT",
+      }).quotedTotalCents
+    ).toBe(45_000 + 20_000 + 5_000 + 5_000 + 10_000);
   });
 
   it("builds the setup window and next-morning pickup in Chicago time", () => {
@@ -99,18 +107,18 @@ describe("booking draft", () => {
 });
 
 describe("earliest bookable date", () => {
-  it("is three days out in Chicago time", () => {
-    // Friday afternoon in Chicago → Monday.
+  it("is two days out in Chicago time", () => {
+    // Friday afternoon in Chicago → Sunday.
     expect(earliestBookableDate(new Date("2026-10-09T20:00:00Z"))).toBe(
-      "2026-10-12"
+      "2026-10-11"
     );
     // Still Friday evening in Chicago even though it is Saturday in UTC.
     expect(earliestBookableDate(new Date("2026-10-10T03:00:00Z"))).toBe(
-      "2026-10-12"
+      "2026-10-11"
     );
     // November 29 opens the calendar on December.
     expect(earliestBookableDate(new Date("2026-11-29T18:00:00Z"))).toBe(
-      "2026-12-02"
+      "2026-12-01"
     );
   });
 });
@@ -120,7 +128,7 @@ describe("booking validation", () => {
     expect(firstInvalidStep(completeDraft, [readyPhoto], EARLIEST)).toBeNull();
   });
 
-  it("requires a finished photo upload and table details with client furniture", () => {
+  it("requires a finished photo upload and table details with YOUR_TABLES", () => {
     const errors = validateBookingStep(
       "tables",
       { ...completeDraft, table: { ...completeDraft.table, numberOfChairs: "" } },
@@ -134,10 +142,16 @@ describe("booking validation", () => {
     ]);
   });
 
-  it("needs no photos or tables step when we provide the furniture", () => {
-    const ours = { ...completeDraft, furniture: "OURS" as const };
-    expect(bookingSteps("OURS")).not.toContain("tables");
-    expect(bookingSteps("CLIENT")[0]).toBe("tables");
+  it("needs no photos or tables step when the variant has no YOUR_TABLES form", () => {
+    const ours = {
+      ...completeDraft,
+      variantId: "var_ours",
+      variantName: "Intimate Celebration",
+      variantPriceCents: 20_000,
+      forms: [] as string[],
+    };
+    expect(bookingSteps([])).not.toContain("tables");
+    expect(bookingSteps(["YOUR_TABLES"])[0]).toBe("tables");
     expect(firstInvalidStep(ours, [], EARLIEST)).toBeNull();
   });
 
@@ -165,6 +179,7 @@ describe("booking request", () => {
     ]);
     expect(request).toMatchObject({
       packageId: "pkg_1",
+      variantId: "var_client",
       pickupOption: "NEXT_MORNING",
       morningPickupTime: "09:00",
       address: { addressLine2: null, country: "US" },
@@ -178,7 +193,12 @@ describe("booking request", () => {
   it("drops table details, photos and access notes when they don't apply", () => {
     const request = toBookingRequest(
       "pkg_1",
-      { ...completeDraft, furniture: "OURS", accessType: "STANDARD" },
+      {
+        ...completeDraft,
+        variantId: "var_ours",
+        forms: [],
+        accessType: "STANDARD",
+      },
       [readyPhoto]
     );
     expect(request.clientTableDetails).toBeNull();

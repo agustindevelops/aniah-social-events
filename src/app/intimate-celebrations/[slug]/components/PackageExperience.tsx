@@ -1,16 +1,19 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
+import type { PublicPackageVariant } from "@/lib/ase-admin/packages";
 import {
   atHomePackageCents,
   atHomeScheduleHref,
+  cheapestStylePriceCents,
+  findVariant,
   isCompleteSelection,
   type PartialAtHomeSelection,
 } from "@/lib/booking/atHomeSelection";
 import { AT_HOME_EXPERIENCE_PRICING } from "@/lib/booking/atHomeExperience";
-import type { FurnitureChoice } from "@/lib/booking/draft";
 import { formatMoney } from "@/lib/booking/format";
 import clsxm from "@/lib/clsxm";
 
@@ -20,13 +23,19 @@ import VariantOptions from "./VariantOptions";
 type Props = {
   packageSlug: string;
   packageName: string;
+  packageBasePriceCents: number;
+  variants: PublicPackageVariant[];
   /** Preselected when the customer comes back from the schedule page. */
   initialSelection: PartialAtHomeSelection;
   gallery: ReactNode;
-  description: ReactNode;
+  /** Package markdown; variant markdown is appended when a style is selected. */
+  packageDescription: string | null;
 };
 
 const listFormat = new Intl.ListFormat("en-US", { type: "conjunction" });
+
+const markdownClassName =
+  "prose max-w-none font-libre text-brown-700 prose-headings:font-moonjelly prose-headings:text-brown-800 prose-p:text-brown-700 prose-a:text-brown-800 prose-blockquote:text-brown-700 prose-strong:text-brown-800 prose-li:text-brown-700";
 
 /**
  * Step one of booking. Gallery and details sit above a divider.
@@ -36,30 +45,49 @@ const listFormat = new Intl.ListFormat("en-US", { type: "conjunction" });
 const PackageExperience = ({
   packageSlug,
   packageName,
+  packageBasePriceCents,
+  variants,
   initialSelection,
   gallery,
-  description,
+  packageDescription,
 }: Props) => {
   const router = useRouter();
-  const [furniture, setFurniture] = useState<FurnitureChoice | null>(
-    initialSelection.furniture
+  const [variantId, setVariantId] = useState<string | null>(
+    initialSelection.variantId
   );
   const [guestCount, setGuestCount] = useState<number | null>(
     initialSelection.guestCount
   );
   const [eventDate, setEventDate] = useState(initialSelection.eventDate ?? "");
 
-  const selection = { furniture, guestCount, eventDate: eventDate || null };
-  const complete = isCompleteSelection(selection);
-  const priceCents = atHomePackageCents(
-    furniture ?? "CLIENT",
-    guestCount ?? AT_HOME_EXPERIENCE_PRICING.baseGuestCount
+  const selectedVariant = useMemo(
+    () => findVariant(variants, variantId),
+    [variants, variantId]
   );
+  const selection = { variantId, guestCount, eventDate: eventDate || null };
+  const complete = isCompleteSelection(selection);
+  const guests = guestCount ?? AT_HOME_EXPERIENCE_PRICING.baseGuestCount;
+  const priceCents = selectedVariant
+    ? atHomePackageCents(
+        packageBasePriceCents,
+        selectedVariant.priceCents,
+        guests
+      )
+    : atHomePackageCents(
+        cheapestStylePriceCents(packageBasePriceCents, variants),
+        0,
+        guests
+      );
   const missing = [
-    !furniture && "a style",
+    !variantId && "a style",
     !guestCount && "your guest count",
     !eventDate && "an event date",
   ].filter((item): item is string => Boolean(item));
+
+  // One markdown doc so variant bullets continue the package list without a gap.
+  const descriptionMarkdown = [packageDescription, selectedVariant?.description]
+    .filter((part): part is string => Boolean(part?.trim()))
+    .join("\n");
 
   return (
     <article className="mt-4 space-y-8">
@@ -77,7 +105,7 @@ const PackageExperience = ({
               {packageName}
             </h1>
             <p className="shrink-0 text-right" aria-live="polite">
-              {furniture && guestCount ? null : (
+              {selectedVariant && guestCount ? null : (
                 <span className="block text-xs font-medium uppercase tracking-wide text-brown-500">
                   From
                 </span>
@@ -87,7 +115,22 @@ const PackageExperience = ({
               </span>
             </p>
           </header>
-          {description}
+          {descriptionMarkdown ? (
+            <div className={markdownClassName}>
+              <ReactMarkdown
+                components={{
+                  a: ({ href, children }) => (
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      {children}
+                    </a>
+                  ),
+                  hr: () => null,
+                }}
+              >
+                {descriptionMarkdown}
+              </ReactMarkdown>
+            </div>
+          ) : null}
         </div>
       </div>
 
@@ -96,9 +139,11 @@ const PackageExperience = ({
       <div className="grid items-start gap-8 lg:grid-cols-2">
         <div className="lg:order-2">
           <VariantOptions
-            furniture={furniture}
+            packageBasePriceCents={packageBasePriceCents}
+            variants={variants}
+            variantId={variantId}
             guestCount={guestCount}
-            onFurnitureChange={setFurniture}
+            onVariantChange={setVariantId}
             onGuestCountChange={setGuestCount}
           />
         </div>

@@ -1,15 +1,16 @@
+import type { PublicPackageVariant } from "@/lib/ase-admin/packages";
 import {
   calculateAtHomeExperienceQuote,
   earliestBookableDate,
   isValidGuestCount,
 } from "@/lib/booking/atHomeExperience";
-import type { FurnitureChoice } from "@/lib/booking/draft";
+import { BOOKING_FORM_YOUR_TABLES } from "@/lib/booking/draft/derived";
 import { AT_HOME_EXPERIENCES } from "@/utils/content/offerings";
 import { AT_HOME_EXPERIENCE_ROUTE } from "@/utils/content/schedule";
 
 /** What the package page hands to /schedule/intimate-celebration through the URL. */
 export type AtHomeSelection = {
-  furniture: FurnitureChoice;
+  variantId: string;
   guestCount: number;
   eventDate: string;
 };
@@ -32,16 +33,42 @@ function isCalendarDate(value: string): boolean {
   );
 }
 
+function resolveVariantId(
+  params: SearchParams,
+  variants: PublicPackageVariant[]
+): string | null {
+  const variantId = single(params.variant);
+  if (variantId && variants.some((row) => row.id === variantId)) {
+    return variantId;
+  }
+
+  // Old links used furniture=OURS|CLIENT before variants existed.
+  const furniture = single(params.furniture);
+  if (furniture === "CLIENT") {
+    return (
+      variants.find((row) => row.forms.includes(BOOKING_FORM_YOUR_TABLES))?.id ??
+      null
+    );
+  }
+  if (furniture === "OURS") {
+    return (
+      variants.find((row) => !row.forms.includes(BOOKING_FORM_YOUR_TABLES))
+        ?.id ?? null
+    );
+  }
+  return null;
+}
+
 /** Values from the URL; anything missing, malformed or too soon becomes null. */
 export function parseAtHomeSelection(
   params: SearchParams,
+  variants: PublicPackageVariant[],
   earliestDate: string = earliestBookableDate()
 ): PartialAtHomeSelection {
-  const furniture = single(params.furniture);
   const guestCount = Number(single(params.guests));
   const eventDate = single(params.date);
   return {
-    furniture: furniture === "OURS" || furniture === "CLIENT" ? furniture : null,
+    variantId: resolveVariantId(params, variants),
     guestCount: isValidGuestCount(guestCount) ? guestCount : null,
     eventDate:
       eventDate && isCalendarDate(eventDate) && eventDate >= earliestDate
@@ -54,7 +81,7 @@ export function isCompleteSelection(
   selection: PartialAtHomeSelection
 ): selection is AtHomeSelection {
   return (
-    selection.furniture !== null &&
+    selection.variantId !== null &&
     selection.guestCount !== null &&
     selection.eventDate !== null
   );
@@ -63,7 +90,7 @@ export function isCompleteSelection(
 function selectionParams(selection: PartialAtHomeSelection): URLSearchParams {
   const params = new URLSearchParams();
   if (selection.eventDate) params.set("date", selection.eventDate);
-  if (selection.furniture) params.set("furniture", selection.furniture);
+  if (selection.variantId) params.set("variant", selection.variantId);
   if (selection.guestCount) params.set("guests", String(selection.guestCount));
   return params;
 }
@@ -87,15 +114,35 @@ export function packagePageHref(
   return query ? `${path}?${query}` : path;
 }
 
-/** Package price before access, pickup or travel fees, which are chosen later. */
+/** Package + style before access, pickup or travel fees, which are chosen later. */
 export function atHomePackageCents(
-  furniture: FurnitureChoice,
+  packageBaseCents: number,
+  variantModifierCents: number,
   guestCount: number
 ): number {
   return calculateAtHomeExperienceQuote({
     guestCount,
-    usesClientFurniture: furniture === "CLIENT",
+    basePriceCents: packageBaseCents + variantModifierCents,
     accessType: "STANDARD",
     isLateNightPickup: false,
   }).quotedTotalCents;
+}
+
+export function findVariant(
+  variants: PublicPackageVariant[],
+  variantId: string | null
+): PublicPackageVariant | null {
+  if (!variantId) return null;
+  return variants.find((row) => row.id === variantId) ?? null;
+}
+
+/** Cheapest package + style total for the "From" price before a style is chosen. */
+export function cheapestStylePriceCents(
+  packageBaseCents: number,
+  variants: PublicPackageVariant[]
+): number {
+  if (variants.length === 0) return packageBaseCents;
+  return (
+    packageBaseCents + Math.min(...variants.map((row) => row.priceCents))
+  );
 }

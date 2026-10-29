@@ -15,6 +15,15 @@ export type PublicPackageItem = {
   quantity: number;
 };
 
+export type PublicPackageVariant = {
+  id: string;
+  name: string;
+  preview: string;
+  description: string | null;
+  priceCents: number;
+  forms: string[];
+};
+
 export type PublicPackage = {
   id: string;
   slug: string;
@@ -24,6 +33,7 @@ export type PublicPackage = {
   basePriceCents: number;
   media: PublicPackageMedia[];
   items: PublicPackageItem[];
+  variants: PublicPackageVariant[];
 };
 
 const PACKAGES_REVALIDATE_SECONDS = 5 * 60;
@@ -36,7 +46,7 @@ export const getPublicPackages = unstable_cache(
     );
     return data.packages;
   },
-  ["ase-admin-public-packages", "v2"],
+  ["ase-admin-public-packages", "v3"],
   { revalidate: PACKAGES_REVALIDATE_SECONDS }
 );
 
@@ -52,7 +62,7 @@ export const getPublicPackageBySlug = unstable_cache(
       throw error;
     }
   },
-  ["ase-admin-public-package-by-slug", "v1"],
+  ["ase-admin-public-package-by-slug", "v2"],
   { revalidate: PACKAGES_REVALIDATE_SECONDS }
 );
 

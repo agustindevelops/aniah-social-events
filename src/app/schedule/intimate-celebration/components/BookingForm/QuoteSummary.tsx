@@ -1,6 +1,5 @@
 import {
   type AtHomeExperienceQuote,
-  experienceLabel,
   type PickupOption,
   pickupLabel,
 } from "@/lib/booking/atHomeExperience";
@@ -8,22 +7,22 @@ import { formatMoney } from "@/lib/booking/format";
 
 type Props = {
   packageName: string;
+  styleName: string;
   guestCount: number;
-  usesClientFurniture: boolean;
   pickupOption: PickupOption | null;
   quote: AtHomeExperienceQuote;
 };
 
 const QuoteSummary = ({
   packageName,
+  styleName,
   guestCount,
-  usesClientFurniture,
   pickupOption,
   quote,
 }: Props) => {
   const rows: { label: string; value: string }[] = [
     {
-      label: `${experienceLabel(usesClientFurniture)} · ${guestCount} guests`,
+      label: `${styleName} · ${guestCount} guests`,
       value: formatMoney(quote.basePriceCents + quote.guestAdjustmentCents),
     },
   ];

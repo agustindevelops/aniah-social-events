@@ -14,12 +14,16 @@ export function toBookingRequest(
   if (!draft.pickupOption) {
     throw new Error("A pickup option is required before booking.");
   }
+  if (!draft.variantId) {
+    throw new Error("A style variant is required before booking.");
+  }
 
   const clientFurniture = usesClientFurniture(draft);
   const { address, contact, table } = draft;
 
   return {
     packageId,
+    variantId: draft.variantId,
     guestCount: draft.guestCount,
     eventDate: draft.eventDate,
     eventStartTime: draft.startTime,

@@ -5,6 +5,7 @@ import BookingForm from "@/app/schedule/intimate-celebration/components/BookingF
 import SelectionSummary from "@/app/schedule/intimate-celebration/components/SelectionSummary";
 import { getPublicPackageBySlug } from "@/lib/ase-admin/packages";
 import {
+  findVariant,
   isCompleteSelection,
   packagePageHref,
   parseAtHomeSelection,
@@ -28,9 +29,12 @@ const AtHomeExperienceSchedulePage = async ({ searchParams }: Props) => {
   const pkg = slug ? await getPublicPackageBySlug(slug) : null;
   if (!pkg) redirect(AT_HOME_EXPERIENCES.href);
 
-  const selection = parseAtHomeSelection(params);
+  const selection = parseAtHomeSelection(params, pkg.variants);
   const experienceHref = packagePageHref(pkg.slug, selection);
   if (!isCompleteSelection(selection)) redirect(experienceHref);
+
+  const variant = findVariant(pkg.variants, selection.variantId);
+  if (!variant) redirect(experienceHref);
 
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 pb-32 pt-36 sm:px-6 lg:px-8 lg:pb-24">
@@ -39,6 +43,8 @@ const AtHomeExperienceSchedulePage = async ({ searchParams }: Props) => {
       </h1>
       <SelectionSummary
         packageName={pkg.name}
+        packageBasePriceCents={pkg.basePriceCents}
+        variant={variant}
         selection={selection}
         changeHref={experienceHref}
       />
@@ -46,6 +52,8 @@ const AtHomeExperienceSchedulePage = async ({ searchParams }: Props) => {
         key={experienceHref}
         packageId={pkg.id}
         packageName={pkg.name}
+        packageBasePriceCents={pkg.basePriceCents}
+        variant={variant}
         selection={selection}
         experienceHref={experienceHref}
       />

@@ -1,8 +1,6 @@
 import type { TableShape } from "@/lib/ase-admin/booking";
 import type { AccessType, PickupOption } from "@/lib/booking/atHomeExperience";
 
-export type FurnitureChoice = "OURS" | "CLIENT";
-
 export type TableDraft = {
   tableShape: TableShape | "";
   tableDimensions: string;
@@ -43,7 +41,14 @@ export type BookingPhoto = {
 
 /** Everything the customer has entered, except photos (see usePhotoUploads). */
 export type BookingDraft = {
-  furniture: FurnitureChoice;
+  variantId: string;
+  variantName: string;
+  /** Package.basePriceCents. */
+  packageBasePriceCents: number;
+  /** PackageVariant.priceCents — added to the package base. */
+  variantPriceCents: number;
+  /** BookingForm.code values from the selected package variant. */
+  forms: string[];
   guestCount: number;
   table: TableDraft;
   eventDate: string;
