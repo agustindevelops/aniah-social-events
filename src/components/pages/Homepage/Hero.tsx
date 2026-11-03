@@ -1,8 +1,8 @@
 "use client";
 
+import OptimizedImage from "@/components/OptimizedImage";
 import Offerings from "@/components/pages/Homepage/Offerings";
 import type { TypePageLandingFields } from "@/lib/contentful/types";
-import Image from "next/image";
 
 const Hero = ({
   heroImage,
@@ -18,7 +18,8 @@ const Hero = ({
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex flex-col items-center px-4 pb-40 text-center sm:pb-36">
-          <Image
+          <OptimizedImage
+            host="vercel"
             src="/images/aniah-social-events-logo.png"
             alt="Aniah Social Events"
             width={300}

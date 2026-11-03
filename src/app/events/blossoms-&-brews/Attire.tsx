@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { BLOSSOMS_AND_BREWS } from "@/utils/content/events";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 type FeatureType = { name?: string; description?: string[]; url?: string };
 
@@ -49,9 +49,12 @@ const Attire = () => {
 
 const Feature: FC<FeatureType> = ({ name = "", description = [], url = "" }) =>
   url ? (
-    <Image
+    <OptimizedImage
+      host="vercel"
       src={url}
       alt={BLOSSOMS_AND_BREWS.BANNER.ALT}
+      width={800}
+      height={800}
       className="w-full object-cover xl:rounded-3xl"
     />
   ) : (

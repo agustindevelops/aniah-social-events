@@ -1,4 +1,4 @@
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const TikTok = () => {
   return (
@@ -8,7 +8,13 @@ const TikTok = () => {
       rel="noopener noreferrer"
       className="transition-transform hover:scale-110"
     >
-      <Image src="/svg/tiktok.svg" alt="Instagram" width={60} height={60} />
+      <OptimizedImage
+        host="vercel"
+        src="/svg/tiktok.svg"
+        alt="Instagram"
+        width={60}
+        height={60}
+      />
     </a>
   );
 };

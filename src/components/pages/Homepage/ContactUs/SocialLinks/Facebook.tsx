@@ -1,4 +1,4 @@
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const Facebook = () => {
   return (
@@ -8,7 +8,13 @@ const Facebook = () => {
       rel="noopener noreferrer"
       className="transition-transform hover:scale-110"
     >
-      <Image src="/svg/facebook.svg" alt="Instagram" width={25} height={25} />
+      <OptimizedImage
+        host="vercel"
+        src="/svg/facebook.svg"
+        alt="Instagram"
+        width={25}
+        height={25}
+      />
     </a>
   );
 };

@@ -1,7 +1,7 @@
 export const BLOSSOMS_AND_BREWS = {
   HERO: {
     CTA_LABEL: "Reserve Your Cup",
-    IMAGE: "/images/blossoms-and-brews/logo.png",
+    IMAGE: "/images/blossoms-and-brews/logo.webp",
   },
   EMOTION: {
     TITLE: "A Tea Party in San Antonio",
@@ -24,7 +24,7 @@ export const BLOSSOMS_AND_BREWS = {
       "A delicate arrangement of colorful macarons spilling from a waffle cone, interspersed with blooming flowers, on a soft pastel backdrop.",
   },
   BANNER: {
-    URL: "/images/blossoms-and-brews/banner.png",
+    URL: "/images/blossoms-and-brews/banner.jpg",
     ALT: "Collage for 'Blossoms & Brews' tea party with logo, guests in summer dresses, assorted tea treats, floral decor, a 'Flower Bar' cart, and a 'Let's Partea' balloon arch.",
   },
   FACTS: {

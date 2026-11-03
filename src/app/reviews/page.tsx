@@ -1,4 +1,4 @@
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 import Links from "./Links";
 
 interface ImageProps {
@@ -13,7 +13,8 @@ const Reviews = () => {
         <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2">
           {images.map((image, index) => (
             <div key={index}>
-              <Image
+              <OptimizedImage
+                host="vercel"
                 src={`/images/reviews/${image.url}.png`}
                 alt="Wedding gallery image"
                 width={800}

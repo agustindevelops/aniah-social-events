@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 import { MapIcon, CalendarIcon } from "@heroicons/react/24/outline";
 import * as process from "process";
 
@@ -11,11 +11,11 @@ const Location = () => {
         style={{ backgroundSize: "100% 200%" }}
       />
       <div className="relative h-96 w-full">
-        <Image
+        <OptimizedImage
+          host="vercel"
           src="/images/blossoms-and-brews/venue_banner.jpg"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
+          fill
+          className="object-cover"
           alt="Elegant glass greenhouse venue adorned with string lights at dusk, showcasing interior warm lighting and exterior spot cooling units."
           title="Dusk View of a Modern Glasshouse Event Venue"
         />

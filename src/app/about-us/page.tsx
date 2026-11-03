@@ -1,6 +1,6 @@
 import Button from "@/components/buttons/Button";
+import OptimizedImage from "@/components/OptimizedImage";
 import { START_PLANNING_ROUTE } from "@/utils/content/schedule";
-import Image from "next/image";
 
 const AboutUsPage = () => {
   return (
@@ -41,11 +41,12 @@ const AboutUsPage = () => {
             <div className="photo-placeholder w-64 h-64 md:w-48 md:h-64 shrink-0">
               <div className="text-center p-4">
                 <span className="block text-4xl mb-2">🌷</span>
-                <Image
+                <OptimizedImage
+                  host="vercel"
                   src="/images/about-us/aniah.jpg"
                   alt="Aniah"
-                  width={512}
-                  height={512}
+                  width={357}
+                  height={546}
                 />
               </div>
             </div>
@@ -68,11 +69,12 @@ const AboutUsPage = () => {
             <div className="photo-placeholder w-64 h-64 md:w-48 md:h-64 shrink-0">
               <div className="text-center p-4">
                 <span className="block text-4xl mb-2">🤝</span>
-                <Image
+                <OptimizedImage
+                  host="vercel"
                   src="/images/about-us/agustin-and-aniah.jpg"
                   alt="Agustin"
                   width={512}
-                  height={512}
+                  height={683}
                 />
               </div>
             </div>

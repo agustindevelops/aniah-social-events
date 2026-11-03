@@ -6,8 +6,8 @@ import {
   MAIN_LINKS,
 } from "@/components/layout/Header/constants";
 import UnstyledLink from "@/components/links/UnstyledLink";
+import OptimizedImage from "@/components/OptimizedImage";
 import { START_PLANNING_ROUTE } from "@/utils/content/schedule";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "public/images/aniah-social-events-logo.png";
 import { useEffect, useRef, useState } from "react";
@@ -97,7 +97,8 @@ const Header = () => {
               href="/"
               className="hidden lg:block p-2 hover:bg-brown-100 rounded-lg transition-colors"
             >
-              <Image
+              <OptimizedImage
+                host="vercel"
                 src={logo}
                 width={60}
                 height={60}
@@ -111,7 +112,8 @@ const Header = () => {
               href="/"
               className="lg:hidden p-2 hover:bg-brown-100 rounded-lg transition-colors"
             >
-              <Image
+              <OptimizedImage
+                host="vercel"
                 src={logo}
                 width={60}
                 height={60}

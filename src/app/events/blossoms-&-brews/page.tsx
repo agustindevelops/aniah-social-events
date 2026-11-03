@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description:
       "Join 'Blossoms & Brews' in Summer 2024 for an enchanting high tea brunch experience. Dive into a whimsical dress-up garden tea party in the heart of San Antonio, Texas. Embrace the magic with delightful teas, exquisite brunch, and the joy of dressing up in your garden-party best.",
     images: {
-      url: "https://www.aniahsocialevents.com/images/blossoms-and-brews/banner.png",
+      url: "https://www.aniahsocialevents.com/images/blossoms-and-brews/banner.jpg",
       alt: "Collage for 'Blossoms & Brews' tea party with logo, guests in summer dresses, assorted tea treats, floral decor, a 'Flower Bar' cart, and a 'Let's Partea' balloon arch.",
     },
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Join 'Blossoms & Brews' in Summer 2024 for an enchanting high tea brunch experience. Dive into a whimsical dress-up garden tea party in the heart of San Antonio, Texas. Embrace the magic with delightful teas, exquisite brunch, and the joy of dressing up in your garden-party best.",
     images: {
-      url: "https://www.aniahsocialevents.com/images/blossoms-and-brews/banner.png",
+      url: "https://www.aniahsocialevents.com/images/blossoms-and-brews/banner.jpg",
       alt: "Collage for 'Blossoms & Brews' tea party with logo, guests in summer dresses, assorted tea treats, floral decor, a 'Flower Bar' cart, and a 'Let's Partea' balloon arch.",
     },
   },

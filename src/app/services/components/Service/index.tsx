@@ -1,4 +1,4 @@
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 import ListWrapper from "@/app/services/components/Service/ListWrapper";
 import { getServiceBySlug } from "@/lib/contentful/api";
@@ -23,7 +23,8 @@ const Service = async ({ params }: { params: Promise<{ slug: string }> }) => {
             <h1 className="font-pacifico mb-6 text-5xl font-normal lg:text-6xl">
               {title}
             </h1>
-            <Image
+            <OptimizedImage
+              host="vercel"
               src="/images/services/leaf.png"
               alt="artsy-leaf"
               width={300}

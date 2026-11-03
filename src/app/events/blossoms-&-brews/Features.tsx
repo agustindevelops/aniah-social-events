@@ -5,7 +5,7 @@ import {
   GiftIcon,
   HandRaisedIcon,
 } from "@heroicons/react/20/solid";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const features = [
   {
@@ -68,12 +68,13 @@ const Features = () => {
             </div>
           </div>
           <div className="flex items-start justify-end lg:order-first">
-            <Image
+            <OptimizedImage
+              host="vercel"
               src="/images/blossoms-and-brews/features.jpg"
               alt="An elegantly set tea party table outdoors with pastel-colored tablecloths and floral centerpieces. The table displays various delicate pastries and three types of tea in elegant teacups. Soft, flowing curtains frame the table, enhancing the whimsical and inviting atmosphere with soft, warm lighting. The background shows a lush garden, adding to the luxurious and serene setting."
               className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-              width={2432}
-              height={1442}
+              width={1792}
+              height={1024}
             />
           </div>
         </div>
