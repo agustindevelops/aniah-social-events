@@ -1,5 +1,6 @@
 import ContactUs from "@/components/pages/Homepage/ContactUs";
 import FAQ from "@/components/pages/Homepage/FAQ";
+import FloralMoment from "@/components/pages/Homepage/FloralMoment";
 import Gallery from "@/components/pages/Homepage/Gallery";
 import Hero from "@/components/pages/Homepage/Hero";
 import HowItWorks from "@/components/pages/Homepage/HowItWorks";
@@ -13,19 +14,15 @@ import Services from "./services/Services";
 import Testimonials from "./testimonials/Testimonials";
 
 const Homepage = async () => {
-  const {
-    heroImage,
-    title,
-    subtitle,
-    faqTitle,
-    faqParagraph,
-  } = await getLandingPage();
+  const { heroImage, title, subtitle, faqTitle, faqParagraph } =
+    await getLandingPage();
 
   return (
     <div className="w-full text-center overflow-x-hidden" id="home">
       <Hero heroImage={heroImage} title={title} />
       <Subtitle subtitle={subtitle} />
       <WhoWeAreFor />
+      <FloralMoment />
       <HowItWorks />
       <SectionLayout id="ourServices">
         <Packages />
