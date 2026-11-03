@@ -164,52 +164,6 @@
   }
 }
 
-@keyframes blossom-fall {
-  0% {
-    transform: translate3d(0, -14vh, 0);
-  }
-  100% {
-    transform: translate3d(var(--blossom-drift, 2.5rem), 116vh, 0);
-  }
-}
-
-@keyframes blossom-twirl {
-  0% {
-    transform: rotate(0deg) translateX(0);
-  }
-  25% {
-    transform: rotate(90deg) translateX(7px);
-  }
-  50% {
-    transform: rotate(180deg) translateX(0);
-  }
-  75% {
-    transform: rotate(270deg) translateX(-7px);
-  }
-  100% {
-    transform: rotate(360deg) translateX(0);
-  }
-}
-
-.blossom-fall {
-  animation-name: blossom-fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.blossom-twirl {
-  animation-name: blossom-twirl;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .blossom-fall,
-  .blossom-twirl {
-    animation: none !important;
-  }
-}
-
 @layer base {
   html {
     color-scheme: light;

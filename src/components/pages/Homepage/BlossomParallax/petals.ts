@@ -15,46 +15,80 @@ export type CanvasPetal = {
   sprite: 0 | 1;
 };
 
-export const createCanvasPetal = (
-  width: number,
-  height: number,
-  fromCanopy = true
-): CanvasPetal => ({
-  x: width * (0.42 + Math.random() * 0.58),
-  y: fromCanopy ? -24 - Math.random() * 80 : Math.random() * height,
-  z: Math.random(),
-  vx: -0.25 - Math.random() * 0.55,
-  vy: 0.35 + Math.random() * 0.7,
-  rot: Math.random() * Math.PI * 2,
-  vr: (Math.random() - 0.5) * 0.07,
-  size: 7 + Math.random() * 11,
-  color: Math.floor(Math.random() * PETAL_COLORS.length),
-  wobble: Math.random() * Math.PI * 2,
-  wobbleSpeed: 0.018 + Math.random() * 0.04,
-  sprite: Math.random() > 0.72 ? 1 : 0,
-});
+export type HangingSide = "left" | "right";
 
-export const stepCanvasPetal = (
-  petal: CanvasPetal,
+export type HangingPetal = CanvasPetal & {
+  side: HangingSide;
+  baseX: number;
+  phase: number;
+  zigzagAmp: number;
+  zigzagSpeed: number;
+};
+
+const canopyX = (side: HangingSide, width: number) =>
+  side === "left"
+    ? width * (0.02 + Math.random() * 0.22)
+    : width * (0.76 + Math.random() * 0.22);
+
+const awayFromTree = (side: HangingSide) => (side === "left" ? 1 : -1);
+
+export const createHangingPetal = (
   width: number,
   height: number,
-  wind: number,
+  side: HangingSide,
+  throwStrength = 0.45
+): HangingPetal => {
+  const x = canopyX(side, width);
+  const away = awayFromTree(side);
+  return {
+    x,
+    y: -18 - Math.random() * 70,
+    z: Math.random(),
+    vx: away * throwStrength * (0.6 + Math.random() * 0.8),
+    vy: 0.28 + Math.random() * 0.45 + Math.abs(throwStrength) * 0.2,
+    rot: Math.random() * Math.PI * 2,
+    vr: (Math.random() - 0.5) * 0.08,
+    size: 7 + Math.random() * 11,
+    color: Math.floor(Math.random() * PETAL_COLORS.length),
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.018 + Math.random() * 0.04,
+    sprite: Math.random() > 0.72 ? 1 : 0,
+    side,
+    baseX: x,
+    phase: Math.random() * Math.PI * 2,
+    zigzagAmp: 18 + Math.random() * 28,
+    zigzagSpeed: 0.035 + Math.random() * 0.04,
+  };
+};
+
+export const stepHangingPetal = (
+  petal: HangingPetal,
+  width: number,
+  height: number,
   gravity: number,
-  gust: number
+  throwStrength: number
 ) => {
-  petal.wobble += petal.wobbleSpeed;
-  petal.vx +=
-    wind * 0.018 + gust * 0.12 + Math.sin(petal.wobble) * 0.045 * (0.6 + petal.z);
-  petal.vy += gravity * (0.014 + petal.z * 0.012);
-  petal.vx *= 0.985;
-  petal.vy = Math.min(petal.vy, 2.6 + Math.abs(gust) * 1.4);
-  petal.x += petal.vx + gust * (1.4 + petal.z * 1.8);
-  petal.y += petal.vy * (0.65 + petal.z * 0.7);
-  petal.rot += petal.vr + gust * 0.04;
+  const away = awayFromTree(petal.side);
+  const directed = away * Math.abs(throwStrength);
 
-  const off =
-    petal.y > height + 36 || petal.x < -48 || petal.x > width + 48;
-  if (off) Object.assign(petal, createCanvasPetal(width, height, true));
+  petal.phase += petal.zigzagSpeed;
+  petal.vy += gravity * (0.012 + petal.z * 0.01) + Math.abs(throwStrength) * 0.01;
+  petal.vy = Math.min(petal.vy, 2.15);
+  petal.y += petal.vy * (0.7 + petal.z * 0.55);
+  // Follow-through: leaves keep the tree's lean, flung toward the opposite side.
+  petal.baseX += directed * (0.55 + petal.z * 0.7);
+  const amp = petal.zigzagAmp * (0.55 + petal.y / Math.max(height, 1));
+  petal.x =
+    petal.baseX +
+    Math.asin(Math.sin(petal.phase)) * (amp / (Math.PI / 2));
+  petal.rot += petal.vr + Math.cos(petal.phase) * 0.02 + directed * 0.012;
+
+  if (petal.y > height + 40 || petal.x < -56 || petal.x > width + 56) {
+    Object.assign(
+      petal,
+      createHangingPetal(width, height, petal.side, throwStrength)
+    );
+  }
 };
 
 export const drawCanvasPetal = (

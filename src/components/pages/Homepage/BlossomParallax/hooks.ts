@@ -1,15 +1,17 @@
 "use client";
 
 import {
-  BLOSSOM_QUERY_KEY,
-  BLOSSOM_STORAGE_KEY,
+  BLOSSOM_IDLE_WIND,
+  BLOSSOM_LEAN_MAX,
+  BLOSSOM_LEAN_REST,
+  BLOSSOM_SCROLL_RANGE,
+  BLOSSOM_SHAKE_DAMPING,
+  BLOSSOM_SHAKE_SPEED,
   PETAL_CAP_DESKTOP,
   PETAL_CAP_MOBILE,
-  isBlossomVariant,
-  type BlossomVariant,
 } from "@/components/pages/Homepage/BlossomParallax/constants";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useAnimationFrame, useMotionValue, useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const mediaMatches = (query: string) =>
   typeof window !== "undefined" && window.matchMedia(query).matches;
@@ -47,38 +49,57 @@ export const useIsMobile = () => {
 export const usePetalCap = () =>
   useIsMobile() ? PETAL_CAP_MOBILE : PETAL_CAP_DESKTOP;
 
-export const useBlossomVariant = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const param = searchParams.get(BLOSSOM_QUERY_KEY);
-  const [variant, setVariantState] = useState<BlossomVariant>(
-    isBlossomVariant(param) ? param : "a"
-  );
+type BlossomWaveOptions = {
+  reducedMotion?: boolean;
+  /** Wave frequency in Hz (x = time on the rotation graph). */
+  shakeSpeed?: number;
+  /** Underdamped ratio; lower overshoots more before reversing. */
+  damping?: number;
+};
 
-  useEffect(() => {
-    if (isBlossomVariant(param)) {
-      setVariantState(param);
-      sessionStorage.setItem(BLOSSOM_STORAGE_KEY, param);
+/**
+ * Scroll sets a lean target. Rotation snaps to it, overshoots, then
+ * rings the other way as a decaying sine — y = degrees, x = time.
+ */
+export const useBlossomWave = ({
+  reducedMotion = false,
+  shakeSpeed = BLOSSOM_SHAKE_SPEED,
+  damping = BLOSSOM_SHAKE_DAMPING,
+}: BlossomWaveOptions = {}) => {
+  const { scrollY } = useScroll();
+  const rotation = useMotionValue(BLOSSOM_LEAN_REST);
+  const velocity = useMotionValue(0);
+  const target = useMotionValue(BLOSSOM_LEAN_REST);
+
+  useAnimationFrame((time, delta) => {
+    if (reducedMotion) {
+      rotation.set(0);
+      velocity.set(0);
+      target.set(0);
       return;
     }
-    const stored = sessionStorage.getItem(BLOSSOM_STORAGE_KEY);
-    if (isBlossomVariant(stored)) setVariantState(stored);
-  }, [param]);
 
-  const setVariant = useCallback(
-    (next: BlossomVariant) => {
-      setVariantState(next);
-      sessionStorage.setItem(BLOSSOM_STORAGE_KEY, next);
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(BLOSSOM_QUERY_KEY, next);
-      const query = params.toString();
-      router.replace(query ? `${pathname}?${query}` : pathname, {
-        scroll: false,
-      });
-    },
-    [pathname, router, searchParams]
-  );
+    const dt = Math.min(delta, 40) / 1000;
+    const scrollT = Math.min(
+      1,
+      Math.max(0, scrollY.get() / BLOSSOM_SCROLL_RANGE)
+    );
+    const leanTarget =
+      BLOSSOM_LEAN_REST +
+      (BLOSSOM_LEAN_MAX - BLOSSOM_LEAN_REST) * scrollT +
+      BLOSSOM_IDLE_WIND *
+        Math.sin((time / 1000) * shakeSpeed * 0.38 * Math.PI * 2);
+    target.set(leanTarget);
 
-  return { variant, setVariant };
+    const omega = shakeSpeed * Math.PI * 2;
+    const x = rotation.get();
+    const v = velocity.get();
+    const accel = -omega * omega * (x - leanTarget) - 2 * damping * omega * v;
+    const nextV = Math.max(-220, Math.min(220, v + accel * dt));
+    const nextX = Math.max(-24, Math.min(58, x + nextV * dt));
+    velocity.set(nextV);
+    rotation.set(nextX);
+  });
+
+  return { rotation, velocity, target, scrollY };
 };

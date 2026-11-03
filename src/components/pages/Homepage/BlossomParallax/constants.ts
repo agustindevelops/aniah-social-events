@@ -1,27 +1,23 @@
-export const BLOSSOM_VARIANTS = ["a", "b", "c"] as const;
-
-export type BlossomVariant = (typeof BLOSSOM_VARIANTS)[number];
-
-export const BLOSSOM_VARIANT_META: Record<
-  BlossomVariant,
-  { id: BlossomVariant; name: string }
-> = {
-  a: { id: "a", name: "Layers" },
-  b: { id: "b", name: "Wind" },
-  c: { id: "c", name: "Gusts" },
-};
-
-export const BLOSSOM_STORAGE_KEY = "ase-blossom-variant";
-export const BLOSSOM_QUERY_KEY = "blossom";
-
 export const PETAL_CAP_MOBILE = 40;
 export const PETAL_CAP_DESKTOP = 80;
 
+/** Wave frequency in Hz: snap, overshoot, then reverse like a damped sine. */
+export const BLOSSOM_SHAKE_SPEED = 1.15;
+/** Underdamped ratio — lower rings longer after each overshoot. */
+export const BLOSSOM_SHAKE_DAMPING = 0.22;
+export const BLOSSOM_LEAN_REST = 8;
+export const BLOSSOM_LEAN_MAX = 36;
+export const BLOSSOM_SCROLL_RANGE = 1400;
+/** Slow ambient wind added to the lean target, in degrees. */
+export const BLOSSOM_IDLE_WIND = 2.4;
+
 export const TREE_SRC = "/images/cherry-blossom/tree.png";
-export const FAR_TEXTURE_SRC = "/images/cherry-blossom/far-texture.png";
+export const TREE_WIDTH = 1151;
+export const TREE_HEIGHT = 966;
+/** Stem base in the padded PNG, as 0–1 origin for rotation. */
+export const TREE_STEM_ORIGIN_X = 0.59;
+export const TREE_STEM_ORIGIN_Y = 0.86;
 export const PETAL_SRC = "/images/cherry-blossom/petal.png";
-export const PETALS_SRC = "/images/cherry-blossom/petals.png";
-export const PETAL_SVG_SRC = "/images/cherry-blossom/petal.svg";
 
 export const PETAL_COLORS = [
   "rgba(206,107,105,0.82)",
@@ -29,6 +25,3 @@ export const PETAL_COLORS = [
   "rgba(232,154,148,0.72)",
   "rgba(255,120,94,0.42)",
 ] as const;
-
-export const isBlossomVariant = (value: string | null): value is BlossomVariant =>
-  value === "a" || value === "b" || value === "c";

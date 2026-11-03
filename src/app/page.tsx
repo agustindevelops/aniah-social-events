@@ -23,7 +23,7 @@ const Homepage = async () => {
   } = await getLandingPage();
 
   return (
-    <div className="w-full text-center overflow-x-hidden" id="home">
+    <div className="relative w-full text-center overflow-x-hidden" id="home">
       <BlossomParallax />
       <Hero heroImage={heroImage} title={title} />
       <Subtitle subtitle={subtitle} />

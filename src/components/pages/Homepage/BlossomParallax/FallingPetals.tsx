@@ -1,22 +1,27 @@
 "use client";
 
-import { PETAL_SRC } from "@/components/pages/Homepage/BlossomParallax/constants";
 import {
-  createCanvasPetal,
+  BLOSSOM_LEAN_MAX,
+  BLOSSOM_LEAN_REST,
+  BLOSSOM_SCROLL_RANGE,
+  PETAL_SRC,
+} from "@/components/pages/Homepage/BlossomParallax/constants";
+import {
+  createHangingPetal,
   drawCanvasPetal,
-  stepCanvasPetal,
-  type CanvasPetal,
+  stepHangingPetal,
+  type HangingPetal,
 } from "@/components/pages/Homepage/BlossomParallax/petals";
-import { TreeArt } from "@/components/pages/Homepage/BlossomParallax/TreeArt";
 import { useScroll } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-type CanvasWindProps = {
+type FallingPetalsProps = {
   reducedMotion: boolean;
   petalCap: number;
 };
 
-const CanvasWind = ({ reducedMotion, petalCap }: CanvasWindProps) => {
+/** Falling petals. Tree tilt lives in BlossomTrees; both follow page scroll. */
+const FallingPetals = ({ reducedMotion, petalCap }: FallingPetalsProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
 
@@ -27,7 +32,7 @@ const CanvasWind = ({ reducedMotion, petalCap }: CanvasWindProps) => {
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    const petals: CanvasPetal[] = [];
+    const petals: HangingPetal[] = [];
     const sprite = new Image();
     sprite.src = PETAL_SRC;
 
@@ -37,8 +42,14 @@ const CanvasWind = ({ reducedMotion, petalCap }: CanvasWindProps) => {
     let running = document.visibilityState === "visible";
     let lastT = performance.now();
     let lastY = scrollY.get();
+    let lastLean = BLOSSOM_LEAN_REST;
     let velocity = 0;
     let spawnAcc = 0;
+
+    const leanFromScroll = () => {
+      const t = Math.min(1, Math.max(0, scrollY.get() / BLOSSOM_SCROLL_RANGE));
+      return BLOSSOM_LEAN_REST + (BLOSSOM_LEAN_MAX - BLOSSOM_LEAN_REST) * t;
+    };
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -51,9 +62,11 @@ const CanvasWind = ({ reducedMotion, petalCap }: CanvasWindProps) => {
 
     const seed = () => {
       petals.length = 0;
-      const initial = Math.min(10, petalCap);
+      const initial = Math.min(12, petalCap);
       for (let i = 0; i < initial; i += 1) {
-        petals.push(createCanvasPetal(width, height, i > 3));
+        petals.push(
+          createHangingPetal(width, height, i % 2 === 0 ? "left" : "right")
+        );
       }
     };
 
@@ -65,22 +78,33 @@ const CanvasWind = ({ reducedMotion, petalCap }: CanvasWindProps) => {
       const instant = (y - lastY) / Math.max(dt, 8);
       lastY = y;
       velocity = velocity * 0.82 + instant * 0.18;
-      const wind = Math.max(-1.4, Math.min(1.4, velocity * 12));
-      const gravity = 0.9 + Math.min(1.4, y / 1800) + Math.abs(velocity) * 4;
+      const leanNow = leanFromScroll();
+      const leanVel = (leanNow - lastLean) / Math.max(dt, 8);
+      lastLean = leanNow;
+      const throwStrength =
+        0.42 + leanNow * 0.055 + Math.max(0, leanVel) * 22;
+      const gravity = 0.85 + Math.min(1.1, y / 2000) + Math.abs(velocity) * 2.4;
       const target = Math.min(
         petalCap,
-        Math.floor(8 + y / 90 + Math.abs(velocity) * 40)
+        Math.floor(10 + y / 110 + Math.abs(velocity) * 36)
       );
-      spawnAcc += (0.01 + Math.abs(velocity) * 0.05) * dt;
+      spawnAcc += (0.012 + Math.abs(velocity) * 0.055) * dt;
       while (petals.length < target && spawnAcc >= 1) {
-        petals.push(createCanvasPetal(width, height, true));
+        petals.push(
+          createHangingPetal(
+            width,
+            height,
+            petals.length % 2 === 0 ? "left" : "right",
+            throwStrength
+          )
+        );
         spawnAcc -= 1;
       }
       if (petals.length > target) petals.length = target;
 
       ctx.clearRect(0, 0, width, height);
       for (const petal of petals) {
-        stepCanvasPetal(petal, width, height, wind, gravity, 0);
+        stepHangingPetal(petal, width, height, gravity, throwStrength);
         drawCanvasPetal(ctx, petal, sprite);
       }
       raf = requestAnimationFrame(loop);
@@ -110,18 +134,15 @@ const CanvasWind = ({ reducedMotion, petalCap }: CanvasWindProps) => {
     };
   }, [petalCap, reducedMotion, scrollY]);
 
+  if (reducedMotion) return null;
+
   return (
-    <>
-      <TreeArt depth="mid" />
-      {!reducedMotion && (
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 h-full w-full"
-          aria-hidden
-        />
-      )}
-    </>
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 h-full w-full"
+      aria-hidden
+    />
   );
 };
 
-export default CanvasWind;
+export default FallingPetals;
