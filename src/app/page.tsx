@@ -1,3 +1,4 @@
+import BlossomParallax from "@/components/pages/Homepage/BlossomParallax";
 import ContactUs from "@/components/pages/Homepage/ContactUs";
 import FAQ from "@/components/pages/Homepage/FAQ";
 import Gallery from "@/components/pages/Homepage/Gallery";
@@ -23,6 +24,7 @@ const Homepage = async () => {
 
   return (
     <div className="w-full text-center overflow-x-hidden" id="home">
+      <BlossomParallax />
       <Hero heroImage={heroImage} title={title} />
       <Subtitle subtitle={subtitle} />
       <WhoWeAreFor />
