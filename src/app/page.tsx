@@ -1,3 +1,4 @@
+import BlossomParallax from "@/components/pages/Homepage/BlossomParallax";
 import ContactUs from "@/components/pages/Homepage/ContactUs";
 import FAQ from "@/components/pages/Homepage/FAQ";
 import FloralMoment from "@/components/pages/Homepage/FloralMoment";
@@ -18,7 +19,8 @@ const Homepage = async () => {
     await getLandingPage();
 
   return (
-    <div className="w-full text-center overflow-x-hidden" id="home">
+    <div className="relative w-full text-center overflow-x-hidden" id="home">
+      <BlossomParallax />
       <Hero heroImage={heroImage} title={title} />
       <Subtitle subtitle={subtitle} />
       <WhoWeAreFor />
