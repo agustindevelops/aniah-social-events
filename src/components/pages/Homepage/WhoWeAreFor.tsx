@@ -18,10 +18,10 @@ const PEOPLE: {
     title: "You have something to celebrate, but where do you start?",
     body: "You have the occasion in mind, but turning all those ideas into a plan feels overwhelming. We'll guide you through the decisions, details, and logistics so you can enjoy the journey as much as the celebration.",
     image: {
-      src: "/images/homepage/wedding-planning.webp",
-      alt: "A bride and groom walking down stone stairs after their ceremony, with their wedding party close behind",
-      width: 1080,
-      height: 1350,
+      src: "/images/event-planning.png",
+      alt: "A candlelit celebration table with florals, gold flatware, and glowing tapers — the kind of night you start planning toward",
+      width: 1792,
+      height: 1024,
     },
   },
   {
@@ -40,10 +40,10 @@ const PEOPLE: {
     title: "You've planned everything. Now you deserve to enjoy it.",
     body: "You've put so much thought into every detail. Let us take care of the timeline, vendors, and moving pieces so you can be fully present for the moments that matter.",
     image: {
-      src: "/images/homepage/coordinator.webp",
-      alt: "A coordinator sitting in a venue pew, writing the ceremony timeline on a clipboard",
-      width: 1200,
-      height: 1500,
+      src: "/images/homepage/wedding-planning.webp",
+      alt: "A bride and groom walking into their celebration, present in the moment while the day unfolds around them",
+      width: 1080,
+      height: 1350,
     },
   },
 ];
