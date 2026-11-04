@@ -26,13 +26,14 @@ const ImageCarousel = ({ images }: Props) => {
         ref={ref}
       >
         <div className="flex  whitespace-nowrap">
-          {images.map((image) => (
+          {images.map((image, index) => (
             <ImageCard
               key={image.id}
               imageUrl={image.imageUrl}
               alt={image.alt}
               id={image.id}
               mediaType={image.mediaType}
+              priority={index === 0}
             />
           ))}
         </div>

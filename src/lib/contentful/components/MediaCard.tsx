@@ -1,4 +1,5 @@
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
+import { contentfulImageUrl } from "@/lib/contentful/image";
 
 const MediaCard = (props: MediaCardProps) => {
   const {
@@ -8,14 +9,13 @@ const MediaCard = (props: MediaCardProps) => {
     file: { contentType },
   } = props.fields;
 
-  const imageUrl = `https:${file?.url}`;
+  const sourceUrl = `https:${file?.url}`;
 
   if (contentType?.includes("video")) {
-
     return (
       <div key={title} className="relative mb-8 h-[540px] w-full">
         <video
-          src={imageUrl}
+          src={sourceUrl}
           autoPlay
           loop
           muted
@@ -28,15 +28,14 @@ const MediaCard = (props: MediaCardProps) => {
 
   return (
     <div key={title} className="relative mb-8 h-[540px] w-full">
-      <Image
-        src={imageUrl}
+      <OptimizedImage
+        host="contentful"
+        src={contentfulImageUrl(sourceUrl, { width: 1200 })}
         alt={description || title}
         title={title}
         fill
-        sizes="(max-width: 768px) 540px, (max-width: 1200px) 720px, 1080px"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="rounded-lg object-cover"
-        loading="lazy"
-        quality={85}
       />
     </div>
   );

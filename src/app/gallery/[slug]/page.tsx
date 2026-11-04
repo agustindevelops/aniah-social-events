@@ -1,3 +1,4 @@
+import OptimizedImage from "@/components/OptimizedImage";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,11 +10,11 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { getProjectBySlug } from "@/lib/contentful/api";
 import MediaCard from "@/lib/contentful/components/MediaCard";
+import { contentfulImageUrl } from "@/lib/contentful/image";
 import createMetadata from "@/utils/seo/metaData";
 import { format } from "date-fns";
 import { HomeIcon } from "lucide-react";
 import { Metadata } from "next";
-import Image from "next/image";
 import SEO from "../../../components/seo";
 
 type Props = {
@@ -44,6 +45,7 @@ const GalleryPage = async ({ params }: Props) => {
     project;
 
   const imageUrl = `https:${thumbnail?.fields?.file?.url}`;
+  const heroSrc = contentfulImageUrl(imageUrl, { width: 1920 });
 
   return (
     <div className="my-24 flex flex-col items-center justify-center">
@@ -56,13 +58,14 @@ const GalleryPage = async ({ params }: Props) => {
       <div className="container m-2">
         <Card className="mx-auto mb-4 overflow-hidden">
           <div className="relative h-[540px] w-full">
-            <Image
-              src={imageUrl}
+            <OptimizedImage
+              host="contentful"
+              src={heroSrc}
               alt={thumbnail?.fields?.description || title}
               fill
               priority
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              sizes="100vw"
             />
           </div>
           <CardContent className="p-6">

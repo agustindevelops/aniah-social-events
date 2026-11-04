@@ -1,7 +1,8 @@
+import OptimizedImage from "@/components/OptimizedImage";
 import { Card } from "@/components/ui/card";
 import { getProjects } from "@/lib/contentful/api";
+import { contentfulImageUrl } from "@/lib/contentful/image";
 import { format } from "date-fns";
-import Image from "next/image";
 import Link from "next/link";
 
 const Page = async () => {
@@ -12,19 +13,27 @@ const Page = async () => {
       <h1 className="my-12 font-moonjelly text-7xl">Gallery</h1>
       <div className="container mx-auto grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {projects.map(
-          ({
-            slug,
-            title,
-            date,
-            thumbnail: {
-              fields: {
-                file,
-                title: thumbnailTitle,
-                description: thumbnailDescription,
+          (
+            {
+              slug,
+              title,
+              date,
+              thumbnail: {
+                fields: {
+                  file,
+                  title: thumbnailTitle,
+                  description: thumbnailDescription,
+                },
               },
             },
-          }) => {
-            const imageUrl = `https:${file?.url}`;
+            index
+          ) => {
+            const imageUrl = contentfulImageUrl(`https:${file?.url}`, {
+              width: 640,
+              height: 840,
+              fit: "fill",
+              focus: "faces",
+            });
 
             return (
               <div
@@ -38,12 +47,14 @@ const Page = async () => {
                 >
                   <Card className="group relative h-[420px] w-full max-w-[320px] overflow-hidden">
                     <div className="relative h-full w-full">
-                      <Image
+                      <OptimizedImage
+                        host="contentful"
                         src={imageUrl}
                         alt={thumbnailDescription}
                         title={thumbnailTitle}
                         fill
-                        sizes="(max-width: 768px) 560px, (max-width: 1200px) 560px, 560px"
+                        priority={index === 0}
+                        sizes="320px"
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
