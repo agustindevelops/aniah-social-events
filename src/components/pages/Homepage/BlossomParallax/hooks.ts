@@ -84,19 +84,21 @@ export const useBlossomWave = ({
       1,
       Math.max(0, scrollY.get() / BLOSSOM_SCROLL_RANGE)
     );
-    const leanTarget =
+    const leanTarget = Math.min(
+      BLOSSOM_LEAN_MAX,
       BLOSSOM_LEAN_REST +
-      (BLOSSOM_LEAN_MAX - BLOSSOM_LEAN_REST) * scrollT +
-      BLOSSOM_IDLE_WIND *
-        Math.sin((time / 1000) * shakeSpeed * 0.38 * Math.PI * 2);
+        (BLOSSOM_LEAN_MAX - BLOSSOM_LEAN_REST) * scrollT +
+        BLOSSOM_IDLE_WIND *
+          Math.sin((time / 1000) * shakeSpeed * 0.38 * Math.PI * 2)
+    );
     target.set(leanTarget);
 
     const omega = shakeSpeed * Math.PI * 2;
     const x = rotation.get();
     const v = velocity.get();
     const accel = -omega * omega * (x - leanTarget) - 2 * damping * omega * v;
-    const nextV = Math.max(-220, Math.min(220, v + accel * dt));
-    const nextX = Math.max(-24, Math.min(58, x + nextV * dt));
+    const nextV = Math.max(-360, Math.min(360, v + accel * dt));
+    const nextX = Math.max(-8, Math.min(BLOSSOM_LEAN_MAX, x + nextV * dt));
     velocity.set(nextV);
     rotation.set(nextX);
   });

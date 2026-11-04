@@ -1,6 +1,7 @@
 "use client";
 
 import OptimizedImage from "@/components/OptimizedImage";
+import BlossomParallax from "@/components/pages/Homepage/BlossomParallax";
 import Offerings from "@/components/pages/Homepage/Offerings";
 import type { TypePageLandingFields } from "@/lib/contentful/types";
 
@@ -17,6 +18,7 @@ const Hero = ({
         }}
       >
         <div className="absolute inset-0 bg-black/40" />
+        <BlossomParallax />
         <div className="relative z-10 flex flex-col items-center px-4 pb-40 text-center sm:pb-36">
           <OptimizedImage
             host="vercel"
