@@ -1,11 +1,15 @@
-import OptimizedImage from "@/components/OptimizedImage";
+import OptimizedImage, { type ImageHost } from "@/components/OptimizedImage";
 
 type MomentImage = {
   src: string;
   alt: string;
   width: number;
   height: number;
+  host?: ImageHost;
 };
+
+const contentfulPhoto = (path: string) =>
+  `https://images.ctfassets.net/9fe6qu05vk1m/${path}?w=960&h=1200&fit=fill&f=center&q=75`;
 
 const PEOPLE: {
   label: string;
@@ -18,10 +22,13 @@ const PEOPLE: {
     title: "You have something to celebrate, but where do you start?",
     body: "You have the occasion in mind, but turning all those ideas into a plan feels overwhelming. We'll guide you through the decisions, details, and logistics so you can enjoy the journey as much as the celebration.",
     image: {
-      src: "/images/event-planning.png",
-      alt: "A candlelit celebration table with florals, gold flatware, and glowing tapers — the kind of night you start planning toward",
-      width: 1792,
-      height: 1024,
+      src: contentfulPhoto(
+        "4qDg6b2K6fvpZq7uRy9EKz/f6ef56c91e2193f5baeb776521057a7e/RuizWedding-081.jpg"
+      ),
+      alt: "Wedding Planner pinning boutonniere on Grandfather of Bride",
+      width: 960,
+      height: 1200,
+      host: "contentful",
     },
   },
   {
@@ -29,10 +36,13 @@ const PEOPLE: {
     title: "You have a vision. Let's bring it to life.",
     body: "You know how you want your celebration to feel, but aren't sure how to create it. We'll turn your inspiration into a thoughtfully styled experience that feels uniquely yours.",
     image: {
-      src: "/images/homepage/tablescape.webp",
-      alt: "A blush tablescape with white plates, gold flatware, taper candles, and a centerpiece of cream and peach roses",
-      width: 1200,
-      height: 1500,
+      src: contentfulPhoto(
+        "1Ubr24PF6ZhBzoHcOJn2Hz/8228d7ec42b967c5c1211787ab187e35/AI6A5370.jpg"
+      ),
+      alt: "Tablescape Styled by ASE",
+      width: 960,
+      height: 1200,
+      host: "contentful",
     },
   },
   {
@@ -40,10 +50,13 @@ const PEOPLE: {
     title: "You've planned everything. Now you deserve to enjoy it.",
     body: "You've put so much thought into every detail. Let us take care of the timeline, vendors, and moving pieces so you can be fully present for the moments that matter.",
     image: {
-      src: "/images/homepage/wedding-planning.webp",
-      alt: "A bride and groom walking into their celebration, present in the moment while the day unfolds around them",
-      width: 1080,
-      height: 1350,
+      src: contentfulPhoto(
+        "2V2hIbQB5EPUKbkpt6d7IW/388d2f5905c351e87a926470b1f30b9f/IMG_0357__2_.jpg"
+      ),
+      alt: "Bride & Groom Sunset First Dance",
+      width: 960,
+      height: 1200,
+      host: "contentful",
     },
   },
 ];
@@ -54,7 +67,7 @@ const Picture = ({ label, image }: { label: string; image: MomentImage }) => {
       <div className="rounded-3xl border border-brown-200 bg-[#f9f1ec] p-3 sm:p-4">
         <div className="overflow-hidden rounded-2xl">
           <OptimizedImage
-            host="vercel"
+            host={image.host ?? "vercel"}
             src={image.src}
             alt={image.alt}
             width={image.width}
